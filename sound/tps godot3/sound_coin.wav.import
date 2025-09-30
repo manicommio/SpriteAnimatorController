@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dspfqbcbsj1to"
+path="res://.godot/imported/sound_coin.wav-f6e48c9fc6830159e6458f37dfeae111.sample"
+
+[deps]
+
+source_file="res://sound/tps godot3/sound_coin.wav"
+dest_files=["res://.godot/imported/sound_coin.wav-f6e48c9fc6830159e6458f37dfeae111.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

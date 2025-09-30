@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddpeioyxhj3i1"]
+
+[ext_resource type="Script" uid="uid://crd4abh2l3vaj" path="res://scenes/EXAMPLES 2D/helicopter/helicopter.gd" id="1_je43i"]
+[ext_resource type="Texture2D" uid="uid://wfp4wr5sy6ix" path="res://sprites/EXAMPLE 2D/platform/helicopter1.png" id="1_m1tgg"]
+[ext_resource type="Texture2D" uid="uid://cia7g25jc2vxg" path="res://sprites/EXAMPLE 2D/platform/helicopter2.png" id="2_je43i"]
+[ext_resource type="Texture2D" uid="uid://c37utwshakhf3" path="res://sprites/EXAMPLE 2D/platform/helicopter.png" id="3_fnfxr"]
+
+[node name="helicopter" type="Node2D"]
+script = ExtResource("1_je43i")
+
+[node name="Helicopter1" type="Sprite2D" parent="."]
+position = Vector2(201.346, 182.615)
+scale = Vector2(2.16346, 2.16346)
+texture = ExtResource("1_m1tgg")
+
+[node name="Helicopter2" type="Sprite2D" parent="."]
+position = Vector2(199.615, 182.615)
+scale = Vector2(2.16346, 2.16346)
+texture = ExtResource("2_je43i")
+
+[node name="Helicopter" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(202.5, 185.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_fnfxr")

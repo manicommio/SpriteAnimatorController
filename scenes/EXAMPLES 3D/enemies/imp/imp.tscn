@@ -1,0 +1,132 @@
+[gd_scene load_steps=16 format=3 uid="uid://ic73sy4x1jom"]
+
+[ext_resource type="Script" uid="uid://cu4s87uxp2v5y" path="res://scenes/EXAMPLES 3D/enemies/imp/imp.gd" id="1_jqvgf"]
+[ext_resource type="Texture2D" uid="uid://c2df7i6h3t8k7" path="res://sprites/EXAMPLE 3D/Imp/idle.png" id="2_bw7qg"]
+[ext_resource type="Script" uid="uid://cimtvh6nf04tk" path="res://addons/sprite_animation_controller/animator_direction.gd" id="2_cx8o7"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="3_duaqo"]
+[ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="4_bw7qg"]
+[ext_resource type="Script" uid="uid://chir4pkdm3h0t" path="res://addons/sprite_animation_controller/state_machine.gd" id="5_duaqo"]
+[ext_resource type="Script" uid="uid://ci80yrn3iiu5j" path="res://scenes/EXAMPLES 3D/enemies/imp/state_idle.gd" id="6_duaqo"]
+[ext_resource type="Texture2D" uid="uid://dklwwkndv6qgt" path="res://sprites/EXAMPLE 3D/Imp/walk.png" id="6_ggee2"]
+[ext_resource type="Texture2D" uid="uid://bod82xros13ed" path="res://sprites/EXAMPLE 3D/Imp/pain.png" id="7_8hh4k"]
+[ext_resource type="Texture2D" uid="uid://77f706sg48qe" path="res://sprites/EXAMPLE 3D/Imp/attack1.png" id="7_dkan2"]
+[ext_resource type="Texture2D" uid="uid://cg3adrvr46dm8" path="res://sprites/EXAMPLE 3D/Imp/death1.png" id="8_plo15"]
+[ext_resource type="Script" uid="uid://bq3fpousj322s" path="res://scenes/EXAMPLES 3D/enemies/imp/state_hunt.gd" id="9_gf7q2"]
+[ext_resource type="Script" uid="uid://1i3402nj17af" path="res://scenes/EXAMPLES 3D/enemies/imp/state_pain.gd" id="13_1ivyq"]
+[ext_resource type="Script" uid="uid://c7vwrjynj54wy" path="res://scenes/EXAMPLES 3D/enemies/imp/state_death.gd" id="14_qeoed"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ggee2"]
+
+[node name="imp" type="CharacterBody3D"]
+script = ExtResource("1_jqvgf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ggee2")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+cast_shadow = 0
+offset = Vector2(0, 44)
+pixel_size = 0.025
+billboard = 2
+texture_filter = 0
+vframes = 5
+
+[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_3d")]
+script = ExtResource("2_cx8o7")
+tipo_apartado = 1
+actor_player_3d = NodePath("..")
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[node name="AnimatorController" type="Node" parent="."]
+script = ExtResource("3_duaqo")
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"
+
+[node name="idle" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_3d")]
+script = ExtResource("4_bw7qg")
+spritesheet = ExtResource("2_bw7qg")
+tiles_y = 5
+frame_per_second = 2.0
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_full_directions = false
+billboard_Y = true
+sprite_3d = NodePath("../../Sprite3D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="walk" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_3d")]
+script = ExtResource("4_bw7qg")
+spritesheet = ExtResource("6_ggee2")
+tiles_x = 4
+tiles_y = 5
+frame_per_second = 7.0
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_full_directions = false
+billboard_Y = true
+sprite_3d = NodePath("../../Sprite3D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="attack" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_3d")]
+script = ExtResource("4_bw7qg")
+spritesheet = ExtResource("7_dkan2")
+tiles_x = 3
+tiles_y = 5
+frame_per_second = 6.0
+once = true
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_full_directions = false
+billboard_Y = true
+sprite_3d = NodePath("../../Sprite3D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="pain" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_3d")]
+script = ExtResource("4_bw7qg")
+spritesheet = ExtResource("7_8hh4k")
+tiles_y = 5
+frame_per_second = 4.0
+once = true
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_full_directions = false
+billboard_Y = true
+sprite_3d = NodePath("../../Sprite3D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="death" type="Node" parent="AnimatorController" node_paths=PackedStringArray("sprite_3d")]
+script = ExtResource("4_bw7qg")
+spritesheet = ExtResource("8_plo15")
+tiles_x = 5
+frame_per_second = 8.0
+once = true
+billboard_Y = true
+sprite_3d = NodePath("../../Sprite3D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_duaqo")
+metadata/_custom_type_script = "uid://chir4pkdm3h0t"
+
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("6_duaqo")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://mtu81y7swjve"
+
+[node name="hunt" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("9_gf7q2")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://mtu81y7swjve"
+
+[node name="pain" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("13_1ivyq")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://mtu81y7swjve"
+
+[node name="death" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("14_qeoed")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://mtu81y7swjve"
+
+[node name="RayCast_ground" type="RayCast3D" parent="."]
+target_position = Vector3(0, -100, 0)

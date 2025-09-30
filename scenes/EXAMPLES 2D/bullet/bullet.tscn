@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://db1y6mjamcd50"]
+
+[ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="1_83itf"]
+[ext_resource type="Script" uid="uid://0qf8tyven658" path="res://scenes/EXAMPLES 2D/bullet/bullet.gd" id="1_c6pnf"]
+[ext_resource type="Texture2D" uid="uid://dibnnapadtso" path="res://textures/spark1.png" id="2_c6pnf"]
+
+[sub_resource type="Gradient" id="Gradient_0vdx3"]
+offsets = PackedFloat32Array(0.455696, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="bullet" type="Node2D"]
+script = ExtResource("1_c6pnf")
+
+[node name="proyector" type="Node2D" parent="."]
+script = ExtResource("1_83itf")
+
+[node name="shadow" type="Node2D" parent="proyector"]
+
+[node name="lift" type="Node2D" parent="proyector"]
+
+[node name="Sprite2D" type="Sprite2D" parent="proyector/lift"]
+texture_filter = 1
+texture = ExtResource("2_c6pnf")
+offset = Vector2(-0.5, -1)
+
+[node name="explosion" type="CPUParticles2D" parent="proyector/lift"]
+emitting = false
+amount = 5
+texture = ExtResource("2_c6pnf")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 128.0
+initial_velocity_max = 128.0
+scale_amount_min = 0.5
+scale_amount_max = 0.75
+color_ramp = SubResource("Gradient_0vdx3")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl2hu4ltyo0k8"]
+
+[ext_resource type="Texture2D" uid="uid://biyoj634ihdr2" path="res://textures/terrain/lunar_core.jpg" id="1_dit0f"]
+[ext_resource type="PackedScene" uid="uid://bbhka2xmmxhpg" path="res://scenes/EXAMPLES 2D/camera/camera_follow.tscn" id="2_sbbwi"]
+[ext_resource type="PackedScene" uid="uid://1upbemgmjgv3" path="res://scenes/EXAMPLES 2D/players/godot manual direction/godot.tscn" id="2_v3i43"]
+
+[node name="demo_manual_direction" type="Node2D" groups=["world"]]
+
+[node name="map_or_tilemap" type="Node2D" parent="."]
+
+[node name="LunarCore" type="Sprite2D" parent="map_or_tilemap"]
+scale = Vector2(5, 2.5)
+texture = ExtResource("1_dit0f")
+
+[node name="camera_follow" parent="." instance=ExtResource("2_sbbwi")]
+
+[node name="Ysort" type="Node2D" parent="." groups=["Ysort"]]
+
+[node name="godot" parent="Ysort" instance=ExtResource("2_v3i43")]

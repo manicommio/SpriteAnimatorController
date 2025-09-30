@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4e56pf261dip"]
+
+[ext_resource type="Script" uid="uid://vixgo1e1jtve" path="res://scenes/EXAMPLES 2D/lunar core prop/reactor/prop_base.gd" id="1_0qdbv"]
+[ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="2_eyhe5"]
+[ext_resource type="Texture2D" uid="uid://q1kvh62174kq" path="res://sprites/EXAMPLE 2D/other/floodlight/floodlight_guide.png" id="3_0qdbv"]
+[ext_resource type="Texture2D" uid="uid://dwarkljs88hwn" path="res://textures/shadow.png" id="3_eyhe5"]
+[ext_resource type="Script" uid="uid://cimtvh6nf04tk" path="res://addons/sprite_animation_controller/animator_direction.gd" id="4_i76ot"]
+[ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="5_k4n0p"]
+[ext_resource type="Texture2D" uid="uid://di5a31sdahrkh" path="res://sprites/EXAMPLE 2D/other/floodlight/floodlight.WEBP" id="7_eyhe5"]
+
+[node name="floodlight" type="Node2D"]
+script = ExtResource("1_0qdbv")
+
+[node name="proyector" type="Node2D" parent="."]
+script = ExtResource("2_eyhe5")
+
+[node name="shadow" type="Node2D" parent="proyector"]
+
+[node name="shadow" type="Sprite2D" parent="proyector/shadow"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(5, 2.5)
+texture = ExtResource("3_eyhe5")
+
+[node name="lift" type="Node2D" parent="proyector"]
+
+[node name="Sprite2D" type="Sprite2D" parent="proyector/lift"]
+texture_filter = 1
+texture = ExtResource("3_0qdbv")
+offset = Vector2(0, -48)
+
+[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_2d")]
+script = ExtResource("4_i76ot")
+directions_number = 13
+actor_target_group = "camera_rotation"
+actor_player_2d = NodePath("..")
+type_calculation = "ROTATE NODE"
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[node name="animatorClip" type="Node" parent="." node_paths=PackedStringArray("animator_direction", "sprite_2d")]
+script = ExtResource("5_k4n0p")
+auto_start = true
+spritesheet = ExtResource("7_eyhe5")
+tiles_x = 16
+tiles_y = 9
+animator_direction = NodePath("../AnimatorDirection")
+one_frame_per_direction = true
+sprite_2d = NodePath("../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"

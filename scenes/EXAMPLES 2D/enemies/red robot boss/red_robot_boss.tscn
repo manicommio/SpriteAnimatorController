@@ -1,0 +1,514 @@
+[gd_scene load_steps=64 format=3 uid="uid://bwv6bpj84iq5u"]
+
+[ext_resource type="Script" uid="uid://baisb4ty3moa8" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/red_robot_boss.gd" id="1_x78bw"]
+[ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="2_kncr1"]
+[ext_resource type="Texture2D" uid="uid://dwarkljs88hwn" path="res://textures/shadow.png" id="3_er4nl"]
+[ext_resource type="Script" uid="uid://bgpp7gcnbnfwu" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/sprite_2d.gd" id="4_eqv4w"]
+[ext_resource type="Texture2D" uid="uid://dcdt7pbe81aa2" path="res://textures/onda.png" id="4_exw5r"]
+[ext_resource type="Texture2D" uid="uid://w1rrihp80j0a" path="res://sprites/EXAMPLE 2D/red robot boss/idle.WEBP" id="4_kncr1"]
+[ext_resource type="Texture2D" uid="uid://bl7x28daj4nwr" path="res://textures/humo1.png" id="5_6bab5"]
+[ext_resource type="Texture2D" uid="uid://ckm3bfwa720ei" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_idle.WEBP" id="5_kxi4g"]
+[ext_resource type="Script" uid="uid://cimtvh6nf04tk" path="res://addons/sprite_animation_controller/animator_direction.gd" id="6_devps"]
+[ext_resource type="Texture2D" uid="uid://b166iqplyt6uj" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_idle.WEBP" id="6_vs6ve"]
+[ext_resource type="Texture2D" uid="uid://f3f6a4v1ckyd" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_walk.WEBP" id="7_bvg8v"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="7_gs2xm"]
+[ext_resource type="Texture2D" uid="uid://bvh66u4sswrtc" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_walk.WEBP" id="8_3l2c7"]
+[ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="8_piod3"]
+[ext_resource type="Texture2D" uid="uid://2p6i4cxmc3wa" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_pain.WEBP" id="9_miyf4"]
+[ext_resource type="Texture2D" uid="uid://00ovmlnfhf0p" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_pain.WEBP" id="10_r17eg"]
+[ext_resource type="Texture2D" uid="uid://dddaorphx4sa6" path="res://sprites/EXAMPLE 2D/red robot boss/walk.WEBP" id="10_x78bw"]
+[ext_resource type="Texture2D" uid="uid://bxxqdihs17hgl" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_heavy_damage.WEBP" id="11_gscb3"]
+[ext_resource type="Texture2D" uid="uid://bsaa7xjawcicq" path="res://sprites/EXAMPLE 2D/red robot boss/pain.WEBP" id="11_x78bw"]
+[ext_resource type="Texture2D" uid="uid://cwys8uqytbrcy" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_heavy_damage.WEBP" id="12_dotbe"]
+[ext_resource type="Texture2D" uid="uid://b5rusvf3sdfwm" path="res://sprites/EXAMPLE 2D/red robot boss/heavy_damage.WEBP" id="12_kncr1"]
+[ext_resource type="Texture2D" uid="uid://cumgg7khapv4y" path="res://sprites/EXAMPLE 2D/red bot/explosion_old_red_robot.WEBP" id="12_knea3"]
+[ext_resource type="Texture2D" uid="uid://c38aqkbruewcs" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_fire.WEBP" id="13_126ik"]
+[ext_resource type="Texture2D" uid="uid://bqm3j1xtmoimb" path="res://sprites/EXAMPLE 2D/red robot boss/fire.WEBP" id="13_er4nl"]
+[ext_resource type="Script" uid="uid://chir4pkdm3h0t" path="res://addons/sprite_animation_controller/state_machine.gd" id="13_lr23s"]
+[ext_resource type="Texture2D" uid="uid://c2xh7b7dcjtxj" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_fire.WEBP" id="14_0keub"]
+[ext_resource type="Texture2D" uid="uid://r0t046eysn1h" path="res://sprites/EXAMPLE 2D/red robot boss/looking_left.WEBP" id="14_exw5r"]
+[ext_resource type="Texture2D" uid="uid://bl5w8udtw84ld" path="res://sprites/EXAMPLE 2D/red robot boss/looking_right.WEBP" id="15_6bab5"]
+[ext_resource type="Texture2D" uid="uid://bojf7n4gxpic3" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_looking_left.WEBP" id="15_nonvh"]
+[ext_resource type="Texture2D" uid="uid://bumsqtxsuypsv" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_looking_left.WEBP" id="16_bx5ah"]
+[ext_resource type="Texture2D" uid="uid://c7y0bfk1bqwck" path="res://sprites/EXAMPLE 2D/red robot boss/turn_left.WEBP" id="16_gs2xm"]
+[ext_resource type="Script" uid="uid://bfttwkgr60drl" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/state_pain.gd" id="17_er4nl"]
+[ext_resource type="Script" uid="uid://bkkg4h6baujvc" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/state_death.gd" id="17_exw5r"]
+[ext_resource type="Texture2D" uid="uid://cb171v8qa6s2j" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_looking_right.WEBP" id="17_imdhr"]
+[ext_resource type="Script" uid="uid://6lw00gd5cm5n" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/state_hunt.gd" id="17_kncr1"]
+[ext_resource type="Texture2D" uid="uid://dxaud8urf42xp" path="res://sprites/EXAMPLE 2D/red robot boss/turn_right.WEBP" id="17_piod3"]
+[ext_resource type="Script" uid="uid://crqy262mn27sc" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/state_idle.gd" id="17_x78bw"]
+[ext_resource type="AudioStream" uid="uid://d18ujyuj44x2j" path="res://sound/tps godot4/enemies_red_robot_audio_explosion.wav" id="18_0qp80"]
+[ext_resource type="Texture2D" uid="uid://bry2su6gv1blo" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_looking_right.WEBP" id="18_au6lv"]
+[ext_resource type="Texture2D" uid="uid://b67sj2umffxfu" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_turn_left.WEBP" id="19_lw423"]
+[ext_resource type="AudioStream" uid="uid://c7t6glk1ib2se" path="res://sound/tps godot4/enemies_red_robot_audio_walk.wav" id="20_5c2wg"]
+[ext_resource type="Texture2D" uid="uid://o12pb17fwsut" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_turn_left.WEBP" id="20_p6j6n"]
+[ext_resource type="Script" uid="uid://bbnr25f48vtjc" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/state_looking.gd" id="21_piod3"]
+[ext_resource type="Texture2D" uid="uid://cgntcvi7t8jil" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_turn_right.WEBP" id="21_ujho0"]
+[ext_resource type="Texture2D" uid="uid://c037vwp3fs3ho" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_turn_right.WEBP" id="22_jrur1"]
+[ext_resource type="Texture2D" uid="uid://bfi6v2dbgubgd" path="res://sprites/EXAMPLE 2D/explosions/explosion.png" id="25_r17eg"]
+[ext_resource type="AudioStream" uid="uid://da0pq7dtgfhug" path="res://sound/tps godot4/enemies_red_robot_audio_walk_ini.wav" id="28_k1jjs"]
+[ext_resource type="Script" uid="uid://drxj35dqbpnjt" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/state_heavy_damage.gd" id="43_miyf4"]
+[ext_resource type="AudioStream" uid="uid://b1ysv8t16pmwd" path="res://sound/tps godot4/player_bullet_bullet_explode.wav" id="47_r17eg"]
+[ext_resource type="Script" uid="uid://bgpkryue6sijb" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/shield area.gd" id="48_vs6ve"]
+[ext_resource type="AudioStream" uid="uid://bkx8jjs4u6jqy" path="res://sound/tps godot3/robot_walk_step_ini.wav" id="49_bvg8v"]
+[ext_resource type="AudioStream" uid="uid://c2x2jsopcjsvc" path="res://sound/tps godot4/enemies_red_robot_audio_hit.wav" id="51_miyf4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vy4c7"]
+radius = 60.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gscb3"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_ylnq7"]
+_data = [Vector2(0.00520833, 0.51751), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7l83m"]
+offsets = PackedFloat32Array(0.481013, 0.924051)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_7l83m"]
+_data = [Vector2(0, 0.315175), 0.0, 0.0, 0, 0, Vector2(0.984375, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dljnv"]
+offsets = PackedFloat32Array(0.35443, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.760999, 0.760999, 0.760999, 0)
+
+[sub_resource type="Curve" id="Curve_r17eg"]
+_data = [Vector2(0, 0.470817), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_r17eg"]
+offsets = PackedFloat32Array(0, 0.216374, 0.614035, 0.982456)
+colors = PackedColorArray(0.516, 0.516, 0.516, 0.9, 0, 0, 0, 0.95, 0, 0, 0, 0.9, 0.138034, 0.138034, 0.138034, 0)
+
+[sub_resource type="Curve" id="Curve_gscb3"]
+_data = [Vector2(0, 0.455253), 0.0, 0.0, 0, 0, Vector2(0.984375, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dotbe"]
+offsets = PackedFloat32Array(0.35443, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.683077, 0.683077, 0.683077, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxi4g"]
+size = Vector2(40, 30)
+
+[node name="red_robot_boss" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_x78bw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vy4c7")
+
+[node name="proyector" type="Node2D" parent="." node_paths=PackedStringArray("shadow_sprite")]
+script = ExtResource("2_kncr1")
+shadow_sprite = NodePath("shadow/shadow")
+adjust_top_height = 64.0
+
+[node name="shadow" type="Node2D" parent="proyector"]
+
+[node name="shadow" type="Sprite2D" parent="proyector/shadow"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+scale = Vector2(12, 6)
+texture = ExtResource("3_er4nl")
+
+[node name="lift" type="Node2D" parent="proyector"]
+
+[node name="explode_back" type="CPUParticles2D" parent="proyector/lift"]
+material = SubResource("CanvasItemMaterial_gscb3")
+position = Vector2(0, -72)
+rotation = 1.5708
+emitting = false
+amount = 20
+texture = ExtResource("25_r17eg")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.5
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(32, 64)
+direction = Vector2(0, 0)
+spread = 15.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.3
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="proyector/lift" node_paths=PackedStringArray("animator", "sprite_shield_L", "sprite_shield_R")]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_kncr1")
+offset = Vector2(0, -27)
+hframes = 8
+vframes = 16
+frame = 35
+script = ExtResource("4_eqv4w")
+animator = NodePath("../../../AnimatorController")
+sprite_shield_L = NodePath("../shield_L")
+sprite_shield_R = NodePath("../shield_R")
+idle = Array[Texture]([ExtResource("5_kxi4g"), ExtResource("6_vs6ve")])
+walk = Array[Texture]([ExtResource("7_bvg8v"), ExtResource("8_3l2c7")])
+pain = Array[Texture]([ExtResource("9_miyf4"), ExtResource("10_r17eg")])
+heavy_damage = Array[Texture]([ExtResource("11_gscb3"), ExtResource("12_dotbe")])
+fire = Array[Texture]([ExtResource("13_126ik"), ExtResource("14_0keub")])
+looking_left = Array[Texture]([ExtResource("15_nonvh"), ExtResource("16_bx5ah")])
+looking_right = Array[Texture]([ExtResource("17_imdhr"), ExtResource("18_au6lv")])
+turn_left = Array[Texture]([ExtResource("19_lw423"), ExtResource("20_p6j6n")])
+turn_right = Array[Texture]([ExtResource("21_ujho0"), ExtResource("22_jrur1")])
+
+[node name="shield_L" type="Sprite2D" parent="proyector/lift"]
+position = Vector2(0, -1)
+scale = Vector2(1.5, 1.5)
+offset = Vector2(0, -27)
+hframes = 8
+vframes = 16
+
+[node name="shield_R" type="Sprite2D" parent="proyector/lift"]
+position = Vector2(0, -1)
+scale = Vector2(1.5, 1.5)
+offset = Vector2(0, -27)
+hframes = 8
+vframes = 16
+
+[node name="onda" type="CPUParticles2D" parent="proyector/lift"]
+texture_filter = 1
+position = Vector2(0, -16)
+scale = Vector2(4, 2)
+emitting = false
+amount = 1
+texture = ExtResource("4_exw5r")
+lifetime = 0.35
+one_shot = true
+local_coords = true
+gravity = Vector2(0, 0)
+scale_amount_min = 1.2
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_ylnq7")
+color_ramp = SubResource("Gradient_7l83m")
+
+[node name="smoke_up" type="CPUParticles2D" parent="proyector/lift"]
+position = Vector2(0, -80)
+emitting = false
+amount = 5
+texture = ExtResource("5_6bab5")
+lifetime = 1.5
+local_coords = true
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 64.0
+initial_velocity_max = 64.0
+scale_amount_min = 1.4
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_7l83m")
+color_ramp = SubResource("Gradient_dljnv")
+
+[node name="smoke_L" type="CPUParticles2D" parent="proyector/lift"]
+position = Vector2(20, -25)
+emitting = false
+amount = 5
+texture = ExtResource("5_6bab5")
+lifetime = 1.5
+local_coords = true
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 64.0
+initial_velocity_max = 64.0
+scale_amount_min = 1.4
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_7l83m")
+color_ramp = SubResource("Gradient_dljnv")
+
+[node name="smoke_R" type="CPUParticles2D" parent="proyector/lift"]
+position = Vector2(-20, -25)
+emitting = false
+amount = 5
+texture = ExtResource("5_6bab5")
+lifetime = 1.5
+local_coords = true
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 64.0
+initial_velocity_max = 64.0
+scale_amount_min = 1.4
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_7l83m")
+color_ramp = SubResource("Gradient_dljnv")
+
+[node name="explode_smoke" type="CPUParticles2D" parent="proyector/lift"]
+position = Vector2(0, -64)
+emitting = false
+amount = 20
+texture = ExtResource("5_6bab5")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.7
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 64.0
+direction = Vector2(0, 0)
+spread = 15.0
+gravity = Vector2(0, 0)
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_r17eg")
+color_ramp = SubResource("Gradient_r17eg")
+
+[node name="explode_front" type="CPUParticles2D" parent="proyector/lift"]
+material = SubResource("CanvasItemMaterial_gscb3")
+position = Vector2(0, -16)
+rotation = 1.5708
+emitting = false
+amount = 17
+texture = ExtResource("25_r17eg")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.5
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(48, 74)
+direction = Vector2(0, 0)
+spread = 15.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.3
+anim_speed_min = 5.0
+anim_speed_max = 5.0
+
+[node name="explosion" type="Sprite2D" parent="proyector/lift"]
+texture_filter = 1
+scale = Vector2(2, 2)
+offset = Vector2(0, -38)
+hframes = 5
+vframes = 4
+
+[node name="smoke_end" type="CPUParticles2D" parent="proyector/lift"]
+position = Vector2(0, -24)
+emitting = false
+amount = 12
+texture = ExtResource("5_6bab5")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.4
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 24.0
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 32.0
+scale_amount_min = 1.4
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_gscb3")
+color_ramp = SubResource("Gradient_dotbe")
+
+[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_2d")]
+script = ExtResource("6_devps")
+directions_number = 2
+actor_target_group = "camera_rotation"
+actor_player_2d = NodePath("..")
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[node name="AnimatorController" type="Node" parent="."]
+script = ExtResource("7_gs2xm")
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"
+
+[node name="idle" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
+script = ExtResource("8_piod3")
+spritesheet = ExtResource("4_kncr1")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 4.0
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_2d = NodePath("../../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="walk" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
+script = ExtResource("8_piod3")
+spritesheet = ExtResource("10_x78bw")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 8.0
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_2d = NodePath("../../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="pain" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
+script = ExtResource("8_piod3")
+spritesheet = ExtResource("11_x78bw")
+tiles_x = 10
+tiles_y = 8
+frame_per_second = 8.0
+once = true
+animator_direction = NodePath("../../AnimatorDirection")
+two_directions_per_row = true
+sprite_2d = NodePath("../../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="heavy_damage" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
+script = ExtResource("8_piod3")
+spritesheet = ExtResource("12_kncr1")
+tiles_x = 7
+tiles_y = 16
+frame_per_second = 8.0
+once = true
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_2d = NodePath("../../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="fire" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
+script = ExtResource("8_piod3")
+spritesheet = ExtResource("13_er4nl")
+tiles_x = 12
+tiles_y = 8
+frame_per_second = 10.0
+once = true
+animator_direction = NodePath("../../AnimatorDirection")
+two_directions_per_row = true
+sprite_2d = NodePath("../../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="looking_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
+script = ExtResource("8_piod3")
+spritesheet = ExtResource("14_exw5r")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 12.0
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_2d = NodePath("../../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="looking_right" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
+script = ExtResource("8_piod3")
+spritesheet = ExtResource("15_6bab5")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 12.0
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_2d = NodePath("../../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="turn_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
+script = ExtResource("8_piod3")
+spritesheet = ExtResource("16_gs2xm")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 8.0
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_2d = NodePath("../../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="turn_right" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
+script = ExtResource("8_piod3")
+spritesheet = ExtResource("17_piod3")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 8.0
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_2d = NodePath("../../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="explosion" type="Node" parent="AnimatorController" node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("8_piod3")
+spritesheet = ExtResource("12_knea3")
+tiles_x = 5
+tiles_y = 4
+frame_per_second = 20.0
+once = true
+sprite_2d = NodePath("../../proyector/lift/explosion")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("13_lr23s")
+metadata/_custom_type_script = "uid://chir4pkdm3h0t"
+
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("proyector", "player", "animator")]
+script = ExtResource("17_x78bw")
+proyector = NodePath("../../proyector")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://5uxoofyr6kur"
+
+[node name="looking_left" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("21_piod3")
+animation_name = "looking_left"
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://5uxoofyr6kur"
+
+[node name="looking_right" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("21_piod3")
+animation_name = "looking_right"
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://5uxoofyr6kur"
+
+[node name="hunt" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("17_kncr1")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://5uxoofyr6kur"
+
+[node name="pain" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("17_er4nl")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://5uxoofyr6kur"
+
+[node name="heavy_damage" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("43_miyf4")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://5uxoofyr6kur"
+
+[node name="death" type="Node" parent="StateMachine" node_paths=PackedStringArray("proyector", "player", "animator")]
+script = ExtResource("17_exw5r")
+proyector = NodePath("../../proyector")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://5uxoofyr6kur"
+
+[node name="AudioExplosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_0qp80")
+
+[node name="AudioHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("49_bvg8v")
+volume_db = -6.0
+
+[node name="AudioHit2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("47_r17eg")
+
+[node name="AudioStep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_5c2wg")
+
+[node name="AudioLook" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("28_k1jjs")
+
+[node name="shield_area" type="Area2D" parent="." node_paths=PackedStringArray("player", "sprite_shield_L", "sprite_shield_R")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("48_vs6ve")
+player = NodePath("..")
+sprite_shield_L = NodePath("../proyector/lift/shield_L")
+sprite_shield_R = NodePath("../proyector/lift/shield_R")
+
+[node name="CollisionShapeL" type="CollisionShape2D" parent="shield_area"]
+position = Vector2(-60, -55)
+rotation = -0.174533
+shape = SubResource("RectangleShape2D_kxi4g")
+
+[node name="CollisionShapeR" type="CollisionShape2D" parent="shield_area"]
+position = Vector2(60, -55)
+rotation = 0.174533
+shape = SubResource("RectangleShape2D_kxi4g")
+
+[node name="AudioHit" type="AudioStreamPlayer2D" parent="shield_area"]
+stream = ExtResource("51_miyf4")
+volume_db = -6.0

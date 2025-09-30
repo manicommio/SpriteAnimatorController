@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://um5a4o0ekaxi"]
+
+[ext_resource type="Script" uid="uid://bin72ta2g3l7i" path="res://menu/menu_main.gd" id="1_hejbu"]
+[ext_resource type="Texture2D" uid="uid://whr5xi0b1gv" path="res://menu/textures/background.jpg" id="2_nnsyk"]
+[ext_resource type="Texture2D" uid="uid://ckmlg0v46rqwg" path="res://menu/textures/example_isometric.jpg" id="3_bo5vf"]
+[ext_resource type="Texture2D" uid="uid://d1q6ot4al6txc" path="res://menu/textures/example_platform.jpg" id="4_0778r"]
+[ext_resource type="Texture2D" uid="uid://dw3vqbgbgx13s" path="res://menu/textures/example_doom_style.jpg" id="5_2wd1j"]
+
+[node name="menu_main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hejbu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nnsyk")
+expand_mode = 1
+
+[node name="TB1" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.103
+anchor_right = 0.325
+anchor_bottom = 0.464
+offset_left = -0.84
+offset_top = -0.0800018
+offset_right = 1.99998
+offset_bottom = 1.95999
+tooltip_text = "ISOMETRIC EXAMPLE WITH ROTATING CAMERA (FAKE 3D)"
+texture_normal = ExtResource("3_bo5vf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TB2" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.675
+anchor_top = 0.103
+anchor_right = 0.944
+anchor_bottom = 0.464
+offset_left = -1.0
+offset_top = -1.08
+offset_right = 1.83997
+offset_bottom = 0.959991
+tooltip_text = "EXAMPLE OF PLATFORM GAME"
+texture_normal = ExtResource("4_0778r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TB3" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.364
+anchor_top = 0.533
+anchor_right = 0.637
+anchor_bottom = 0.897
+offset_left = 0.039978
+offset_top = 0.11998
+offset_right = 0.319977
+offset_bottom = 1.07999
+tooltip_text = "DOOM STYLE EXAMPLE"
+texture_normal = ExtResource("5_2wd1j")
+ignore_texture_size = true
+stretch_mode = 0

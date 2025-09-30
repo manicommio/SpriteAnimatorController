@@ -1,0 +1,139 @@
+[gd_scene load_steps=18 format=3 uid="uid://dkwdlmbwbf18i"]
+
+[ext_resource type="Script" uid="uid://dy4dikfcpee11" path="res://scenes/EXAMPLES 3D/enemies/ettin/ettin.gd" id="1_vnrwu"]
+[ext_resource type="Texture2D" uid="uid://ybktg661m3uq" path="res://sprites/EXAMPLE 3D/ettin/idle.png" id="2_cbt4s"]
+[ext_resource type="Script" uid="uid://bjqssdmhlh1h1" path="res://addons/sprite_animation_controller/mesh_proyector_3d.gd" id="2_vnrwu"]
+[ext_resource type="Script" uid="uid://cimtvh6nf04tk" path="res://addons/sprite_animation_controller/animator_direction.gd" id="3_cbt4s"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="4_kmcnn"]
+[ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="5_3xfs3"]
+[ext_resource type="Texture2D" uid="uid://dhoqn2xn5xs63" path="res://sprites/EXAMPLE 3D/ettin/walk.png" id="6_saati"]
+[ext_resource type="Texture2D" uid="uid://bshb3xgbb3pfs" path="res://sprites/EXAMPLE 3D/ettin/attack.png" id="7_saati"]
+[ext_resource type="Texture2D" uid="uid://psjr0bibrfax" path="res://sprites/EXAMPLE 3D/ettin/pain.png" id="8_saati"]
+[ext_resource type="Texture2D" uid="uid://bjm3t8k2hyuvb" path="res://sprites/EXAMPLE 3D/ettin/die1.png" id="9_saati"]
+[ext_resource type="Script" uid="uid://chir4pkdm3h0t" path="res://addons/sprite_animation_controller/state_machine.gd" id="10_oq3aq"]
+[ext_resource type="Script" uid="uid://ci80yrn3iiu5j" path="res://scenes/EXAMPLES 3D/enemies/imp/state_idle.gd" id="11_ec02r"]
+[ext_resource type="Script" uid="uid://bq3fpousj322s" path="res://scenes/EXAMPLES 3D/enemies/imp/state_hunt.gd" id="12_bpvkf"]
+[ext_resource type="Script" uid="uid://bubkw4vjcr74y" path="res://scenes/EXAMPLES 3D/enemies/ettin/state_pain.gd" id="13_saati"]
+[ext_resource type="Script" uid="uid://c7vwrjynj54wy" path="res://scenes/EXAMPLES 3D/enemies/imp/state_death.gd" id="14_pknk5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ggee2"]
+radius = 0.6
+
+[sub_resource type="QuadMesh" id="QuadMesh_cbt4s"]
+size = Vector2(3.75, 2.75)
+
+[node name="ettin" type="CharacterBody3D"]
+visible = false
+script = ExtResource("1_vnrwu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ggee2")
+
+[node name="MeshProyector3D" type="MeshInstance3D" parent="." node_paths=PackedStringArray("animator")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.365, 0)
+mesh = SubResource("QuadMesh_cbt4s")
+script = ExtResource("2_vnrwu")
+animator = NodePath("../AnimatorController")
+metadata/_custom_type_script = "uid://bjqssdmhlh1h1"
+
+[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_3d")]
+script = ExtResource("3_cbt4s")
+tipo_apartado = 1
+actor_player_3d = NodePath("..")
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[node name="AnimatorController" type="Node" parent="."]
+script = ExtResource("4_kmcnn")
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"
+
+[node name="idle" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
+script = ExtResource("5_3xfs3")
+proyector_type = 0
+spritesheet = ExtResource("2_cbt4s")
+tiles_x = 3
+tiles_y = 3
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_full_directions = false
+one_frame_per_direction = true
+billboard_Y = true
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="walk" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
+script = ExtResource("5_3xfs3")
+proyector_type = 0
+spritesheet = ExtResource("6_saati")
+tiles_x = 4
+tiles_y = 8
+frame_per_second = 7.0
+animator_direction = NodePath("../../AnimatorDirection")
+billboard_Y = true
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="attack" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
+script = ExtResource("5_3xfs3")
+proyector_type = 0
+spritesheet = ExtResource("7_saati")
+tiles_x = 3
+tiles_y = 8
+frame_per_second = 6.0
+once = true
+animator_direction = NodePath("../../AnimatorDirection")
+billboard_Y = true
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="pain" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
+script = ExtResource("5_3xfs3")
+proyector_type = 0
+spritesheet = ExtResource("8_saati")
+tiles_x = 3
+tiles_y = 3
+frame_per_second = 2.5
+once = true
+animator_direction = NodePath("../../AnimatorDirection")
+sprite_full_directions = false
+one_frame_per_direction = true
+billboard_Y = true
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="death" type="Node" parent="AnimatorController"]
+script = ExtResource("5_3xfs3")
+proyector_type = 0
+spritesheet = ExtResource("9_saati")
+tiles_x = 3
+tiles_y = 3
+frame_per_second = 10.0
+once = true
+billboard_Y = true
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("10_oq3aq")
+metadata/_custom_type_script = "uid://chir4pkdm3h0t"
+
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("11_ec02r")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://mtu81y7swjve"
+
+[node name="hunt" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("12_bpvkf")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://mtu81y7swjve"
+
+[node name="pain" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("13_saati")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://mtu81y7swjve"
+
+[node name="death" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("14_pknk5")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://mtu81y7swjve"
+
+[node name="RayCast_ground" type="RayCast3D" parent="."]
+target_position = Vector3(0, -100, 0)

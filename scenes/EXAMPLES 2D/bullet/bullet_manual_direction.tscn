@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj8b16w7koq5j"]
+
+[ext_resource type="Script" uid="uid://7wbmsxp41tfk" path="res://scenes/EXAMPLES 2D/bullet/bullet_manual_direction.gd" id="1_2wh6i"]
+[ext_resource type="Texture2D" uid="uid://cxs1y05rwuss4" path="res://textures/bola-fuego.png" id="2_jiqj7"]
+[ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="3_tt8is"]
+[ext_resource type="Texture2D" uid="uid://bfi6v2dbgubgd" path="res://sprites/EXAMPLE 2D/explosions/explosion.png" id="4_e1lrm"]
+[ext_resource type="Script" uid="uid://spj5fq8je7hh" path="res://scenes/EXAMPLES 2D/players/godot manual direction/proyector_simple.gd" id="4_tt8is"]
+[ext_resource type="Texture2D" uid="uid://dwarkljs88hwn" path="res://textures/shadow.png" id="5_e1lrm"]
+
+[node name="bullet_manual_direction" type="Node2D"]
+script = ExtResource("1_2wh6i")
+
+[node name="explosion" type="Node" parent="." node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("3_tt8is")
+spritesheet = ExtResource("4_e1lrm")
+tiles_x = 4
+tiles_y = 3
+once = true
+sprite_2d = NodePath("../proyector/lift/rotacion/Sprite2D")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="proyector" type="Node2D" parent="." node_paths=PackedStringArray("shadow_sprite")]
+texture_filter = 1
+script = ExtResource("4_tt8is")
+shadow_sprite = NodePath("shadow/shadow")
+adjust_top_height = 0.0
+
+[node name="shadow" type="Node2D" parent="proyector"]
+
+[node name="shadow" type="Sprite2D" parent="proyector/shadow"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(3.5, 1.75)
+texture = ExtResource("5_e1lrm")
+
+[node name="lift" type="Node2D" parent="proyector"]
+
+[node name="Sprite2D" type="Node2D" parent="proyector/lift"]
+
+[node name="rotacion" type="Node2D" parent="proyector/lift"]
+
+[node name="bola" type="Sprite2D" parent="proyector/lift/rotacion"]
+position = Vector2(0, -44)
+texture = ExtResource("2_jiqj7")
+offset = Vector2(0, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="proyector/lift/rotacion"]
+visible = false
+rotation = 1.5708
+scale = Vector2(0.75, 0.75)

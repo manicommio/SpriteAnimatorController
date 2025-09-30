@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://1w8xflwjmu2k"]
+
+[ext_resource type="Script" uid="uid://bfw725fmn8n8e" path="res://scenes/EXAMPLES 2D/enemies/ettin/ettin.gd" id="1_ccset"]
+[ext_resource type="Texture2D" uid="uid://cs26hlla87t8m" path="res://sprites/EXAMPLE 3D/ettin/ettin_platform.png" id="2_bserx"]
+[ext_resource type="Script" uid="uid://c78myrtqqe3r7" path="res://addons/sprite_animation_controller/sprite_proyector_2d.gd" id="2_ubyiu"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="3_8owml"]
+[ext_resource type="Script" uid="uid://chir4pkdm3h0t" path="res://addons/sprite_animation_controller/state_machine.gd" id="4_ubyiu"]
+[ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="5_k148t"]
+[ext_resource type="Script" uid="uid://bt8m7qsls4x3a" path="res://scenes/EXAMPLES 2D/enemies/ettin/estado_idle.gd" id="6_k148t"]
+[ext_resource type="Script" uid="uid://bbflbi571gwmg" path="res://scenes/EXAMPLES 2D/enemies/ettin/estado_death.gd" id="8_0m4js"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0m4js"]
+radius = 22.0
+height = 70.0
+
+[node name="ettin" type="CharacterBody2D"]
+collision_layer = 5
+script = ExtResource("1_ccset")
+
+[node name="CollisionShape1" type="CollisionShape2D" parent="."]
+position = Vector2(0, -35)
+shape = SubResource("CapsuleShape2D_0m4js")
+
+[node name="SpriteProyector2D" type="Sprite2D" parent="." node_paths=PackedStringArray("animator")]
+texture_filter = 1
+offset = Vector2(0, -48)
+hframes = 5
+vframes = 6
+script = ExtResource("2_ubyiu")
+animator = NodePath("../AnimatorController")
+metadata/_custom_type_script = "uid://c78myrtqqe3r7"
+
+[node name="AnimatorController" type="Node" parent="."]
+script = ExtResource("3_8owml")
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"
+
+[node name="idle" type="Node" parent="AnimatorController"]
+script = ExtResource("5_k148t")
+pause_clip = true
+spritesheet = ExtResource("2_bserx")
+tiles_x = 5
+tiles_y = 6
+frame_per_second = 1.0
+use_custom_clip = true
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="attack" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
+script = ExtResource("5_k148t")
+spritesheet = ExtResource("2_bserx")
+tiles_x = 5
+tiles_y = 6
+frame_per_second = 1.0
+use_custom_clip = true
+clip_start_frame = 1
+clip_end_frame = 3
+inherit_clip_texture = NodePath("../idle")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="pain" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
+script = ExtResource("5_k148t")
+pause_clip = true
+spritesheet = ExtResource("2_bserx")
+tiles_x = 5
+tiles_y = 6
+frame_per_second = 1.0
+use_custom_clip = true
+clip_start_frame = 4
+clip_end_frame = 4
+inherit_clip_texture = NodePath("../idle")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="death1" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
+script = ExtResource("5_k148t")
+spritesheet = ExtResource("2_bserx")
+tiles_x = 5
+tiles_y = 6
+frame_per_second = 8.0
+once = true
+use_custom_clip = true
+clip_start_frame = 4
+clip_end_frame = 12
+inherit_clip_texture = NodePath("../idle")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="death2" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
+script = ExtResource("5_k148t")
+spritesheet = ExtResource("2_bserx")
+tiles_x = 5
+tiles_y = 6
+frame_per_second = 8.0
+once = true
+use_custom_clip = true
+clip_start_frame = 13
+clip_end_frame = 24
+inherit_clip_texture = NodePath("../idle")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="walk" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
+script = ExtResource("5_k148t")
+spritesheet = ExtResource("2_bserx")
+tiles_x = 5
+tiles_y = 6
+frame_per_second = 5.0
+use_custom_clip = true
+clip_start_frame = 25
+clip_end_frame = 28
+inherit_clip_texture = NodePath("../idle")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_ubyiu")
+metadata/_custom_type_script = "uid://chir4pkdm3h0t"
+
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("6_k148t")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://5uxoofyr6kur"
+
+[node name="death" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animator")]
+script = ExtResource("8_0m4js")
+player = NodePath("../..")
+animator = NodePath("../../AnimatorController")
+metadata/_custom_type_script = "uid://5uxoofyr6kur"

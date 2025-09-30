@@ -1,0 +1,113 @@
+[gd_scene load_steps=16 format=3 uid="uid://bjnfsv5f6fw3h"]
+
+[ext_resource type="Texture2D" uid="uid://dltrrouwtl2bt" path="res://sprites/EXAMPLE 2D/platform/layer2_section1.WEBP" id="2_eqne1"]
+[ext_resource type="PackedScene" uid="uid://boww2tt5iiprs" path="res://scenes/EXAMPLES 2D/soldier/soldier.tscn" id="2_m2cyq"]
+[ext_resource type="Script" uid="uid://dl4wfskmd4ds3" path="res://demos/Example of a platform game/collision_shape_platform.gd" id="2_up14h"]
+[ext_resource type="Texture2D" uid="uid://3j0vi52wgcyl" path="res://sprites/EXAMPLE 2D/platform/layer2_section2.WEBP" id="3_wy4ot"]
+[ext_resource type="Texture2D" uid="uid://qd2htyusqm5" path="res://sprites/EXAMPLE 2D/platform/layer2_section3.WEBP" id="4_lyv3n"]
+[ext_resource type="PackedScene" uid="uid://1w8xflwjmu2k" path="res://scenes/EXAMPLES 2D/enemies/ettin/ettin.tscn" id="4_y1hue"]
+[ext_resource type="PackedScene" uid="uid://ddpeioyxhj3i1" path="res://scenes/EXAMPLES 2D/helicopter/helicopter.tscn" id="7_6hsny"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2cyq"]
+size = Vector2(1131, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwnhf"]
+size = Vector2(1154, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqu1"]
+size = Vector2(4053, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhfxy"]
+size = Vector2(4053, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lvb7"]
+size = Vector2(1130, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_up14h"]
+size = Vector2(218, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkg13"]
+size = Vector2(150, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1mmh"]
+size = Vector2(94, 16)
+
+[node name="demo_plataforma" type="Node2D" groups=["world"]]
+
+[node name="helicopter" parent="." instance=ExtResource("7_6hsny")]
+position = Vector2(-135, 0)
+
+[node name="Layer2Section1" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_eqne1")
+offset = Vector2(512, 256)
+
+[node name="Layer2Section2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1536, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_wy4ot")
+offset = Vector2(512, 256)
+
+[node name="Layer2Section3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3072, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_lyv3n")
+offset = Vector2(512, 256)
+
+[node name="ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(699.5, 431)
+shape = SubResource("RectangleShape2D_m2cyq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ground"]
+position = Vector2(2409, 403)
+shape = SubResource("RectangleShape2D_nwnhf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ground"]
+position = Vector2(2016.5, 735)
+shape = SubResource("RectangleShape2D_vkqu1")
+
+[node name="platform" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="platform"]
+position = Vector2(2016.5, 735)
+shape = SubResource("RectangleShape2D_qhfxy")
+script = ExtResource("2_up14h")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="platform"]
+position = Vector2(699, 414)
+shape = SubResource("RectangleShape2D_1lvb7")
+script = ExtResource("2_up14h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+position = Vector2(532, 555)
+shape = SubResource("RectangleShape2D_up14h")
+script = ExtResource("2_up14h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="platform"]
+position = Vector2(1089, 553)
+shape = SubResource("RectangleShape2D_qkg13")
+script = ExtResource("2_up14h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="platform"]
+position = Vector2(681, 637)
+shape = SubResource("RectangleShape2D_u1mmh")
+script = ExtResource("2_up14h")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="platform"]
+position = Vector2(939, 638)
+shape = SubResource("RectangleShape2D_u1mmh")
+script = ExtResource("2_up14h")
+
+[node name="soldier" parent="." instance=ExtResource("2_m2cyq")]
+visible = false
+position = Vector2(218, 241)
+
+[node name="ettin" parent="." instance=ExtResource("4_y1hue")]
+position = Vector2(783, -33)

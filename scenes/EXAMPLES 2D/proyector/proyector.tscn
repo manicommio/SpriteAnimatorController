@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsplwnh1tvj4p"]
+
+[ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="1_si1x1"]
+
+[node name="proyector" type="Node2D"]
+script = ExtResource("1_si1x1")
+
+[node name="shadow" type="Node2D" parent="."]
+
+[node name="lift" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="lift"]
+texture_filter = 1

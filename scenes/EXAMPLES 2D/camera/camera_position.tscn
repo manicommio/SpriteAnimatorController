@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://jswqsqp415ux"]
+
+[ext_resource type="Script" uid="uid://bo84krq7wp34u" path="res://scenes/EXAMPLES 2D/camera/camera_position.gd" id="1_nmgvd"]
+
+[node name="camera_position" type="Node2D" groups=["camera"]]
+script = ExtResource("1_nmgvd")
+
+[node name="camera_rotation" type="Node2D" parent="." groups=["camera_rotation"]]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fade" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
