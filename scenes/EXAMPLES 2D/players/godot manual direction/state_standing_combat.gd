@@ -6,7 +6,7 @@ var direction :Vector2
 func enter() -> void:
 	pass
 
-func physics_update(delta:float) -> void:
+func physics_update(_delta:float) -> void:
 
 	var fwd = player.joystick_direction.y
 	var hwd = player.joystick_direction.x
@@ -24,7 +24,7 @@ func physics_update(delta:float) -> void:
 			animator.PlayAnimation("walk_standing")
 		
 		""" IMPORTANT MANUAL DIRECTION"""
-		player.animation_direction_player = player.direction
+		player.animation_direction = player.direction
 		
 	else:
 		if player.is_crouch:

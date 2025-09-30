@@ -17,9 +17,7 @@ enum cardinal1 {center, north, north_east, east, south_east, south, south_west, 
 	"MANUAL DIRECTION",
 	"AUTOMATIC DIRECTION",
 ) var type_calculation :String = "ROTATE NODE"
-@export var manual_direction_player :Vector2
-@export var manual_direction_camera :Vector2
-
+@export var manual_direction :Vector2
 
 @export_category("EDITOR 3D")
 ## Drag the owner "player" here
@@ -224,22 +222,21 @@ func Direction() ->int:
 		if "velocity" in player_2d:
 			velocity_2D = player_2d.velocity
 			CalculateAxisMovement2D(player_2d, velocity_2D)
-
+		var move_dir :Vector2 = Vector2(LR_movement, FB_movement).normalized()
+		
 		match type_calculation:
 			"ROTATE NODE":
-				var move_dir :Vector2 = Vector2(LR_movement, FB_movement).normalized()
 				rot_actor_player = rad_to_deg(atan2(move_dir.x, move_dir.y))
 				rot_actor_camera = 0
 			
 			"MANUAL DIRECTION":
-				rot_actor_player = rad_to_deg(atan2(manual_direction_player.x, -manual_direction_player.y))
-				rot_actor_camera = rad_to_deg(atan2(manual_direction_camera.x, -manual_direction_camera.y))
+				rot_actor_player = rad_to_deg(atan2(manual_direction.x, -manual_direction.y))
+				rot_actor_camera = rad_to_deg(atan2(-move_dir.x, move_dir.y))
 			
 			"AUTOMATIC DIRECTION":
-				manual_direction_player = player_2d.animation_direction_player
-				manual_direction_camera = player_2d.animation_direction_camera
-				rot_actor_player = rad_to_deg(atan2(manual_direction_player.x, -manual_direction_player.y))
-				rot_actor_camera = rad_to_deg(atan2(manual_direction_camera.x, -manual_direction_camera.y))
+				manual_direction = player_2d.animation_direction
+				rot_actor_player = rad_to_deg(atan2(manual_direction.x, -manual_direction.y))
+				rot_actor_camera = rad_to_deg(atan2(-move_dir.x, move_dir.y))
 		
 	else:
 		if "velocity" in player_3d:

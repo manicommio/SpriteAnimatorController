@@ -34,7 +34,7 @@ func physics_update(_delta:float) -> void:
 			emit_signal("change_state","standing_to_crouch")
 			
 		""" IMPORTANT MANUAL DIRECTION"""
-		player.animation_direction_player = player.direction
+		player.animation_direction = player.direction
 	else:
 		if player.is_crouch:
 			animator.PlayAnimation("idle_crouch")

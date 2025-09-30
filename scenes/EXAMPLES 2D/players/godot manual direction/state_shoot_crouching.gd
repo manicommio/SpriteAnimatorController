@@ -18,7 +18,6 @@ func physics_update(_delta:float) -> void:
 	player.direction = Vector2(-hwd, -fwd).normalized()
 	direction = Vector2(-hwd, -fwd).normalized()
 	
-	player.animation_direction_camera = player.direction
 
 func update(delta:float) -> void:
 	

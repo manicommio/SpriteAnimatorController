@@ -84,7 +84,7 @@ func update(delta:float) -> void:
 			if direction:
 				player.direction = Vector2(-hwd, -fwd).normalized()
 
-				player.animation_direction_player = player.direction
+				player.animation_direction = player.direction
 			
 			#_________________________________
 			if player.is_sprinting:

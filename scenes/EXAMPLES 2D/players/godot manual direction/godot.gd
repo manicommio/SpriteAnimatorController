@@ -30,8 +30,7 @@ var direction :Vector2
 var bullet_efect := Vector2.ZERO
 
 """IMPORTANT FOR MABNUAL DIRECTION"""
-var animation_direction_player :Vector2
-var animation_direction_camera :Vector2
+var animation_direction :Vector2
 var state = ""
 #______________________________________
 var camera : Node2D = null
@@ -96,7 +95,7 @@ func _process(delta:float) ->void:
 		else:
 			SPEED = walk_speed
 	#____________________________________________
-	animator_direction.manual_direction = animation_direction_player
+	animator_direction.manual_direction = animation_direction
 	#_______________________________________________
 	proyector.Update(delta)
 

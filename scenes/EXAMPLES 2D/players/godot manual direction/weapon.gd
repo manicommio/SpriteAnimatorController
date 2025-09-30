@@ -67,7 +67,7 @@ func GenerateBullet(delta:float) ->void:
 		for i in range(cantidad_disparo):
 			var clon = spawn_bullet.instantiate()
 			player.Ysort.add_child(clon)
-			clon.Start(self.global_position, Vector2(player.animation_direction_player.x, player.animation_direction_player.y), 2.0, exepcion_colision, damage, (altura_vuelo + altura_underground ))
+			clon.Start(self.global_position, Vector2(player.animation_direction.x, player.animation_direction.y), 2.0, exepcion_colision, damage, (altura_vuelo + altura_underground ))
 	
 	
 	if cantidad_balas <= 0:
