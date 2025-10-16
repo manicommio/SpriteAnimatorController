@@ -59,6 +59,9 @@ class_name  AnimatorClip
 @export var clip_end_frame : int
 ##
 @export var inherit_clip_texture :AnimatorClip
+##
+@export var custom_frame_library :Array[int]
+var custom_count :int = 0
 #______________________________________________________
 @export_category("EXAMPLES")
 ## Drag a "Sprite2D" node here and you'll see your animation play instantly.
@@ -181,26 +184,24 @@ func Iniciar() -> void:
 			frame_index = 0.0
 	else:
 		if use_custom_clip:
-			if play_backward:
-				frame_index = clip_end_frame
+			if custom_frame_library.size()>0:
+				# CUSTOM CLIP MANUAL FRAME ____________
+				clip_start_frame = 0
+				clip_end_frame = custom_frame_library.size() - 1
+				if play_backward:
+					frame_index = custom_frame_library[clip_end_frame]
+				else:
+					frame_index = custom_frame_library[clip_start_frame]
 			else:
-				frame_index = clip_start_frame
+				if play_backward:
+					frame_index = clip_end_frame
+				else:
+					frame_index = clip_start_frame
 		else:
 			if play_backward:
 				frame_index = (tiles_x * tiles_y ) - 1
 			else:
 				frame_index = 0.0
-	#____________________________________________________
-	#if projector_type == 0:
-		#if animation_direction != null:
-			#lastFrame = 0
-		#else:
-			#if FLIP:
-				#lastFrame = -((tiles_x * tiles_y) - frame_index - 1)
-			#else:
-				#lastFrame =  frame_index + tiles_x
-	#else:
-		#lastFrame = frame_index
 	
 	#_____________________________________________
 	if projector_type == 0:
@@ -272,27 +273,25 @@ func Start() -> void:
 			frame_index = 0.0
 	else:
 		if use_custom_clip:
-			if play_backward:
-				frame_index = clip_end_frame
+			if custom_frame_library.size()>0:
+				# CUSTOM CLIP MANUAL FRAME ____________
+				clip_start_frame = 0
+				clip_end_frame = custom_frame_library.size() - 1
+				if play_backward:
+					frame_index = custom_frame_library[clip_end_frame]
+				else:
+					frame_index = custom_frame_library[clip_start_frame]
 			else:
-				frame_index = clip_start_frame
+				if play_backward:
+					frame_index = clip_end_frame
+				else:
+					frame_index = clip_start_frame
 		else:
 			if play_backward:
 				frame_index = (tiles_x * tiles_y ) - 1
 			else:
 				frame_index = 0.0
-	#_____________________________________________________________
-	#if projector_type == 0:
-		#if animation_direction != null:
-			#lastFrame = 0
-		#else:
-			#if FLIP:
-				#lastFrame = -((tiles_x * tiles_y) - frame_index - 1)
-			#else:
-				#lastFrame =  frame_index + tiles_x
-	#else:
-		#lastFrame = frame_index
-	
+
 	#_____________________________________________
 	if projector_type == 0:
 		if FLIP:
@@ -364,28 +363,55 @@ func _process(delta:float) -> void:
 
 	else:
 		if !pause_clip:
-			#_____________________________________________________
+			#_________________________________________________
 			if once:
 				if use_custom_clip:
-					if play_backward:
-						tiempo_max =  tiempo_aprox
-						if (frame_index ) <= tiempo_max and !stopped_clip:
-							stopped_clip = true
-							set_process(false)
+					if custom_frame_library.size()>0:
+						# CUSTOM CLIP MANUAL FRAME ____________
+						clip_start_frame = 0
+						clip_end_frame = custom_frame_library.size() - 1
+						if play_backward:
+							tiempo_max =  tiempo_aprox
+							if (custom_count ) <= tiempo_max and !stopped_clip:
+								stopped_clip = true
+								set_process(false)
+							else:
+								if tiempo >= 1:
+									tiempo = 0
+									custom_count = wrapi(custom_count - 1, clip_end_frame, clip_start_frame -1)
 						else:
-							if tiempo >= 1:
-								tiempo = 0
-								frame_index = wrapi(frame_index - 1, clip_end_frame, clip_start_frame -1)
+							tiempo_max =  (clip_end_frame + 1) - tiempo_aprox
+							if (custom_count + tiempo) >= tiempo_max and !stopped_clip:
+								stopped_clip = true
+								set_process(false)
+							else:
+								if tiempo >= 1:
+									tiempo = 0
+									custom_count = wrapi(custom_count + 1, clip_start_frame, clip_end_frame + 1)
+						
+						frame_index = custom_frame_library[custom_count]
+						
 					else:
-						tiempo_max =  (clip_end_frame + 1) - tiempo_aprox
-						if (frame_index + tiempo) >= tiempo_max and !stopped_clip:
-							stopped_clip = true
-							set_process(false)
+						# CUSTOM CLIP AUTOMATIC _________________
+						if play_backward:
+							tiempo_max =  tiempo_aprox
+							if (frame_index ) <= tiempo_max and !stopped_clip:
+								stopped_clip = true
+								set_process(false)
+							else:
+								if tiempo >= 1:
+									tiempo = 0
+									frame_index = wrapi(frame_index - 1, clip_end_frame, clip_start_frame -1)
 						else:
-							if tiempo >= 1:
-								tiempo = 0
-								frame_index = wrapi(frame_index + 1, clip_start_frame, clip_end_frame + 1)
-					
+							tiempo_max =  (clip_end_frame + 1) - tiempo_aprox
+							if (frame_index + tiempo) >= tiempo_max and !stopped_clip:
+								stopped_clip = true
+								set_process(false)
+							else:
+								if tiempo >= 1:
+									tiempo = 0
+									frame_index = wrapi(frame_index + 1, clip_start_frame, clip_end_frame + 1)
+						
 				else:
 					if play_backward:
 						tiempo_max =  tiempo_aprox
@@ -410,16 +436,31 @@ func _process(delta:float) -> void:
 				if tiempo >= 1:
 					tiempo = 0
 					if use_custom_clip:
-						if play_backward:
-							frame_index = wrapi(frame_index - 1, clip_end_frame , clip_start_frame -1 )
+						if custom_frame_library.size()>0:
+							# CUSTOM CLIP MANUAL FRAME ____________
+							clip_start_frame = 0
+							clip_end_frame = custom_frame_library.size()-1
+							if play_backward:
+								custom_count = wrapi(custom_count - 1, clip_end_frame , clip_start_frame -1 )
+							else:
+								custom_count = wrapi(custom_count + 1, clip_start_frame , clip_end_frame + 1)
+
+							frame_index = custom_frame_library[custom_count]
+						
 						else:
-							frame_index = wrapi(frame_index + 1, clip_start_frame , clip_end_frame + 1)
+							# CUSTOM CLIP AUTOMATIC _________________
+							if play_backward:
+								frame_index = wrapi(frame_index - 1, clip_end_frame , clip_start_frame -1 )
+							else:
+								frame_index = wrapi(frame_index + 1, clip_start_frame , clip_end_frame + 1)
 						
 					else:
 						if play_backward:
 							frame_index = wrapi(frame_index - 1, (tiles_x * tiles_y ) - 1, -1 )
 						else:
 							frame_index = wrapi(frame_index + 1, 0.0, tiles_x * tiles_y )
+		
+		
 		#_____________________________________
 		if projector_type == 0:
 			if FLIP:
@@ -2463,26 +2504,25 @@ func PlayAgain() -> void:
 			frame_index = 0.0
 	else:
 		if use_custom_clip:
-			if play_backward:
-				frame_index = clip_end_frame
+			if custom_frame_library.size()>0:
+				# CUSTOM CLIP MANUAL FRAME ____________
+				clip_start_frame = 0
+				clip_end_frame = custom_frame_library.size() - 1
+				if play_backward:
+					frame_index = custom_frame_library[clip_end_frame]
+				else:
+					frame_index = custom_frame_library[clip_start_frame]
 			else:
-				frame_index = clip_start_frame
+				if play_backward:
+					frame_index = clip_end_frame
+				else:
+					frame_index = clip_start_frame
 		else:
 			if play_backward:
 				frame_index = (tiles_x * tiles_y ) - 1
 			else:
 				frame_index = 0.0
-	#_________________________________________________________
-	#if projector_type == 0:
-		#if animation_direction != null:
-			#lastFrame = 0
-		#else:
-			#if FLIP:
-				#lastFrame = -((tiles_x * tiles_y) - frame_index - 1)
-			#else:
-				#lastFrame =  frame_index + tiles_x
-	#else:
-		#lastFrame = frame_index
+
 	#_____________________________________________
 	if projector_type == 0:
 		if FLIP:
