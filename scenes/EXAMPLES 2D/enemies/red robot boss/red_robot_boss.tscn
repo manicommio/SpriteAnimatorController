@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bwv6bpj84iq5u"]
+[gd_scene load_steps=75 format=3 uid="uid://bwv6bpj84iq5u"]
 
 [ext_resource type="Script" uid="uid://baisb4ty3moa8" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/red_robot_boss.gd" id="1_x78bw"]
 [ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="2_kncr1"]
@@ -37,21 +37,21 @@
 [ext_resource type="Script" uid="uid://6lw00gd5cm5n" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/state_hunt.gd" id="17_kncr1"]
 [ext_resource type="Texture2D" uid="uid://dxaud8urf42xp" path="res://sprites/EXAMPLE 2D/red robot boss/turn_right.WEBP" id="17_piod3"]
 [ext_resource type="Script" uid="uid://crqy262mn27sc" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/state_idle.gd" id="17_x78bw"]
-[ext_resource type="AudioStream" uid="uid://d18ujyuj44x2j" path="res://sound/tps godot4/enemies_red_robot_audio_explosion.wav" id="18_0qp80"]
+[ext_resource type="AudioStream" uid="uid://d18ujyuj44x2j" path="res://sounds/tps godot4/enemies_red_robot_audio_explosion.wav" id="18_0qp80"]
 [ext_resource type="Texture2D" uid="uid://bry2su6gv1blo" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_looking_right.WEBP" id="18_au6lv"]
 [ext_resource type="Texture2D" uid="uid://b67sj2umffxfu" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_turn_left.WEBP" id="19_lw423"]
-[ext_resource type="AudioStream" uid="uid://c7t6glk1ib2se" path="res://sound/tps godot4/enemies_red_robot_audio_walk.wav" id="20_5c2wg"]
+[ext_resource type="AudioStream" uid="uid://c7t6glk1ib2se" path="res://sounds/tps godot4/enemies_red_robot_audio_walk.wav" id="20_5c2wg"]
 [ext_resource type="Texture2D" uid="uid://o12pb17fwsut" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_turn_left.WEBP" id="20_p6j6n"]
 [ext_resource type="Script" uid="uid://bbnr25f48vtjc" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/state_looking.gd" id="21_piod3"]
 [ext_resource type="Texture2D" uid="uid://cgntcvi7t8jil" path="res://sprites/EXAMPLE 2D/red robot boss/shield left/sl_turn_right.WEBP" id="21_ujho0"]
 [ext_resource type="Texture2D" uid="uid://c037vwp3fs3ho" path="res://sprites/EXAMPLE 2D/red robot boss/shìeld right/sr_turn_right.WEBP" id="22_jrur1"]
 [ext_resource type="Texture2D" uid="uid://bfi6v2dbgubgd" path="res://sprites/EXAMPLE 2D/explosions/explosion.png" id="25_r17eg"]
-[ext_resource type="AudioStream" uid="uid://da0pq7dtgfhug" path="res://sound/tps godot4/enemies_red_robot_audio_walk_ini.wav" id="28_k1jjs"]
+[ext_resource type="AudioStream" uid="uid://da0pq7dtgfhug" path="res://sounds/tps godot4/enemies_red_robot_audio_walk_ini.wav" id="28_k1jjs"]
 [ext_resource type="Script" uid="uid://drxj35dqbpnjt" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/state_heavy_damage.gd" id="43_miyf4"]
-[ext_resource type="AudioStream" uid="uid://b1ysv8t16pmwd" path="res://sound/tps godot4/player_bullet_bullet_explode.wav" id="47_r17eg"]
+[ext_resource type="AudioStream" uid="uid://b1ysv8t16pmwd" path="res://sounds/tps godot4/player_bullet_bullet_explode.wav" id="47_r17eg"]
 [ext_resource type="Script" uid="uid://bgpkryue6sijb" path="res://scenes/EXAMPLES 2D/enemies/red robot boss/shield area.gd" id="48_vs6ve"]
-[ext_resource type="AudioStream" uid="uid://bkx8jjs4u6jqy" path="res://sound/tps godot3/robot_walk_step_ini.wav" id="49_bvg8v"]
-[ext_resource type="AudioStream" uid="uid://c2x2jsopcjsvc" path="res://sound/tps godot4/enemies_red_robot_audio_hit.wav" id="51_miyf4"]
+[ext_resource type="AudioStream" uid="uid://bkx8jjs4u6jqy" path="res://sounds/tps godot3/robot_walk_step_ini.wav" id="49_bvg8v"]
+[ext_resource type="AudioStream" uid="uid://c2x2jsopcjsvc" path="res://sounds/tps godot4/enemies_red_robot_audio_hit.wav" id="51_miyf4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vy4c7"]
 radius = 60.0
@@ -93,6 +93,236 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_dotbe"]
 offsets = PackedFloat32Array(0.35443, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.683077, 0.683077, 0.683077, 0)
+
+[sub_resource type="Resource" id="Resource_r17eg"]
+script = ExtResource("6_devps")
+tipo_apartado = 0
+directions_number = 2
+actor_target_group = "camera_rotation"
+type_calculation = "ROTATE NODE"
+adjust_velocity_up = 1.0
+compensate_camera_perspective = true
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[sub_resource type="Resource" id="Resource_p6j6n"]
+script = ExtResource("8_piod3")
+clip_name = ""
+spritesheet = ExtResource("12_knea3")
+tiles_x = 5
+tiles_y = 4
+frame_per_second = 20.0
+frame_index = 0
+once = true
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_nonvh"]
+script = ExtResource("8_piod3")
+clip_name = ""
+spritesheet = ExtResource("13_er4nl")
+tiles_x = 12
+tiles_y = 8
+frame_per_second = 10.0
+frame_index = 0
+once = true
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_0keub"]
+script = ExtResource("8_piod3")
+clip_name = ""
+spritesheet = ExtResource("12_kncr1")
+tiles_x = 7
+tiles_y = 16
+frame_per_second = 8.0
+frame_index = 0
+once = true
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_gscb3"]
+script = ExtResource("8_piod3")
+clip_name = ""
+spritesheet = ExtResource("4_kncr1")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_bx5ah"]
+script = ExtResource("8_piod3")
+clip_name = ""
+spritesheet = ExtResource("14_exw5r")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 12.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_imdhr"]
+script = ExtResource("8_piod3")
+clip_name = ""
+spritesheet = ExtResource("15_6bab5")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 12.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_126ik"]
+script = ExtResource("8_piod3")
+clip_name = ""
+spritesheet = ExtResource("11_x78bw")
+tiles_x = 10
+tiles_y = 8
+frame_per_second = 8.0
+frame_index = 0
+once = true
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_au6lv"]
+script = ExtResource("8_piod3")
+clip_name = ""
+spritesheet = ExtResource("16_gs2xm")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 8.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_lw423"]
+script = ExtResource("8_piod3")
+clip_name = ""
+spritesheet = ExtResource("17_piod3")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 8.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_dotbe"]
+script = ExtResource("8_piod3")
+clip_name = ""
+spritesheet = ExtResource("10_x78bw")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 8.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxi4g"]
 size = Vector2(40, 30)
@@ -309,121 +539,22 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_gscb3")
 color_ramp = SubResource("Gradient_dotbe")
 
-[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_2d")]
-script = ExtResource("6_devps")
-directions_number = 2
-actor_target_group = "camera_rotation"
-actor_player_2d = NodePath("..")
-metadata/_custom_type_script = "uid://cimtvh6nf04tk"
-
 [node name="AnimatorController" type="Node" parent="."]
 script = ExtResource("7_gs2xm")
+animator_direction = SubResource("Resource_r17eg")
+clip_library = Dictionary[String, ExtResource("8_piod3")]({
+"explosion": SubResource("Resource_p6j6n"),
+"fire": SubResource("Resource_nonvh"),
+"heavy_damage": SubResource("Resource_0keub"),
+"idle": SubResource("Resource_gscb3"),
+"looking_left": SubResource("Resource_bx5ah"),
+"looking_right": SubResource("Resource_imdhr"),
+"pain": SubResource("Resource_126ik"),
+"turn_left": SubResource("Resource_au6lv"),
+"turn_right": SubResource("Resource_lw423"),
+"walk": SubResource("Resource_dotbe")
+})
 metadata/_custom_type_script = "uid://dpj5ikcvh604q"
-
-[node name="idle" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("8_piod3")
-spritesheet = ExtResource("4_kncr1")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 4.0
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_2d = NodePath("../../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="walk" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("8_piod3")
-spritesheet = ExtResource("10_x78bw")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 8.0
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_2d = NodePath("../../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="pain" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("8_piod3")
-spritesheet = ExtResource("11_x78bw")
-tiles_x = 10
-tiles_y = 8
-frame_per_second = 8.0
-once = true
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-sprite_2d = NodePath("../../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="heavy_damage" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("8_piod3")
-spritesheet = ExtResource("12_kncr1")
-tiles_x = 7
-tiles_y = 16
-frame_per_second = 8.0
-once = true
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_2d = NodePath("../../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="fire" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("8_piod3")
-spritesheet = ExtResource("13_er4nl")
-tiles_x = 12
-tiles_y = 8
-frame_per_second = 10.0
-once = true
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-sprite_2d = NodePath("../../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="looking_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("8_piod3")
-spritesheet = ExtResource("14_exw5r")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 12.0
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_2d = NodePath("../../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="looking_right" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("8_piod3")
-spritesheet = ExtResource("15_6bab5")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 12.0
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_2d = NodePath("../../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="turn_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("8_piod3")
-spritesheet = ExtResource("16_gs2xm")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 8.0
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_2d = NodePath("../../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="turn_right" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("8_piod3")
-spritesheet = ExtResource("17_piod3")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 8.0
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_2d = NodePath("../../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="explosion" type="Node" parent="AnimatorController" node_paths=PackedStringArray("sprite_2d")]
-script = ExtResource("8_piod3")
-spritesheet = ExtResource("12_knea3")
-tiles_x = 5
-tiles_y = 4
-frame_per_second = 20.0
-once = true
-sprite_2d = NodePath("../../proyector/lift/explosion")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("13_lr23s")

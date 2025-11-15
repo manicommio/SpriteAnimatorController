@@ -4,6 +4,7 @@ extends BaseState2D
 @export var proyector :Node2D
 
 func enter() ->void:
+	animator.sprite_2d = proyector.lift.get_node("explosion")
 	player.move_dir = 0
 	proyector.sprite_2d.hide()
 	proyector.shadow_sprite.hide()

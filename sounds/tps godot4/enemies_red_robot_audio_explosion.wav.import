@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d18ujyuj44x2j"
+path="res://.godot/imported/enemies_red_robot_audio_explosion.wav-6c4649959e1eaab97bc6145f7d08db2f.sample"
+
+[deps]
+
+source_file="res://sounds/tps godot4/enemies_red_robot_audio_explosion.wav"
+dest_files=["res://.godot/imported/enemies_red_robot_audio_explosion.wav-6c4649959e1eaab97bc6145f7d08db2f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

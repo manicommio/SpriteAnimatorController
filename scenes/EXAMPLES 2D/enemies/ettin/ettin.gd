@@ -31,8 +31,8 @@ func _physics_process(delta:float) ->void:
 
 
 func _process(_delta:float) ->void:
-	if animator_controller.current_clip != null:
-		animator_controller.current_clip.FLIP = FLIP
+	if animator_controller != null:
+		animator_controller.FLIP = FLIP
 	#__________________________________
 	if state_machine.current_state != null:
 		estado = state_machine.current_state.get_name()

@@ -58,12 +58,12 @@ func _process(delta):
 			self.global_translate(desplazamiento * delta)
 	
 	else:
-		if !$explosion.active:
-			$explosion.Start()
+		if !$AnimatorController.is_playing:
+			$AnimatorController.PlayAnimation("explosion")
 			proyector.lift.get_node("rotacion/Sprite2D").show()
 			proyector.lift.get_node("rotacion/bola").hide()
 		else:
-			if $explosion.Finished():
+			if $AnimatorController.Finished():
 				self.queue_free()
 	
 	

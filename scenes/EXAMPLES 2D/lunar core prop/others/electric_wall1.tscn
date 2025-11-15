@@ -1,12 +1,44 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4vwj7xn1cs16"]
+[gd_scene load_steps=11 format=3 uid="uid://c4vwj7xn1cs16"]
 
 [ext_resource type="Script" uid="uid://vixgo1e1jtve" path="res://scenes/EXAMPLES 2D/lunar core prop/reactor/prop_base.gd" id="1_n1w5q"]
 [ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="2_2hagu"]
 [ext_resource type="Texture2D" uid="uid://dwarkljs88hwn" path="res://textures/shadow.png" id="3_yce3s"]
 [ext_resource type="Texture2D" uid="uid://clgq7rs2naq1h" path="res://sprites/EXAMPLE 2D/other/electric wall/electric_wall_GUIDE.png" id="4_n1w5q"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="5_0et65"]
 [ext_resource type="Script" uid="uid://cimtvh6nf04tk" path="res://addons/sprite_animation_controller/animator_direction.gd" id="5_qrrnh"]
 [ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="6_g2c53"]
 [ext_resource type="Texture2D" uid="uid://c3vo8yrw2iwc6" path="res://sprites/EXAMPLE 2D/other/electric wall/electric_wall1.WEBP" id="7_n1w5q"]
+
+[sub_resource type="Resource" id="Resource_wsqym"]
+script = ExtResource("5_qrrnh")
+tipo_apartado = 0
+directions_number = 13
+actor_target_group = "camera_rotation"
+type_calculation = "ROTATE NODE"
+adjust_velocity_up = 1.0
+compensate_camera_perspective = true
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[sub_resource type="Resource" id="Resource_wbjuw"]
+script = ExtResource("6_g2c53")
+clip_name = ""
+tiles_x = 12
+tiles_y = 12
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = true
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [node name="electric_wall1" type="Node2D"]
 script = ExtResource("1_n1w5q")
@@ -28,21 +60,13 @@ texture_filter = 1
 texture = ExtResource("4_n1w5q")
 offset = Vector2(0, -48)
 
-[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_2d")]
-script = ExtResource("5_qrrnh")
-directions_number = 13
-actor_target_group = "camera_rotation"
-actor_player_2d = NodePath("..")
-type_calculation = "ROTATE NODE"
-metadata/_custom_type_script = "uid://cimtvh6nf04tk"
-
-[node name="animatorClip" type="Node" parent="." node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("6_g2c53")
+[node name="AnimatorController" type="Node" parent="." node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("5_0et65")
 auto_start = true
 spritesheet = ExtResource("7_n1w5q")
-tiles_x = 12
-tiles_y = 12
-animator_direction = NodePath("../AnimatorDirection")
-one_frame_per_direction = true
+animator_direction = SubResource("Resource_wsqym")
+clip_library = Dictionary[String, ExtResource("6_g2c53")]({
+"animation": SubResource("Resource_wbjuw")
+})
 sprite_2d = NodePath("../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"

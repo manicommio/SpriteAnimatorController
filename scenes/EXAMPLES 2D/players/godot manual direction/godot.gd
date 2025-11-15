@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@onready var animator_direction = $AnimatorDirection
+@onready var animator_controller = $AnimatorController
 @onready var weapon = $weapon
 @onready var proyector = $proyector
 @onready var collision_shape = $CollisionShape2D
@@ -95,7 +95,7 @@ func _process(delta:float) ->void:
 		else:
 			SPEED = walk_speed
 	#____________________________________________
-	animator_direction.manual_direction = animation_direction
+	animator_controller.manual_direction = animation_direction
 	#_______________________________________________
 	proyector.Update(delta)
 

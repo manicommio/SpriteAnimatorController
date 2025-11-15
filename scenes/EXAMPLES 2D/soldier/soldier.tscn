@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://boww2tt5iiprs"]
+[gd_scene load_steps=39 format=3 uid="uid://boww2tt5iiprs"]
 
 [ext_resource type="Script" uid="uid://cq0y3gmcvvbv3" path="res://scenes/EXAMPLES 2D/soldier/soldier.gd" id="1_y64rw"]
 [ext_resource type="Texture2D" uid="uid://ch0vwuvxuarhn" path="res://sprites/EXAMPLE 2D/soldier/ALL.png" id="2_6u3x6"]
@@ -20,6 +20,468 @@ radius = 15.0
 height = 70.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qcgwt"]
+
+[sub_resource type="Resource" id="Resource_67gaq"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 0
+clip_end_frame = 7
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_nwnb7"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 8
+clip_end_frame = 11
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_jsld6"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 12
+clip_end_frame = 15
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_k5236"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 16
+clip_end_frame = 18
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_fkq5l"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 19
+clip_end_frame = 21
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_cxb2h"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 22
+clip_end_frame = 24
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_sb4co"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 25
+clip_end_frame = 27
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_3pyet"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 28
+clip_end_frame = 30
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_8qobd"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 16.0
+frame_index = 0
+once = true
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 31
+clip_end_frame = 37
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_8iqmk"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 16.0
+frame_index = 0
+once = true
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 45
+clip_end_frame = 48
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_hxpjp"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 49
+clip_end_frame = 54
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_6dvmi"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 16.0
+frame_index = 0
+once = true
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 55
+clip_end_frame = 61
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_sa556"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 14.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 62
+clip_end_frame = 67
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_dokwd"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 14.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 68
+clip_end_frame = 73
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_todva"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 14.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 74
+clip_end_frame = 79
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_de24f"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 16.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 80
+clip_end_frame = 87
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_djqlx"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 16.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 88
+clip_end_frame = 95
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_oq0dc"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 16.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 96
+clip_end_frame = 100
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_h2ya4"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 16.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 101
+clip_end_frame = 108
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_qphci"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 16.0
+frame_index = 0
+once = false
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 109
+clip_end_frame = 113
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_ykkic"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 16.0
+frame_index = 0
+once = true
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 114
+clip_end_frame = 116
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_peema"]
+script = ExtResource("6_mqbxj")
+clip_name = ""
+tiles_x = 11
+tiles_y = 11
+frame_per_second = 16.0
+frame_index = 0
+once = true
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = true
+clip_start_frame = 38
+clip_end_frame = 44
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [node name="soldier" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -44,7 +506,6 @@ script = ExtResource("2_67gaq")
 
 [node name="Sprite2D" type="Sprite2D" parent="proyector/lift" node_paths=PackedStringArray("animator")]
 texture_filter = 1
-texture = ExtResource("2_6u3x6")
 offset = Vector2(0, -50)
 hframes = 11
 vframes = 11
@@ -58,283 +519,32 @@ offset = Vector2(0, -64)
 
 [node name="AnimatorController" type="Node" parent="."]
 script = ExtResource("5_glwms")
+spritesheet = ExtResource("2_6u3x6")
+clip_library = Dictionary[String, ExtResource("6_mqbxj")]({
+"climb_rope": SubResource("Resource_h2ya4"),
+"climb_rope_look": SubResource("Resource_qphci"),
+"climb_stair": SubResource("Resource_djqlx"),
+"climb_stair_look": SubResource("Resource_oq0dc"),
+"idle_look_right": SubResource("Resource_jsld6"),
+"idle_look_up": SubResource("Resource_nwnb7"),
+"jump_look_down": SubResource("Resource_fkq5l"),
+"jump_look_right": SubResource("Resource_k5236"),
+"jump_look_right_down": SubResource("Resource_cxb2h"),
+"jump_look_right_up": SubResource("Resource_sb4co"),
+"jump_look_up": SubResource("Resource_3pyet"),
+"kiking_down": SubResource("Resource_8qobd"),
+"kiking_up": SubResource("Resource_peema"),
+"landing": SubResource("Resource_8iqmk"),
+"prone_to_standing": SubResource("Resource_hxpjp"),
+"roll": SubResource("Resource_6dvmi"),
+"run_right": SubResource("Resource_sa556"),
+"run_right_down": SubResource("Resource_dokwd"),
+"run_right_up": SubResource("Resource_todva"),
+"shot_grenade": SubResource("Resource_67gaq"),
+"sprinting": SubResource("Resource_de24f"),
+"uppercut": SubResource("Resource_ykkic")
+})
 metadata/_custom_type_script = "uid://dpj5ikcvh604q"
-
-[node name="shot_grenade" type="Node" parent="AnimatorController"]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 4.0
-use_custom_clip = true
-clip_end_frame = 7
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="idle_look_up" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 4.0
-use_custom_clip = true
-clip_start_frame = 8
-clip_end_frame = 11
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="idle_look_right" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 4.0
-use_custom_clip = true
-clip_start_frame = 12
-clip_end_frame = 15
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="jump_look_right" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-pause_clip = true
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 4.0
-use_custom_clip = true
-clip_start_frame = 16
-clip_end_frame = 18
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="jump_look_down" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-pause_clip = true
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 4.0
-use_custom_clip = true
-clip_start_frame = 19
-clip_end_frame = 21
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="jump_look_right_down" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-pause_clip = true
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 4.0
-use_custom_clip = true
-clip_start_frame = 22
-clip_end_frame = 24
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="jump_look_right_up" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-pause_clip = true
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 4.0
-use_custom_clip = true
-clip_start_frame = 25
-clip_end_frame = 27
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="jump_look_up" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-pause_clip = true
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 4.0
-use_custom_clip = true
-clip_start_frame = 28
-clip_end_frame = 30
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="kiking_down" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 16.0
-once = true
-use_custom_clip = true
-clip_start_frame = 31
-clip_end_frame = 37
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="kiking_up" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 16.0
-once = true
-use_custom_clip = true
-clip_start_frame = 38
-clip_end_frame = 44
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="landing" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 16.0
-once = true
-use_custom_clip = true
-clip_start_frame = 45
-clip_end_frame = 48
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="prone_to_standing" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-use_custom_clip = true
-clip_start_frame = 49
-clip_end_frame = 54
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="roll" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 16.0
-once = true
-use_custom_clip = true
-clip_start_frame = 55
-clip_end_frame = 61
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="run_right" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 14.0
-use_custom_clip = true
-clip_start_frame = 62
-clip_end_frame = 67
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="run_right_down" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 14.0
-use_custom_clip = true
-clip_start_frame = 68
-clip_end_frame = 73
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="run_right_up" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 14.0
-use_custom_clip = true
-clip_start_frame = 74
-clip_end_frame = 79
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="sprinting" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 16.0
-use_custom_clip = true
-clip_start_frame = 80
-clip_end_frame = 87
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="climb_stair" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-pause_clip = true
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 16.0
-use_custom_clip = true
-clip_start_frame = 88
-clip_end_frame = 95
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="climb_stair_look" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-pause_clip = true
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 16.0
-use_custom_clip = true
-clip_start_frame = 96
-clip_end_frame = 100
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="climb_rope" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-pause_clip = true
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 16.0
-use_custom_clip = true
-clip_start_frame = 101
-clip_end_frame = 108
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="climb_rope_look" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-pause_clip = true
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 16.0
-use_custom_clip = true
-clip_start_frame = 109
-clip_end_frame = 113
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="uppercut" type="Node" parent="AnimatorController" node_paths=PackedStringArray("inherit_clip_texture")]
-script = ExtResource("6_mqbxj")
-pause_clip = true
-spritesheet = ExtResource("2_6u3x6")
-tiles_x = 11
-tiles_y = 11
-frame_per_second = 16.0
-once = true
-use_custom_clip = true
-clip_start_frame = 114
-clip_end_frame = 120
-inherit_clip_texture = NodePath("../shot_grenade")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("8_glwms")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://bcfogy4tx1bli"]
 
 [ext_resource type="Script" uid="uid://cre6ck4r55tlg" path="res://demos/Example of isometric by rotation/map_scale.gd" id="1_3q4iu"]
-[ext_resource type="AudioStream" uid="uid://b30f5qom8l47a" path="res://sound/tps godot4/level_level_music.ogg" id="1_85v4u"]
+[ext_resource type="AudioStream" uid="uid://b30f5qom8l47a" path="res://sounds/tps godot4/level_level_music.ogg" id="1_85v4u"]
 [ext_resource type="Texture2D" uid="uid://biyoj634ihdr2" path="res://textures/terrain/lunar_core.jpg" id="2_82fn7"]
 [ext_resource type="PackedScene" uid="uid://jswqsqp415ux" path="res://scenes/EXAMPLES 2D/camera/camera_position.tscn" id="4_p6qf5"]
 [ext_resource type="Texture2D" uid="uid://d0hw56kq22g73" path="res://sprites/EXAMPLE 2D/other/reactor/reactor_ground.WEBP" id="4_q8ch4"]

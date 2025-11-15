@@ -19,9 +19,21 @@ var texture_color := Color(1,1,1,1)
 
 func _process(_delta: float) ->void:
 	if is_instance_valid(animator) and animator != null:
-		if animator.current_clip != null:
+		if animator != null:
+			if self.texture !=  animator.spritesheet:
+				self.texture =  animator.spritesheet
+			if self.hframes != animator.tiles_x:
+				self.hframes = animator.tiles_x
+			if self.vframes != animator.tiles_y:
+				self.vframes = animator.tiles_y
+			if self.flip_h != animator.FLIP:
+				self.flip_h = animator.FLIP
+			if self.frame_coords != animator.frame_coords:
+				self.frame_coords = animator.frame_coords
+			
+			
 			if sprite_shield_L != null:
-				sprite_shield_L.texture =  GetSpriteSheet(animator.current_clip.get_name(), 0)
+				sprite_shield_L.texture =  GetSpriteSheet(animator.animation_key, 0)
 				sprite_shield_L.hframes = hframes
 				sprite_shield_L.vframes = vframes
 				sprite_shield_L.flip_h = flip_h
@@ -29,7 +41,7 @@ func _process(_delta: float) ->void:
 
 			
 			if sprite_shield_R != null:
-				sprite_shield_R.texture =  GetSpriteSheet(animator.current_clip.get_name(), 1)
+				sprite_shield_R.texture =  GetSpriteSheet(animator.animation_key, 1)
 				sprite_shield_R.hframes = hframes
 				sprite_shield_R.vframes = vframes
 				sprite_shield_R.flip_h = flip_h

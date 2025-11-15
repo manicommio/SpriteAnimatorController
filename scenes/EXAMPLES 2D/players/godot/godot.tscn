@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://c8w7q8y5wgors"]
+[gd_scene load_steps=81 format=3 uid="uid://c8w7q8y5wgors"]
 
 [ext_resource type="Script" uid="uid://bgseix1kwporh" path="res://scenes/EXAMPLES 2D/players/godot/godot.gd" id="1_avdfw"]
 [ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="1_dt7i4"]
@@ -41,7 +41,7 @@
 [ext_resource type="Script" uid="uid://c5es3q1343hc0" path="res://addons/sprite_animation_controller/animator_space.gd" id="34_kke1o"]
 [ext_resource type="Script" uid="uid://c8gsj4g6vd1oq" path="res://scenes/EXAMPLES 2D/players/godot/state_landing.gd" id="35_dwr5h"]
 [ext_resource type="Script" uid="uid://dbrwc37ktuhyc" path="res://scenes/EXAMPLES 2D/players/godot/weapon.gd" id="36_k3eeo"]
-[ext_resource type="AudioStream" uid="uid://cirlq6lcijq03" path="res://sound/tps godot4/player_audio_step.wav" id="36_ksx0m"]
+[ext_resource type="AudioStream" uid="uid://cirlq6lcijq03" path="res://sounds/tps godot4/player_audio_step.wav" id="36_ksx0m"]
 [ext_resource type="Script" uid="uid://bq6vstfhohi33" path="res://scenes/EXAMPLES 2D/players/godot/state_standing_to_crouch.gd" id="37_7q252"]
 [ext_resource type="Script" uid="uid://dp8yjm6dakiv2" path="res://scenes/EXAMPLES 2D/players/godot/state_crouching_combat.gd" id="37_kke1o"]
 [ext_resource type="Script" uid="uid://3ibnwky6c81m" path="res://scenes/EXAMPLES 2D/players/godot/state_shoot_standing.gd" id="40_n5e53"]
@@ -49,6 +49,735 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v78rw"]
 radius = 20.0
+
+[sub_resource type="Resource" id="Resource_xp4b0"]
+script = ExtResource("3_iwyck")
+tipo_apartado = 0
+directions_number = 2
+actor_target_group = "camera_rotation"
+type_calculation = "ROTATE NODE"
+adjust_velocity_up = 1.0
+compensate_camera_perspective = true
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[sub_resource type="Resource" id="Resource_27awj"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("19_ropuu")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 10.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_keuol"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("20_a5w4n")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 10.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_uyn1q"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("21_nm56e")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 10.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_w0fvw"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("17_5rtib")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_gbr8r"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("18_yxxfa")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_cqywy"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("31_gb2jh")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_klf05"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("32_wefpx")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_0p7ju"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("33_46hrl")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_yv8k0"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("28_ap5jh")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_ku8gk"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("29_0h6f0")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_y4opq"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("30_iktib")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_sbcl6"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("22_vocbw")
+tiles_x = 14
+tiles_y = 8
+frame_per_second = 13.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_ipatb"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("23_sh3rs")
+tiles_x = 14
+tiles_y = 8
+frame_per_second = 13.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_ne66c"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("24_pai3u")
+tiles_x = 14
+tiles_y = 8
+frame_per_second = 13.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_x7m5l"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("25_s5kkl")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 13.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_yttxy"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("26_6fvuk")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 13.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_ke2od"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("27_o8ten")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 13.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_6esdk"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("8_t0ntm")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_2r6qd"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("9_jsygm")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_f2ue8"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("13_45dc1")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_xonuf"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("14_0e2st")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_w5trv"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("15_b1bfl")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 12.0
+frame_index = 0
+once = true
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_8ob25"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("16_dj1fr")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 16.0
+frame_index = 0
+once = true
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_k5hej"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("12_h640s")
+tiles_x = 14
+tiles_y = 8
+frame_per_second = 14.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_y7e21"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("34_3yuaa")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 18.0
+frame_index = 0
+once = true
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_vuo4o"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("10_8juo2")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 10.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_ifpy3"]
+script = ExtResource("6_783ay")
+clip_name = ""
+spritesheet = ExtResource("11_smuuh")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 12.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_h6kj5"]
+script = ExtResource("34_kke1o")
+tipo_apartado = 0
+type_calculation = "ROTATE NODE"
+manual_direction = Vector2(0, 0)
+center_clip = "aim_jump_run"
+C_options = 0
+north_clip = "aim_jump_run"
+N_options = 0
+north_east_clip = "aim_jump_run_forward_left"
+NE_options = 2
+east_clip = "aim_jump_run_left"
+E_options = 2
+south_east_clip = "aim_jump_run_forward_left"
+SE_options = 1
+south_clip = "aim_jump_run"
+S_options = 1
+south_west_clip = "aim_jump_run_forward_left"
+SW_options = 3
+west_clip = "aim_jump_run_left"
+W_options = 0
+north_west_clip = "aim_jump_run_forward_left"
+NW_options = 0
+metadata/_custom_type_script = "uid://c5es3q1343hc0"
+
+[sub_resource type="Resource" id="Resource_4im8b"]
+script = ExtResource("34_kke1o")
+tipo_apartado = 0
+type_calculation = "ROTATE NODE"
+manual_direction = Vector2(0, 0)
+center_clip = "aim_jump_walk"
+C_options = 0
+north_clip = "aim_jump_walk"
+N_options = 0
+north_east_clip = "aim_jump_walk_forward_left"
+NE_options = 2
+east_clip = "aim_jump_walk_left"
+E_options = 2
+south_east_clip = "aim_jump_walk_forward_left"
+SE_options = 1
+south_clip = "aim_jump_walk"
+S_options = 1
+south_west_clip = "aim_jump_walk_forward_left"
+SW_options = 1
+west_clip = "aim_jump_walk_left"
+W_options = 0
+north_west_clip = "aim_jump_walk_forward_left"
+NW_options = 0
+metadata/_custom_type_script = "uid://c5es3q1343hc0"
+
+[sub_resource type="Resource" id="Resource_1mk1t"]
+script = ExtResource("34_kke1o")
+tipo_apartado = 0
+type_calculation = "ROTATE NODE"
+manual_direction = Vector2(0, 0)
+center_clip = "aim_idle_crouching"
+C_options = 0
+north_clip = "aim_crouch_forward"
+N_options = 0
+north_east_clip = "aim_crouch_forward_left"
+NE_options = 2
+east_clip = "aim_crouch_left"
+E_options = 2
+south_east_clip = "aim_crouch_forward_left"
+SE_options = 1
+south_clip = "aim_crouch_forward"
+S_options = 1
+south_west_clip = "aim_crouch_forward_left"
+SW_options = 3
+west_clip = "aim_crouch_left"
+W_options = 0
+north_west_clip = "aim_crouch_forward_left"
+NW_options = 0
+metadata/_custom_type_script = "uid://c5es3q1343hc0"
+
+[sub_resource type="Resource" id="Resource_tlw46"]
+script = ExtResource("34_kke1o")
+tipo_apartado = 0
+type_calculation = "ROTATE NODE"
+manual_direction = Vector2(0, 0)
+center_clip = "aim_idle_standing"
+C_options = 0
+north_clip = "aim_run_forward"
+N_options = 0
+north_east_clip = "aim_run_forward_left"
+NE_options = 2
+east_clip = "aim_run_left"
+E_options = 2
+south_east_clip = "aim_run_forward_left"
+SE_options = 1
+south_clip = "aim_run_forward"
+S_options = 1
+south_west_clip = "aim_run_forward_left"
+SW_options = 3
+west_clip = "aim_run_left"
+W_options = 0
+north_west_clip = "aim_run_forward_left"
+NW_options = 0
+metadata/_custom_type_script = "uid://c5es3q1343hc0"
+
+[sub_resource type="Resource" id="Resource_kss5x"]
+script = ExtResource("34_kke1o")
+tipo_apartado = 0
+type_calculation = "ROTATE NODE"
+manual_direction = Vector2(0, 0)
+center_clip = "aim_idle_standing"
+C_options = 0
+north_clip = "aim_walk_forward"
+N_options = 0
+north_east_clip = "aim_walk_forward_left"
+NE_options = 2
+east_clip = "aim_walk_left"
+E_options = 2
+south_east_clip = "aim_walk_forward_left"
+SE_options = 1
+south_clip = "aim_walk_forward"
+S_options = 1
+south_west_clip = "aim_walk_forward_left"
+SW_options = 3
+west_clip = "aim_walk_left"
+W_options = 0
+north_west_clip = "aim_walk_forward_left"
+NW_options = 0
+metadata/_custom_type_script = "uid://c5es3q1343hc0"
 
 [node name="godot" type="CharacterBody2D"]
 script = ExtResource("1_avdfw")
@@ -78,375 +807,45 @@ script = ExtResource("2_avdfw")
 animator = NodePath("../../../AnimatorController")
 metadata/_custom_type_script = "uid://c78myrtqqe3r7"
 
-[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_2d")]
-script = ExtResource("3_iwyck")
-directions_number = 2
-actor_target_group = "camera_rotation"
-actor_player_2d = NodePath("..")
-metadata/_custom_type_script = "uid://cimtvh6nf04tk"
-
 [node name="AnimatorController" type="Node" parent="."]
 script = ExtResource("4_cm6ub")
-metadata/_custom_type_script = "uid://dpj5ikcvh604q"
-
-[node name="idle_crouch" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("8_t0ntm")
-tiles_x = 8
-tiles_y = 8
-frame_per_second = 4.0
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="idle_standing" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("9_jsygm")
-tiles_x = 8
-tiles_y = 8
-frame_per_second = 4.0
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="walk_crouch" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("10_8juo2")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 10.0
-animator_direction = NodePath("../../AnimatorDirection")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="walk_standing" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("11_smuuh")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 12.0
-animator_direction = NodePath("../../AnimatorDirection")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="run_standing" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("12_h640s")
-tiles_x = 14
-tiles_y = 8
-frame_per_second = 14.0
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="jump_run" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-pause_clip = true
-spritesheet = ExtResource("13_45dc1")
-tiles_x = 8
-tiles_y = 8
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="jump_walk" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-pause_clip = true
-spritesheet = ExtResource("14_0e2st")
-tiles_x = 8
-tiles_y = 8
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="landing_run" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("15_b1bfl")
-tiles_x = 8
-tiles_y = 8
-frame_per_second = 12.0
-once = true
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="landing_walk" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("16_dj1fr")
-tiles_x = 8
-tiles_y = 8
-frame_per_second = 16.0
-once = true
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_idle_crouching" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("17_5rtib")
-tiles_x = 8
-tiles_y = 8
-frame_per_second = 4.0
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_idle_standing" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("18_yxxfa")
-tiles_x = 8
-tiles_y = 8
-frame_per_second = 4.0
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_crouch_forward" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("19_ropuu")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 10.0
-animator_direction = NodePath("../../AnimatorDirection")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_crouch_forward_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("20_a5w4n")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 10.0
-animator_direction = NodePath("../../AnimatorDirection")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_crouch_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("21_nm56e")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 10.0
-animator_direction = NodePath("../../AnimatorDirection")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_run_forward" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("22_vocbw")
-tiles_x = 14
-tiles_y = 8
-frame_per_second = 13.0
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_run_forward_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("23_sh3rs")
-tiles_x = 14
-tiles_y = 8
-frame_per_second = 13.0
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_run_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("24_pai3u")
-tiles_x = 14
-tiles_y = 8
-frame_per_second = 13.0
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_walk_forward" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("25_s5kkl")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 13.0
-animator_direction = NodePath("../../AnimatorDirection")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_walk_forward_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("26_6fvuk")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 13.0
-animator_direction = NodePath("../../AnimatorDirection")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_walk_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("27_o8ten")
-tiles_x = 8
-tiles_y = 16
-frame_per_second = 13.0
-animator_direction = NodePath("../../AnimatorDirection")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_jump_walk" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-pause_clip = true
-spritesheet = ExtResource("28_ap5jh")
-tiles_x = 8
-tiles_y = 8
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_jump_walk_forward_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-pause_clip = true
-spritesheet = ExtResource("29_0h6f0")
-tiles_x = 8
-tiles_y = 8
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_jump_walk_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-pause_clip = true
-spritesheet = ExtResource("30_iktib")
-tiles_x = 8
-tiles_y = 8
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_jump_run" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-pause_clip = true
-spritesheet = ExtResource("31_gb2jh")
-tiles_x = 8
-tiles_y = 8
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_jump_run_forward_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-pause_clip = true
-spritesheet = ExtResource("32_wefpx")
-tiles_x = 8
-tiles_y = 8
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="aim_jump_run_left" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-pause_clip = true
-spritesheet = ExtResource("33_46hrl")
-tiles_x = 8
-tiles_y = 8
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="standing_to_crouch" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction")]
-script = ExtResource("6_783ay")
-spritesheet = ExtResource("34_3yuaa")
-tiles_x = 8
-tiles_y = 8
-frame_per_second = 18.0
-once = true
-animator_direction = NodePath("../../AnimatorDirection")
-two_directions_per_row = true
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="crouch_space" type="Node" parent="AnimatorController" node_paths=PackedStringArray("player_2d", "center_clip", "north_clip", "north_east_clip", "east_clip", "south_east_clip", "south_clip", "south_west_clip", "west_clip", "north_west_clip")]
-script = ExtResource("34_kke1o")
-player_2d = NodePath("../..")
-center_clip = NodePath("../aim_idle_crouching")
-north_clip = NodePath("../aim_crouch_forward")
-north_east_clip = NodePath("../aim_crouch_forward_left")
-NE_options = 2
-east_clip = NodePath("../aim_crouch_left")
-E_options = 2
-south_east_clip = NodePath("../aim_crouch_forward_left")
-SE_options = 1
-south_clip = NodePath("../aim_crouch_forward")
-S_options = 1
-south_west_clip = NodePath("../aim_crouch_forward_left")
-SW_options = 3
-west_clip = NodePath("../aim_crouch_left")
-north_west_clip = NodePath("../aim_crouch_forward_left")
-metadata/_custom_type_script = "uid://c5es3q1343hc0"
-
-[node name="run_space" type="Node" parent="AnimatorController" node_paths=PackedStringArray("player_2d", "center_clip", "north_clip", "north_east_clip", "east_clip", "south_east_clip", "south_clip", "south_west_clip", "west_clip", "north_west_clip")]
-script = ExtResource("34_kke1o")
-player_2d = NodePath("../..")
-center_clip = NodePath("../aim_idle_standing")
-north_clip = NodePath("../aim_run_forward")
-north_east_clip = NodePath("../aim_run_forward_left")
-NE_options = 2
-east_clip = NodePath("../aim_run_left")
-E_options = 2
-south_east_clip = NodePath("../aim_run_forward_left")
-SE_options = 1
-south_clip = NodePath("../aim_run_forward")
-S_options = 1
-south_west_clip = NodePath("../aim_run_forward_left")
-SW_options = 3
-west_clip = NodePath("../aim_run_left")
-north_west_clip = NodePath("../aim_run_forward_left")
-metadata/_custom_type_script = "uid://c5es3q1343hc0"
-
-[node name="walk_space" type="Node" parent="AnimatorController" node_paths=PackedStringArray("player_2d", "center_clip", "north_clip", "north_east_clip", "east_clip", "south_east_clip", "south_clip", "south_west_clip", "west_clip", "north_west_clip")]
-script = ExtResource("34_kke1o")
-player_2d = NodePath("../..")
-center_clip = NodePath("../aim_idle_standing")
-north_clip = NodePath("../aim_walk_forward")
-north_east_clip = NodePath("../aim_walk_forward_left")
-NE_options = 2
-east_clip = NodePath("../aim_walk_left")
-E_options = 2
-south_east_clip = NodePath("../aim_walk_forward_left")
-SE_options = 1
-south_clip = NodePath("../aim_walk_forward")
-S_options = 1
-south_west_clip = NodePath("../aim_walk_forward_left")
-SW_options = 3
-west_clip = NodePath("../aim_walk_left")
-north_west_clip = NodePath("../aim_walk_forward_left")
-metadata/_custom_type_script = "uid://c5es3q1343hc0"
-
-[node name="aim_jump_run_space" type="Node" parent="AnimatorController" node_paths=PackedStringArray("player_2d", "center_clip", "north_clip", "north_east_clip", "east_clip", "south_east_clip", "south_clip", "south_west_clip", "west_clip", "north_west_clip")]
-script = ExtResource("34_kke1o")
-player_2d = NodePath("../..")
-center_clip = NodePath("../aim_jump_run")
-north_clip = NodePath("../aim_jump_run")
-north_east_clip = NodePath("../aim_jump_run_forward_left")
-NE_options = 2
-east_clip = NodePath("../aim_jump_run_left")
-E_options = 2
-south_east_clip = NodePath("../aim_jump_run_forward_left")
-SE_options = 1
-south_clip = NodePath("../aim_jump_run")
-S_options = 1
-south_west_clip = NodePath("../aim_jump_run_forward_left")
-SW_options = 3
-west_clip = NodePath("../aim_jump_run_left")
-north_west_clip = NodePath("../aim_jump_run_forward_left")
-metadata/_custom_type_script = "uid://c5es3q1343hc0"
-
-[node name="aim_jump_walk_space" type="Node" parent="AnimatorController" node_paths=PackedStringArray("player_2d", "center_clip", "north_clip", "north_east_clip", "east_clip", "south_east_clip", "south_clip", "south_west_clip", "west_clip", "north_west_clip")]
-script = ExtResource("34_kke1o")
-player_2d = NodePath("../..")
-center_clip = NodePath("../aim_jump_walk")
-north_clip = NodePath("../aim_jump_walk")
-north_east_clip = NodePath("../aim_jump_walk_forward_left")
-NE_options = 2
-east_clip = NodePath("../aim_jump_walk_left")
-E_options = 2
-south_east_clip = NodePath("../aim_jump_walk_forward_left")
-SE_options = 1
-south_clip = NodePath("../aim_jump_walk")
-S_options = 1
-south_west_clip = NodePath("../aim_jump_walk_forward_left")
-SW_options = 3
-west_clip = NodePath("../aim_jump_walk_left")
-north_west_clip = NodePath("../aim_jump_walk_forward_left")
+animator_direction = SubResource("Resource_xp4b0")
+clip_library = Dictionary[String, ExtResource("6_783ay")]({
+"aim_crouch_forward": SubResource("Resource_27awj"),
+"aim_crouch_forward_left": SubResource("Resource_keuol"),
+"aim_crouch_left": SubResource("Resource_uyn1q"),
+"aim_idle_crouching": SubResource("Resource_w0fvw"),
+"aim_idle_standing": SubResource("Resource_gbr8r"),
+"aim_jump_run": SubResource("Resource_cqywy"),
+"aim_jump_run_forward_left": SubResource("Resource_klf05"),
+"aim_jump_run_left": SubResource("Resource_0p7ju"),
+"aim_jump_walk": SubResource("Resource_yv8k0"),
+"aim_jump_walk_forward_left": SubResource("Resource_ku8gk"),
+"aim_jump_walk_left": SubResource("Resource_y4opq"),
+"aim_run_forward": SubResource("Resource_sbcl6"),
+"aim_run_forward_left": SubResource("Resource_ipatb"),
+"aim_run_left": SubResource("Resource_ne66c"),
+"aim_walk_forward": SubResource("Resource_x7m5l"),
+"aim_walk_forward_left": SubResource("Resource_yttxy"),
+"aim_walk_left": SubResource("Resource_ke2od"),
+"idle_crouch": SubResource("Resource_6esdk"),
+"idle_standing": SubResource("Resource_2r6qd"),
+"jump_run": SubResource("Resource_f2ue8"),
+"jump_walk": SubResource("Resource_xonuf"),
+"landing_run": SubResource("Resource_w5trv"),
+"landing_walk": SubResource("Resource_8ob25"),
+"run_standing": SubResource("Resource_k5hej"),
+"standing_to_crouch": SubResource("Resource_y7e21"),
+"walk_crouch": SubResource("Resource_vuo4o"),
+"walk_standing": SubResource("Resource_ifpy3")
+})
+space_library = Dictionary[String, ExtResource("34_kke1o")]({
+"aim_jump_run_space": SubResource("Resource_h6kj5"),
+"aim_jump_walk_space": SubResource("Resource_4im8b"),
+"crouch_space": SubResource("Resource_1mk1t"),
+"run_space": SubResource("Resource_tlw46"),
+"walk_space": SubResource("Resource_kss5x")
+})
 metadata/_custom_type_script = "uid://c5es3q1343hc0"
 
 [node name="StateMachine" type="Node" parent="."]

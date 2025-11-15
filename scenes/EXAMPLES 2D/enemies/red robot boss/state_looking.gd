@@ -14,9 +14,9 @@ func enter() ->void:
 	
 	state_time = 0
 	this_state = "ini"
-	animator.clip_library[animation_name].frame_index = 0
-	animator.clip_library[animation_name].play_backward = false
-	animator.clip_library[animation_name].pause_clip = false  
+	animator.frame_index = 0
+	animator.play_backward = false
+	animator.pause_clip = false  
 	animator.PlayAnimation(animation_name)
 	player.get_node("AudioLook").play() 
 	
@@ -31,24 +31,24 @@ func update(delta:float) -> void:
 	
 	match this_state:
 		"ini":
-			if animator.clip_library[animation_name].frame_index >= 7:
-				animator.clip_library[animation_name].frame_index = 7
-				animator.clip_library[animation_name].pause_clip = true 
+			if animator.frame_index >= 7:
+				animator.frame_index = 7
+				animator.pause_clip = true 
 				this_state = "pause"
 		
 		"pause":
 			state_time += delta
 			if state_time >= time_looking[choice_time]:
 				state_time = 0
-				animator.clip_library[animation_name].frame_index = 7
-				animator.clip_library[animation_name].play_backward = true
-				animator.clip_library[animation_name].pause_clip = false
+				animator.frame_index = 7
+				animator.play_backward = true
+				animator.pause_clip = false
 				player.get_node("AudioLook").play() 
 				this_state = "end"
 		
 		"end":
-			if animator.clip_library[animation_name].frame_index <= 0:
-				animator.clip_library[animation_name].frame_index = 0
-				animator.clip_library[animation_name].play_backward = false
-				animator.clip_library[animation_name].pause_clip = false 
+			if animator.frame_index <= 0:
+				animator.frame_index = 0
+				animator.play_backward = false
+				animator.pause_clip = false 
 				emit_signal("change_state","idle")

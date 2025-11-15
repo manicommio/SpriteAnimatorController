@@ -44,6 +44,6 @@ func Shoot(animation_direction:Vector2) ->void:
 func ChangeTexture(action:bool):
 	if animator.current_clip != null:
 		if action:
-			animator.clip_library["shot_grenade"].spritesheet = sprite_sheet[1]
+			animator.spritesheet = sprite_sheet[1]
 		else:
-			animator.clip_library["shot_grenade"].spritesheet = sprite_sheet[0]
+			animator.spritesheet = sprite_sheet[0]

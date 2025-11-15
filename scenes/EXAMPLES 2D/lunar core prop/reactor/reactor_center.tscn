@@ -1,12 +1,44 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfymx3gy6l5xe"]
+[gd_scene load_steps=11 format=3 uid="uid://cfymx3gy6l5xe"]
 
 [ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="1_5bu4r"]
 [ext_resource type="Script" uid="uid://k8n4sx0lrgn1" path="res://scenes/EXAMPLES 2D/lunar core prop/reactor/reactor_center.gd" id="1_72pug"]
 [ext_resource type="Texture2D" uid="uid://dwarkljs88hwn" path="res://textures/shadow.png" id="3_gh0wh"]
 [ext_resource type="Script" uid="uid://cimtvh6nf04tk" path="res://addons/sprite_animation_controller/animator_direction.gd" id="3_wmkv3"]
 [ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="4_ruwts"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="5_7kyn8"]
 [ext_resource type="Texture2D" uid="uid://cm8tuiuny6ru2" path="res://sprites/EXAMPLE 2D/other/reactor/reactor_center.WEBP" id="6_hqkny"]
 [ext_resource type="Texture2D" uid="uid://c4sb37l2n36bj" path="res://sprites/EXAMPLE 2D/other/reactor/reactor_sun.WEBP" id="7_hqkny"]
+
+[sub_resource type="Resource" id="Resource_qekvp"]
+script = ExtResource("3_wmkv3")
+tipo_apartado = 0
+directions_number = 13
+actor_target_group = "camera_rotation"
+type_calculation = "ROTATE NODE"
+adjust_velocity_up = 1.0
+compensate_camera_perspective = true
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[sub_resource type="Resource" id="Resource_2csoi"]
+script = ExtResource("4_ruwts")
+clip_name = ""
+tiles_x = 12
+tiles_y = 12
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = true
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [node name="reactor_center" type="Node2D"]
 script = ExtResource("1_72pug")
@@ -30,32 +62,17 @@ offset = Vector2(0, -24)
 
 [node name="sun" type="Sprite2D" parent="proyector/lift"]
 position = Vector2(0, -300)
+texture = ExtResource("7_hqkny")
+hframes = 6
+vframes = 6
 
-[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_2d")]
-script = ExtResource("3_wmkv3")
-directions_number = 13
-actor_target_group = "camera_rotation"
-actor_player_2d = NodePath("..")
-type_calculation = "ROTATE NODE"
-metadata/_custom_type_script = "uid://cimtvh6nf04tk"
-
-[node name="reactor" type="Node" parent="." node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("4_ruwts")
+[node name="AnimatorController" type="Node" parent="." node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("5_7kyn8")
 auto_start = true
 spritesheet = ExtResource("6_hqkny")
-tiles_x = 12
-tiles_y = 12
-animator_direction = NodePath("../AnimatorDirection")
-one_frame_per_direction = true
+animator_direction = SubResource("Resource_qekvp")
+clip_library = Dictionary[String, ExtResource("4_ruwts")]({
+"animation": SubResource("Resource_2csoi")
+})
 sprite_2d = NodePath("../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="sun" type="Node" parent="." node_paths=PackedStringArray("sprite_2d")]
-script = ExtResource("4_ruwts")
-auto_start = true
-spritesheet = ExtResource("7_hqkny")
-tiles_x = 6
-tiles_y = 6
-frame_per_second = 14.0
-sprite_2d = NodePath("../proyector/lift/sun")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"

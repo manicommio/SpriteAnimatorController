@@ -18,12 +18,13 @@ func enter() -> void:
 	else:
 		animation_name = "jump_walk"
 	
+	animator.pause_clip = true
 	animator.PlayAnimation(animation_name)
 
 	player.is_crouch = false
 	direction = Vector2.ZERO
 	double_jump = false
-	player.get_node("Audio_jump").stream = load("res://sound/tps godot4/player_audio_jump.wav")
+	player.get_node("Audio_jump").stream = load("res://sounds/tps godot4/player_audio_jump.wav")
 	if player.jump_velocity>0:
 		player.get_node("Audio_jump").play()
 	
@@ -35,40 +36,19 @@ func update(delta:float) -> void:
 	direction = Vector2(hwd, fwd).normalized()
 	#________________________________________________________
 	if player.jump_velocity>=3 :
-		animator.clip_library[animation_name].frame_index = 0
-		animator.clip_library["aim_jump_walk"].frame_index = 0
-		animator.clip_library["aim_jump_walk_forward_left"].frame_index = 0
-		animator.clip_library["aim_jump_walk_left"].frame_index = 0
-		animator.clip_library["aim_jump_run"].frame_index = 0
-		animator.clip_library["aim_jump_run_forward_left"].frame_index = 0
-		animator.clip_library["aim_jump_run_left"].frame_index = 0
+		animator.frame_index = 0
 
 	elif player.jump_velocity>=0  and player.jump_velocity<3:
-		animator.clip_library[animation_name].frame_index = 1
-		animator.clip_library["aim_jump_walk"].frame_index = 1
-		animator.clip_library["aim_jump_walk_forward_left"].frame_index = 1
-		animator.clip_library["aim_jump_walk_left"].frame_index = 1
-		animator.clip_library["aim_jump_run"].frame_index = 1
-		animator.clip_library["aim_jump_run_forward_left"].frame_index = 1
-		animator.clip_library["aim_jump_run_left"].frame_index = 1
+		animator.frame_index = 1
+
 	
 	elif player.jump_velocity>=-5  and player.jump_velocity<0:
-		animator.clip_library[animation_name].frame_index = 2
-		animator.clip_library["aim_jump_walk"].frame_index = 2
-		animator.clip_library["aim_jump_walk_forward_left"].frame_index = 2
-		animator.clip_library["aim_jump_walk_left"].frame_index = 2
-		animator.clip_library["aim_jump_run"].frame_index = 2
-		animator.clip_library["aim_jump_run_forward_left"].frame_index = 2
-		animator.clip_library["aim_jump_run_left"].frame_index = 2
+		animator.frame_index = 2
+
 	
 	elif player.jump_velocity<-5:
-		animator.clip_library[animation_name].frame_index = 3
-		animator.clip_library["aim_jump_walk"].frame_index = 3
-		animator.clip_library["aim_jump_walk_forward_left"].frame_index = 3
-		animator.clip_library["aim_jump_walk_left"].frame_index = 3
-		animator.clip_library["aim_jump_run"].frame_index = 3
-		animator.clip_library["aim_jump_run_forward_left"].frame_index = 3
-		animator.clip_library["aim_jump_run_left"].frame_index = 3
+		animator.frame_index = 3
+
 
 	#_____________________________________________________________
 	if player.is_grounded:

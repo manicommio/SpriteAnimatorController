@@ -68,8 +68,8 @@ func _process(_delta:float) ->void:
 	if state_machine .current_state != null:
 		state = state_machine .current_state.get_name()
 	#______________________________________________
-	if animator.current_clip != null:
-		animator.current_clip.FLIP = FLIP
+	if animator != null:
+		animator.FLIP = FLIP
 	#______________________________________________
 	if state != "death":
 		if current_health <= 0:

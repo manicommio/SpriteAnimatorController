@@ -18,7 +18,7 @@ const lista_armas = {
 		"size_bullet" : 10.0,
 		"alcence" : 768.0, 
 		"recargando":false,
-		"audio" : "res://sound/tps godot4/player_audio_shoot.wav",
+		"audio" : "res://sounds/tps godot4/player_audio_shoot.wav",
 		"look_aim": 30.0,
 		"pool_type" : 0,
 		"function": "GenerateBullet",

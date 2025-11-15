@@ -1,18 +1,61 @@
-[gd_scene load_steps=12 format=3 uid="uid://bm0s63fqp380p"]
+[gd_scene load_steps=15 format=3 uid="uid://bm0s63fqp380p"]
 
 [ext_resource type="Script" uid="uid://b88xsawknrrbm" path="res://scenes/EXAMPLES 3D/player/player_doom.gd" id="1_8j247"]
 [ext_resource type="Texture2D" uid="uid://kii3px7hpgk7" path="res://textures/crosshair.png" id="3_1hdts"]
-[ext_resource type="AudioStream" uid="uid://e8gn8egbkno6" path="res://sound/tps godot4/player_audio_shoot.wav" id="3_8fi3f"]
+[ext_resource type="AudioStream" uid="uid://e8gn8egbkno6" path="res://sounds/tps godot4/player_audio_shoot.wav" id="3_8fi3f"]
 [ext_resource type="Script" uid="uid://unxrexqfchm8" path="res://scenes/EXAMPLES 3D/player/control_weapons.gd" id="4_kc50d"]
 [ext_resource type="Script" uid="uid://bfnwnsmruvo7s" path="res://scenes/EXAMPLES 3D/player/pistol.gd" id="5_6iukg"]
 [ext_resource type="Texture2D" uid="uid://bpsva8yiipaw2" path="res://sprites/EXAMPLE 3D/player/weapon/pistol.WEBP" id="5_vvnmj"]
 [ext_resource type="Texture2D" uid="uid://cg4csrmo2ieob" path="res://sprites/EXAMPLE 3D/player/weapon/pistol_triad.WEBP" id="5_x55ba"]
 [ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="6_i23w0"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="7_kc50d"]
 [ext_resource type="Texture2D" uid="uid://leq11tn7w37l" path="res://sprites/EXAMPLE 3D/player/weapon/pistol_flash.WEBP" id="7_x55ba"]
 [ext_resource type="Script" uid="uid://dfk1kwdqqcbf1" path="res://scenes/EXAMPLES 3D/player/pistol_2.gd" id="9_gy0qg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j6m8k"]
 height = 1.25
+
+[sub_resource type="Resource" id="Resource_kc50d"]
+script = ExtResource("6_i23w0")
+clip_name = ""
+tiles_x = 3
+tiles_y = 1
+frame_per_second = 10.0
+frame_index = 0
+once = true
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_rr8ih"]
+script = ExtResource("6_i23w0")
+clip_name = ""
+tiles_x = 3
+tiles_y = 1
+frame_per_second = 10.0
+frame_index = 0
+once = true
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [node name="player_doom" type="CharacterBody3D"]
 floor_snap_length = 0.5
@@ -74,38 +117,10 @@ grow_vertical = 0
 [node name="control_weapons" type="Node2D" parent="Control/weapons"]
 script = ExtResource("4_kc50d")
 
-[node name="pistol2" type="Node2D" parent="Control/weapons/control_weapons" node_paths=PackedStringArray("ray_cast", "animator_clip")]
-visible = false
-script = ExtResource("9_gy0qg")
-ray_cast = NodePath("../../../../crouch/head/Camera3D/RayCamera")
-animator_clip = NodePath("AnimatorClip")
-
-[node name="Pistol" type="Sprite2D" parent="Control/weapons/control_weapons/pistol2"]
-texture_filter = 1
-scale = Vector2(2, 2)
-texture = ExtResource("5_x55ba")
-offset = Vector2(1, -42)
-hframes = 3
-
-[node name="AnimatorClip" type="Node" parent="Control/weapons/control_weapons/pistol2" node_paths=PackedStringArray("sprite_2d")]
-script = ExtResource("6_i23w0")
-auto_start = true
-spritesheet = ExtResource("5_x55ba")
-tiles_x = 3
-frame_per_second = 10.0
-once = true
-sprite_2d = NodePath("../Pistol")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="Audio" type="AudioStreamPlayer2D" parent="Control/weapons/control_weapons/pistol2"]
-position = Vector2(0, -48)
-stream = ExtResource("3_8fi3f")
-
-[node name="pistol" type="Node2D" parent="Control/weapons/control_weapons" node_paths=PackedStringArray("ray_cast", "animator_clip")]
-visible = false
+[node name="pistol" type="Node2D" parent="Control/weapons/control_weapons" node_paths=PackedStringArray("ray_cast", "animator_controller")]
 script = ExtResource("5_6iukg")
 ray_cast = NodePath("../../../../crouch/head/Camera3D/RayCamera")
-animator_clip = NodePath("AnimatorClip")
+animator_controller = NodePath("AnimatorController")
 
 [node name="Pistol" type="Sprite2D" parent="Control/weapons/control_weapons/pistol"]
 texture_filter = 1
@@ -122,16 +137,43 @@ position = Vector2(0, -89)
 scale = Vector2(1.15, 1.15)
 texture = ExtResource("7_x55ba")
 
-[node name="AnimatorClip" type="Node" parent="Control/weapons/control_weapons/pistol" node_paths=PackedStringArray("sprite_2d")]
-script = ExtResource("6_i23w0")
-auto_start = true
-spritesheet = ExtResource("5_vvnmj")
-tiles_x = 3
-frame_per_second = 10.0
-once = true
-sprite_2d = NodePath("../Pistol")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
 [node name="Audio" type="AudioStreamPlayer2D" parent="Control/weapons/control_weapons/pistol"]
 position = Vector2(0, -48)
 stream = ExtResource("3_8fi3f")
+
+[node name="AnimatorController" type="Node" parent="Control/weapons/control_weapons/pistol" node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("7_kc50d")
+auto_start = true
+spritesheet = ExtResource("5_vvnmj")
+clip_library = Dictionary[String, ExtResource("6_i23w0")]({
+"animation": SubResource("Resource_kc50d")
+})
+sprite_2d = NodePath("../Pistol")
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"
+
+[node name="pistol2" type="Node2D" parent="Control/weapons/control_weapons" node_paths=PackedStringArray("ray_cast", "animator_controller")]
+visible = false
+script = ExtResource("9_gy0qg")
+ray_cast = NodePath("../../../../crouch/head/Camera3D/RayCamera")
+animator_controller = NodePath("AnimatorController")
+
+[node name="Pistol" type="Sprite2D" parent="Control/weapons/control_weapons/pistol2"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("5_x55ba")
+offset = Vector2(1, -42)
+hframes = 3
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Control/weapons/control_weapons/pistol2"]
+position = Vector2(0, -48)
+stream = ExtResource("3_8fi3f")
+
+[node name="AnimatorController" type="Node" parent="Control/weapons/control_weapons/pistol2" node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("7_kc50d")
+auto_start = true
+spritesheet = ExtResource("5_x55ba")
+clip_library = Dictionary[String, ExtResource("6_i23w0")]({
+"animation": SubResource("Resource_rr8ih")
+})
+sprite_2d = NodePath("../Pistol")
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"

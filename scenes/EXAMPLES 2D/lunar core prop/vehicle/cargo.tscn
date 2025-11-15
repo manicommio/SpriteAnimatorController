@@ -1,12 +1,44 @@
-[gd_scene load_steps=8 format=3 uid="uid://i8vpqro8n52s"]
+[gd_scene load_steps=11 format=3 uid="uid://i8vpqro8n52s"]
 
 [ext_resource type="Script" uid="uid://vixgo1e1jtve" path="res://scenes/EXAMPLES 2D/lunar core prop/reactor/prop_base.gd" id="1_h02qd"]
 [ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="2_lyius"]
 [ext_resource type="Texture2D" uid="uid://dwarkljs88hwn" path="res://textures/shadow.png" id="3_sl8mn"]
 [ext_resource type="Texture2D" uid="uid://bno7ung3ry1tt" path="res://sprites/EXAMPLE 2D/other/vehicle/cargo1_guide.png" id="4_lyius"]
 [ext_resource type="Script" uid="uid://cimtvh6nf04tk" path="res://addons/sprite_animation_controller/animator_direction.gd" id="4_ywk76"]
-[ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="5_mc8ml"]
-[ext_resource type="Texture2D" uid="uid://kxkjemde5qqv" path="res://sprites/EXAMPLE 2D/other/vehicle/vehicle_cargo1.WEBP" id="7_lyius"]
+[ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="7_adnbp"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="8_adnbp"]
+[ext_resource type="Texture2D" uid="uid://kxkjemde5qqv" path="res://sprites/EXAMPLE 2D/other/vehicle/vehicle_cargo1.WEBP" id="8_w6b3c"]
+
+[sub_resource type="Resource" id="Resource_2rhh6"]
+script = ExtResource("4_ywk76")
+tipo_apartado = 0
+directions_number = 13
+actor_target_group = "camera_rotation"
+type_calculation = "ROTATE NODE"
+adjust_velocity_up = 1.0
+compensate_camera_perspective = true
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[sub_resource type="Resource" id="Resource_kqqug"]
+script = ExtResource("7_adnbp")
+clip_name = ""
+tiles_x = 12
+tiles_y = 12
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = true
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [node name="vehicle_cargo" type="Node2D"]
 script = ExtResource("1_h02qd")
@@ -29,21 +61,13 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("4_lyius")
 offset = Vector2(0, -27)
 
-[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_2d")]
-script = ExtResource("4_ywk76")
-directions_number = 13
-actor_target_group = "camera_rotation"
-actor_player_2d = NodePath("..")
-type_calculation = "ROTATE NODE"
-metadata/_custom_type_script = "uid://cimtvh6nf04tk"
-
-[node name="animatorClip" type="Node" parent="." node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("5_mc8ml")
+[node name="AnimatorController" type="Node" parent="." node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("8_adnbp")
 auto_start = true
-spritesheet = ExtResource("7_lyius")
-tiles_x = 12
-tiles_y = 12
-animator_direction = NodePath("../AnimatorDirection")
-one_frame_per_direction = true
+spritesheet = ExtResource("8_w6b3c")
+animator_direction = SubResource("Resource_2rhh6")
+clip_library = Dictionary[String, ExtResource("7_adnbp")]({
+"animation": SubResource("Resource_kqqug")
+})
 sprite_2d = NodePath("../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"

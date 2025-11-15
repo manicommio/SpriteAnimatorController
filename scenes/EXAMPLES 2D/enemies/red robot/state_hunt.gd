@@ -29,5 +29,5 @@ func update(delta:float) -> void:
 	player.move_dir = 1.0
 	animator.PlayAnimation("walk")
 	
-	if animator.clip_library["walk"].KeyFrame(3,true) or animator.clip_library["walk"].KeyFrame(6,true):
+	if animator.KeyFrame(3,true) or animator.KeyFrame(6,true):
 		player.get_node("AudioStep").play() 

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://e8gn8egbkno6"
+path="res://.godot/imported/player_audio_shoot.wav-2ceb721db0a98c7712132e267ec9041c.sample"
+
+[deps]
+
+source_file="res://sounds/tps godot4/player_audio_shoot.wav"
+dest_files=["res://.godot/imported/player_audio_shoot.wav-2ceb721db0a98c7712132e267ec9041c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -5,8 +5,7 @@ var direction_bullet :Vector2
 
 func enter() -> void:
 	velocity = player.velocity.y
-	#animator.clip_library["jump"].FLIP = player.FLIP
-	
+	animator.pause_clip = true
 	
 func physics_update(_delta:float) ->void:
 
@@ -18,25 +17,40 @@ func physics_update(_delta:float) ->void:
 		velocity = player.velocity.y
 		
 	if player.velocity.y<= -150 :
-		animator.clip_library["jump_look_right"].frame_index = 16
-		animator.clip_library["jump_look_down"].frame_index = 19
-		animator.clip_library["jump_look_right_down"].frame_index = 22
-		animator.clip_library["jump_look_right_up"].frame_index = 25
-		animator.clip_library["jump_look_up"].frame_index = 28
+		if animator.animation_key == "jump_look_right":
+			animator.frame_index = 16
+		elif animator.animation_key == "jump_look_down":
+			animator.frame_index = 19
+		elif animator.animation_key == "jump_look_right_down":
+			animator.frame_index = 22
+		elif animator.animation_key == "jump_look_right_up":
+			animator.frame_index = 25
+		elif animator.animation_key == "jump_look_up":
+			animator.frame_index = 28
 	
 	if player.velocity.y<=150  and player.velocity.y> -150:
-		animator.clip_library["jump_look_right"].frame_index = 16+1
-		animator.clip_library["jump_look_down"].frame_index = 19+1
-		animator.clip_library["jump_look_right_down"].frame_index = 22+1
-		animator.clip_library["jump_look_right_up"].frame_index = 25+1
-		animator.clip_library["jump_look_up"].frame_index = 28+1
+		if animator.animation_key == "jump_look_right":
+			animator.frame_index = 16+1
+		elif animator.animation_key == "jump_look_down":
+			animator.frame_index = 19+1
+		elif animator.animation_key == "jump_look_right_down":
+			animator.frame_index = 22+1
+		elif animator.animation_key == "jump_look_right_up":
+			animator.frame_index = 25+1
+		elif animator.animation_key == "jump_look_up":
+			animator.frame_index = 28+1
 
 	elif player.velocity.y>150: 
-		animator.clip_library["jump_look_right"].frame_index = 16+2
-		animator.clip_library["jump_look_down"].frame_index = 19+2
-		animator.clip_library["jump_look_right_down"].frame_index = 22+2
-		animator.clip_library["jump_look_right_up"].frame_index = 25+2
-		animator.clip_library["jump_look_up"].frame_index = 28+2
+		if animator.animation_key == "jump_look_right":
+			animator.frame_index = 16+2
+		elif animator.animation_key == "jump_look_down":
+			animator.frame_index = 19+2
+		elif animator.animation_key == "jump_look_right_down":
+			animator.frame_index = 22+2
+		elif animator.animation_key == "jump_look_right_up":
+			animator.frame_index = 25+2
+		elif animator.animation_key == "jump_look_up":
+			animator.frame_index = 28+2
 	
 	#__________________________________________________
 	if player.is_on_floor():

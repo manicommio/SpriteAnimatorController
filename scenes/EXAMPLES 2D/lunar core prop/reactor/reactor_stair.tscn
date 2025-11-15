@@ -1,11 +1,43 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2367nfl442xb"]
+[gd_scene load_steps=10 format=3 uid="uid://d2367nfl442xb"]
 
 [ext_resource type="Script" uid="uid://vixgo1e1jtve" path="res://scenes/EXAMPLES 2D/lunar core prop/reactor/prop_base.gd" id="1_wicig"]
 [ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="2_jqqvd"]
 [ext_resource type="Script" uid="uid://cimtvh6nf04tk" path="res://addons/sprite_animation_controller/animator_direction.gd" id="3_fyp6d"]
 [ext_resource type="Texture2D" uid="uid://dwarkljs88hwn" path="res://textures/shadow.png" id="3_jqqvd"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="4_fw48c"]
 [ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="4_y6b1g"]
 [ext_resource type="Texture2D" uid="uid://dl1kbdlv3bski" path="res://sprites/EXAMPLE 2D/other/reactor/reactor_stair.WEBP" id="6_spf2g"]
+
+[sub_resource type="Resource" id="Resource_uvuft"]
+script = ExtResource("3_fyp6d")
+tipo_apartado = 0
+directions_number = 13
+actor_target_group = "camera_rotation"
+type_calculation = "ROTATE NODE"
+adjust_velocity_up = 1.0
+compensate_camera_perspective = true
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[sub_resource type="Resource" id="Resource_htp0e"]
+script = ExtResource("4_y6b1g")
+clip_name = ""
+tiles_x = 12
+tiles_y = 12
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = true
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [node name="reactor_stair" type="Node2D"]
 script = ExtResource("1_wicig")
@@ -28,20 +60,13 @@ texture_filter = 1
 scale = Vector2(3.5, 3.5)
 offset = Vector2(0, -64)
 
-[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_2d")]
-script = ExtResource("3_fyp6d")
-directions_number = 13
-actor_target_group = "camera_rotation"
-actor_player_2d = NodePath("..")
-metadata/_custom_type_script = "uid://cimtvh6nf04tk"
-
-[node name="animatorClip" type="Node" parent="." node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("4_y6b1g")
+[node name="AnimatorController" type="Node" parent="." node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("4_fw48c")
 auto_start = true
 spritesheet = ExtResource("6_spf2g")
-tiles_x = 12
-tiles_y = 12
-animator_direction = NodePath("../AnimatorDirection")
-one_frame_per_direction = true
+animator_direction = SubResource("Resource_uvuft")
+clip_library = Dictionary[String, ExtResource("4_y6b1g")]({
+"animation": SubResource("Resource_htp0e")
+})
 sprite_2d = NodePath("../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"

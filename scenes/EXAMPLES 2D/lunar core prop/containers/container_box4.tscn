@@ -1,11 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0a1ywqmaoxha"]
+[gd_scene load_steps=8 format=3 uid="uid://b0a1ywqmaoxha"]
 
 [ext_resource type="Script" uid="uid://vixgo1e1jtve" path="res://scenes/EXAMPLES 2D/lunar core prop/reactor/prop_base.gd" id="1_4uen8"]
 [ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="2_h67h7"]
 [ext_resource type="Texture2D" uid="uid://dwarkljs88hwn" path="res://textures/shadow.png" id="3_iprvs"]
 [ext_resource type="Script" uid="uid://cimtvh6nf04tk" path="res://addons/sprite_animation_controller/animator_direction.gd" id="4_5xn6q"]
-[ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="5_lcd54"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="4_cf3dc"]
 [ext_resource type="Texture2D" uid="uid://b38umqpacbfst" path="res://sprites/EXAMPLE 2D/other/containers/container_box4.WEBP" id="6_4uen8"]
+
+[sub_resource type="Resource" id="Resource_wilyq"]
+script = ExtResource("4_5xn6q")
+tipo_apartado = 0
+directions_number = 13
+actor_target_group = "camera_rotation"
+type_calculation = "ROTATE NODE"
+adjust_velocity_up = 1.0
+compensate_camera_perspective = true
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
 
 [node name="container_box4" type="Node2D"]
 script = ExtResource("1_4uen8")
@@ -29,21 +39,9 @@ offset = Vector2(0, -34)
 hframes = 12
 vframes = 12
 
-[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_2d")]
-script = ExtResource("4_5xn6q")
-directions_number = 13
-actor_target_group = "camera_rotation"
-actor_player_2d = NodePath("..")
-type_calculation = "ROTATE NODE"
-metadata/_custom_type_script = "uid://cimtvh6nf04tk"
-
-[node name="animatorClip" type="Node" parent="." node_paths=PackedStringArray("animator_direction", "sprite_2d")]
-script = ExtResource("5_lcd54")
+[node name="AnimatorController" type="Node" parent="."]
+script = ExtResource("4_cf3dc")
 auto_start = true
 spritesheet = ExtResource("6_4uen8")
-tiles_x = 12
-tiles_y = 12
-animator_direction = NodePath("../AnimatorDirection")
-one_frame_per_direction = true
-sprite_2d = NodePath("../proyector/lift/Sprite2D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
+animator_direction = SubResource("Resource_wilyq")
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"

@@ -9,6 +9,8 @@ var camera :Node2D = null
 
 var sun_scale := 0.0
 var invert := false
+var tiempo :float = 0.0
+
 
 func _ready() ->void:
 	var mCam = get_tree().get_nodes_in_group("camera")
@@ -46,5 +48,10 @@ func _process(delta:float) ->void:
 		else:
 			sun_scale = 2.0
 			invert = true
-	
+	var sun :Sprite2D = proyector.lift.get_node("sun")
 	proyector.lift.get_node("sun").self_modulate = Color(1 + sun_scale, 1+ sun_scale, 1 + sun_scale, 1)
+	
+	tiempo += 12 * delta
+	if tiempo >= 1:
+		tiempo = 0
+		sun.frame = wrapi(sun.frame + 1, 0, sun.hframes * sun.vframes)

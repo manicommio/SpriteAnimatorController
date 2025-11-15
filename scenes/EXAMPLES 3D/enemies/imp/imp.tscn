@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ic73sy4x1jom"]
+[gd_scene load_steps=22 format=3 uid="uid://ic73sy4x1jom"]
 
 [ext_resource type="Script" uid="uid://cu4s87uxp2v5y" path="res://scenes/EXAMPLES 3D/enemies/imp/imp.gd" id="1_jqvgf"]
 [ext_resource type="Texture2D" uid="uid://c2df7i6h3t8k7" path="res://sprites/EXAMPLE 3D/Imp/idle.png" id="2_bw7qg"]
@@ -17,6 +17,126 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ggee2"]
 
+[sub_resource type="Resource" id="Resource_qeoed"]
+script = ExtResource("2_cx8o7")
+tipo_apartado = 1
+directions_number = 0
+actor_target_group = "camera"
+type_calculation = "ROTATE NODE"
+adjust_velocity_up = 1.0
+compensate_camera_perspective = true
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[sub_resource type="Resource" id="Resource_ibmix"]
+script = ExtResource("4_bw7qg")
+clip_name = ""
+spritesheet = ExtResource("2_bw7qg")
+tiles_x = 1
+tiles_y = 5
+frame_per_second = 2.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = false
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = true
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_tdrke"]
+script = ExtResource("4_bw7qg")
+clip_name = ""
+spritesheet = ExtResource("6_ggee2")
+tiles_x = 4
+tiles_y = 5
+frame_per_second = 7.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = false
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = true
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_sdr28"]
+script = ExtResource("4_bw7qg")
+clip_name = ""
+spritesheet = ExtResource("7_dkan2")
+tiles_x = 3
+tiles_y = 5
+frame_per_second = 6.0
+frame_index = 0
+once = true
+use_animator_direction = true
+sprite_full_directions = false
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = true
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_2b448"]
+script = ExtResource("4_bw7qg")
+clip_name = ""
+spritesheet = ExtResource("7_8hh4k")
+tiles_x = 1
+tiles_y = 5
+frame_per_second = 4.0
+frame_index = 0
+once = true
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = true
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_m0p6w"]
+script = ExtResource("4_bw7qg")
+clip_name = ""
+spritesheet = ExtResource("8_plo15")
+tiles_x = 5
+tiles_y = 1
+frame_per_second = 8.0
+frame_index = 0
+once = true
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = true
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
 [node name="imp" type="CharacterBody3D"]
 script = ExtResource("1_jqvgf")
 
@@ -32,73 +152,18 @@ billboard = 2
 texture_filter = 0
 vframes = 5
 
-[node name="AnimatorDirection" type="Node" parent="." node_paths=PackedStringArray("actor_player_3d")]
-script = ExtResource("2_cx8o7")
-tipo_apartado = 1
-actor_player_3d = NodePath("..")
-metadata/_custom_type_script = "uid://cimtvh6nf04tk"
-
-[node name="AnimatorController" type="Node" parent="."]
+[node name="AnimatorController" type="Node" parent="." node_paths=PackedStringArray("sprite_3d")]
 script = ExtResource("3_duaqo")
+animator_direction = SubResource("Resource_qeoed")
+clip_library = Dictionary[String, ExtResource("4_bw7qg")]({
+"attack": SubResource("Resource_sdr28"),
+"death": SubResource("Resource_m0p6w"),
+"idle": SubResource("Resource_ibmix"),
+"pain": SubResource("Resource_2b448"),
+"walk": SubResource("Resource_tdrke")
+})
+sprite_3d = NodePath("../Sprite3D")
 metadata/_custom_type_script = "uid://dpj5ikcvh604q"
-
-[node name="idle" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_3d")]
-script = ExtResource("4_bw7qg")
-spritesheet = ExtResource("2_bw7qg")
-tiles_y = 5
-frame_per_second = 2.0
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_full_directions = false
-billboard_Y = true
-sprite_3d = NodePath("../../Sprite3D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="walk" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_3d")]
-script = ExtResource("4_bw7qg")
-spritesheet = ExtResource("6_ggee2")
-tiles_x = 4
-tiles_y = 5
-frame_per_second = 7.0
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_full_directions = false
-billboard_Y = true
-sprite_3d = NodePath("../../Sprite3D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="attack" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_3d")]
-script = ExtResource("4_bw7qg")
-spritesheet = ExtResource("7_dkan2")
-tiles_x = 3
-tiles_y = 5
-frame_per_second = 6.0
-once = true
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_full_directions = false
-billboard_Y = true
-sprite_3d = NodePath("../../Sprite3D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="pain" type="Node" parent="AnimatorController" node_paths=PackedStringArray("animator_direction", "sprite_3d")]
-script = ExtResource("4_bw7qg")
-spritesheet = ExtResource("7_8hh4k")
-tiles_y = 5
-frame_per_second = 4.0
-once = true
-animator_direction = NodePath("../../AnimatorDirection")
-sprite_full_directions = false
-billboard_Y = true
-sprite_3d = NodePath("../../Sprite3D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
-
-[node name="death" type="Node" parent="AnimatorController" node_paths=PackedStringArray("sprite_3d")]
-script = ExtResource("4_bw7qg")
-spritesheet = ExtResource("8_plo15")
-tiles_x = 5
-frame_per_second = 8.0
-once = true
-billboard_Y = true
-sprite_3d = NodePath("../../Sprite3D")
-metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("5_duaqo")

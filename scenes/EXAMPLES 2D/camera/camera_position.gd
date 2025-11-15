@@ -13,6 +13,10 @@ var camara_position := 0.0
 var position_smooth := 0.0
 var position_up := 0.0
 
+var manual_mouse : Vector2
+var rotate_camera_speed := 0.0
+var rotar_cuerpo_camara := false
+
 const adjust_distance = {
 	0:-192.0,
 	1:-128.0,
@@ -48,14 +52,14 @@ func _input(event) ->void:
 		
 	if event is InputEventMouseMotion:
 		if GameManager.player2d != null:
-			if GameManager.player2d.state == "shoot_standing" or  GameManager.player2d.state == "shoot_crouching":
+			if rotar_cuerpo_camara:
 				GameManager.player2d.rotate(deg_to_rad(event.relative.x * mouse_sen))
 			else:
 				camera_rotation.rotate(deg_to_rad(event.relative.x * mouse_sen))
 		
 	else:
 		if GameManager.player2d != null:
-			if GameManager.player2d.state == "shoot_standing" or  GameManager.player2d.state == "shoot_crouching":
+			if rotar_cuerpo_camara:
 				GameManager.player2d.rotate(-deg_to_rad((Input.get_action_strength("ui_left")-Input.get_action_strength("ui_right")) * 10 * mouse_sen))
 			else:
 				camera_rotation.rotate(-deg_to_rad((Input.get_action_strength("ui_left")-Input.get_action_strength("ui_right")) * 10 * mouse_sen))
@@ -96,6 +100,30 @@ func _process(delta:float) ->void:
 		#-________________________
 		if pl.is_grounded:
 			position_up = pl.proyector.ground_position
+		
+		# move camera whit keyboard _________________________________
+		var input_keys :Vector2 = Vector2( Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right"), Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down"))
+		if Input.is_action_pressed("sprinting"):
+			rotate_camera_speed = 10.0
+		else:
+			rotate_camera_speed = 5.0
+		
+		if input_keys.x:
+			manual_mouse.x = lerp(manual_mouse.x, rotate_camera_speed, 1.0 * delta)
+		else:
+			manual_mouse.x = lerp(manual_mouse.x, 0.0, 1.0 * delta)
+	
+		
+		if GameManager.player2d.state == "shoot_standing" or GameManager.player2d.state == "shoot_crouching":
+			rotar_cuerpo_camara = true
+		else:
+			rotar_cuerpo_camara = false
+		
+		
+		if rotar_cuerpo_camara:
+			GameManager.player2d.rotate((-input_keys.x * manual_mouse.x * mouse_sen) * delta)
+		else:
+			camera_rotation.rotate((-input_keys.x * manual_mouse.x * mouse_sen) * delta)
 	
 	# limit rotation ______________________________________
 	if abs(camera_rotation.rotation) > deg_to_rad(360):

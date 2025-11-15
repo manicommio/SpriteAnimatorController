@@ -4,7 +4,6 @@ class_name MeshProyector3D
 
 @export var animator :AnimatorController = null
 @onready var material := StandardMaterial3D.new()
-var texture_color := Color(1,1,1,1)
 var billboard_disabled : bool = false
 var billboard_Y : bool = false
 
@@ -24,9 +23,9 @@ func _ready() ->void:
 
 func _process(_delta: float) ->void:
 	if is_instance_valid(animator) and animator != null:
-		if animator.current_clip != null:
-			billboard_disabled = animator.current_clip.billboard_disabled
-			billboard_Y = animator.current_clip.billboard_Y
+		if animator != null:
+			billboard_disabled = animator.billboard_disabled
+			billboard_Y = animator.billboard_Y
 			
 			if !billboard_disabled:
 				if billboard_Y:
@@ -37,9 +36,9 @@ func _process(_delta: float) ->void:
 				material.billboard_mode = BaseMaterial3D.BILLBOARD_DISABLED
 			
 			material.billboard_keep_scale = true
-			var uv_escala = animator.current_clip.size
-			var off_set = animator.current_clip.offset
+			var uv_escala = animator.size
+			var off_set = animator.offset
 
-			material.albedo_texture =  animator.current_clip.GetSpriteSheet()
+			material.albedo_texture =  animator.spritesheet
 			material.set("uv1_scale", Vector3(uv_escala.x ,uv_escala.y,0))
 			material.set("uv1_offset", Vector3(off_set.x, off_set.y,0))

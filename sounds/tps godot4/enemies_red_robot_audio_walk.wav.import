@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7t6glk1ib2se"
+path="res://.godot/imported/enemies_red_robot_audio_walk.wav-d1797a9ad7603bc20155ae611c70236e.sample"
+
+[deps]
+
+source_file="res://sounds/tps godot4/enemies_red_robot_audio_walk.wav"
+dest_files=["res://.godot/imported/enemies_red_robot_audio_walk.wav-d1797a9ad7603bc20155ae611c70236e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

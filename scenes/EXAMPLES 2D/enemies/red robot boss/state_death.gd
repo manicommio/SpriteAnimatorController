@@ -15,7 +15,7 @@ func enter() ->void:
 	proyector.lift.get_node("explode_front").emitting = true
 	proyector.lift.get_node("explode_back").emitting = true
 	proyector.lift.get_node("explode_smoke").emitting = true
-	animator.current_clip.pause_clip = true
+	animator.pause_clip = true
 	proyector.sprite_2d.self_modulate = Color(0.6, 0.6, 0.6, 1.0)
 
 
@@ -41,6 +41,8 @@ func update(delta:float) -> void:
 	
 
 func Destroy() ->void:
+	animator.pause_clip = false
+	animator.sprite_2d = proyector.lift.get_node("explosion")
 	player.collision_shape.set_deferred("disabled", true)
 	proyector.sprite_2d.hide()
 	proyector.shadow_sprite.hide()

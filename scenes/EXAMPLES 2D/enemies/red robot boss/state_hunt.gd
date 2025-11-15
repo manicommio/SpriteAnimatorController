@@ -45,15 +45,15 @@ func update(delta:float) -> void:
 
 
 func AudioStep():
-	if animator.current_clip.get_name() == "walk":
-		if animator.clip_library["walk"].KeyFrame(3,true) or animator.clip_library["walk"].KeyFrame(6,true):
+	if animator.animation_key == "walk":
+		if animator.KeyFrame(3,true) or animator.KeyFrame(6,true):
 			player.get_node("AudioStep").play() 
 	
-	elif animator.current_clip.get_name() == "turn_left":
-		if animator.clip_library["turn_left"].KeyFrame(3,true) or animator.clip_library["turn_left"].KeyFrame(6,true):
+	elif animator.animation_key == "turn_left":
+		if animator.KeyFrame(3,true) or animator.KeyFrame(6,true):
 			player.get_node("AudioStep").play() 
 	
-	elif animator.current_clip.get_name() == "turn_right":
-		if animator.clip_library["turn_right"].KeyFrame(3,true) or animator.clip_library["turn_right"].KeyFrame(6,true):
+	elif animator.animation_key == "turn_right":
+		if animator.KeyFrame(3,true) or animator.KeyFrame(6,true):
 			player.get_node("AudioStep").play() 
 	

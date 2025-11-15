@@ -7,7 +7,9 @@ var direction := Vector2()
 
 func enter() -> void:
 	state_time = 0
-
+	animator.play_backward = false
+	animator.pause_clip = false
+	
 
 func physics_update(_delta:float) -> void:
 	# JOYSTICK ________________________________________
@@ -84,7 +86,7 @@ func update(delta:float) -> void:
 
 
 func PositionWeapon() ->void:
-	var orientation :int = animator.current_space.my_orientation
+	var orientation :int = animator.my_space_orientation
 	match orientation:
 		0:#__________ center
 			player.weapon.position.x = 11.0

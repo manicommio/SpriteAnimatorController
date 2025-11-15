@@ -9,6 +9,6 @@ func enter() ->void:
 func update(_delta:float) -> void:
 	player.move_dir = 0
 	
-	if animator.clip_library["heavy_damage"].Finished():
+	if animator.Finished():
 		emit_signal("change_state","idle")
 		 

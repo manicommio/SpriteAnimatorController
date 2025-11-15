@@ -14,7 +14,8 @@ var tiempo_eg := 0.0
 
 
 func enter() -> void:
-	pass
+	animator.play_backward = false
+	animator.pause_clip = false
 
 func physics_update(_delta:float) -> void:
 

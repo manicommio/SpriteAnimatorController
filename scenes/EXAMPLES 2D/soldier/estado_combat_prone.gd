@@ -7,9 +7,9 @@ var direction_bullet :Vector2
 
 func enter() ->void:
 	estado = "entrando"
-	animator.clip_library["prone_to_standing"].frame_index = 54  #50-54
-	animator.clip_library["prone_to_standing"].pause_clip = false
-	animator.clip_library["prone_to_standing"].play_backward = true
+	animator.frame_index = 54  #50-54
+	animator.pause_clip = false
+	animator.play_backward = true
 	animator.PlayAnimation("prone_to_standing")
 	
 	
@@ -22,13 +22,13 @@ func update(_delta:float) ->void:
 		"entrando":
 			# agacharse____________________________________
 			if direction.y <=0 or abs(direction.x)>0:
-				animator.clip_library["prone_to_standing"].play_backward = false
-				animator.clip_library["prone_to_standing"].pause_clip = false
+				animator.play_backward = false
+				animator.pause_clip = false
 				estado = "saliendo"
 			else:
-				if animator.clip_library["prone_to_standing"].frame_index <= 49:
-					animator.clip_library["prone_to_standing"].frame_index = 49
-					animator.clip_library["prone_to_standing"].pause_clip = true
+				if animator.frame_index <= 49:
+					animator.frame_index = 49
+					animator.pause_clip = true
 					
 					#_______________________________
 					PositionWeapon()
@@ -43,9 +43,9 @@ func update(_delta:float) ->void:
 					
 					
 		"saliendo":
-			if animator.clip_library["prone_to_standing"].frame_index >= 54:
-				animator.clip_library["prone_to_standing"].frame_index = 54
-				animator.clip_library["prone_to_standing"].pause_clip = true
+			if animator.frame_index >= 54:
+				animator.frame_index = 54
+				animator.pause_clip = true
 				emit_signal("change_state","combat_standing")
 
 	if !player.is_on_floor():

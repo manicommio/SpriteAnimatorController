@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b30f5qom8l47a"
+path="res://.godot/imported/level_level_music.ogg-87b3d71066b1d12707aa649c9f45c303.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/tps godot4/level_level_music.ogg"
+dest_files=["res://.godot/imported/level_level_music.ogg-87b3d71066b1d12707aa649c9f45c303.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

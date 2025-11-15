@@ -4,7 +4,7 @@ extends BaseState2D
 var direction_bullet :Vector2
 
 func enter() ->void:
-	pass
+	animator.pause_clip = false
 	
 	
 func physics_update(_delta:float) ->void:
