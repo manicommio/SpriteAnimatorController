@@ -138,6 +138,29 @@ func IniciarAnimatorDirection() -> void:
 				player_3d = actor_player_3d
 
 
+func IniciarLibreria() ->void:
+	tiempo = 0
+	stopped_clip = false
+	_apply_clip_properties()
+	if auto_start:
+		Start()
+	else:
+		Stop()
+
+
+func Start() -> void:
+	is_playing = true
+	tiempo = 0
+	stopped_clip = false
+	_apply_clip_properties() 
+	set_process(true)
+
+
+func Stop() -> void:
+	is_playing = false
+	set_process(false)
+	
+	
 func _apply_clip_properties() -> void:
 	# LECTURA DE PROPIEDADES DEL CLIP (MOVIMIENTO)
 	if !clip_library.is_empty():
@@ -266,29 +289,6 @@ func _apply_clip_properties() -> void:
 		offset = Vector2( uIndex * size.x, 1.0 - size.y + int(vIndex) * size.y)
 
 	frame_coords = Vector2(uIndex , int(vIndex))
-
-
-func IniciarLibreria() ->void:
-	tiempo = 0
-	stopped_clip = false
-	_apply_clip_properties()
-	if auto_start:
-		Start()
-	else:
-		Stop()
-
-
-func Start() -> void:
-	is_playing = true
-	tiempo = 0
-	stopped_clip = false
-	_apply_clip_properties() 
-	set_process(true)
-
-
-func Stop() -> void:
-	is_playing = false
-	set_process(false)
 
 
 func _process(delta:float) -> void:
