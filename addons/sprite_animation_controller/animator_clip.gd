@@ -45,7 +45,7 @@ extends Resource
 ##
 @export var clip_end_frame : int
 ##
-@export var inherit_clip_texture :AnimatorClip
+@export var inherit_clip_texture :AnimatorClip = null
 ##
 @export var custom_frame_library :Array[int]
 var custom_count :int = 0

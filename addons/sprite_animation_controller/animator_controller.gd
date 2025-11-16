@@ -165,7 +165,7 @@ func _apply_clip_properties() -> void:
 	# LECTURA DE PROPIEDADES DEL CLIP (MOVIMIENTO)
 	if !clip_library.is_empty():
 		clip_library[animation_key].Setup()
-		if clip_library[animation_key].spritesheet != null:
+		if clip_library[animation_key].spritesheet != null or clip_library[animation_key].inherit_clip_texture != null:
 			spritesheet = clip_library[animation_key].GetSpriteSheet()
 		
 		tiles_x = clip_library[animation_key].tiles_x 
