@@ -2,15 +2,13 @@ class_name AnimatorSpace
 extends Resource
 
 
+@export var space_name :String
 @export_enum(
 	"Editor 2D", 
 	"Editor 3D",
 )  var tipo_apartado:int
 
 enum cardinal1 {center, north, north_east, east, south_east, south, south_west, west, north_west}
-@export_category("EDITOR 2D")
-## Drag the owner "player" here
-#@export var player_2d :Node2D
 
 @export_enum(
 	"ROTATE NODE",
@@ -19,11 +17,6 @@ enum cardinal1 {center, north, north_east, east, south_east, south, south_west, 
 ) var type_calculation :String = "ROTATE NODE"
 @export var manual_direction :Vector2
 
-@export_category("EDITOR 3D")
-## Drag the owner "player" here
-#@export var player_3d  :Node3D
-
-@export_category("ANIMATOR CLIPS NAMES")
 @export var center_clip :String
 @export_flags("Play bacward", "Flip") var C_options = 0
 
@@ -50,8 +43,6 @@ enum cardinal1 {center, north, north_east, east, south_east, south, south_west, 
 
 @export var north_west_clip :String
 @export_flags("Play bacward", "Flip") var NW_options = 0
-
-
 
 
 func PlaySpace(_animator:AnimatorController, player_2d:Node2D, player_3d:Node3D) -> Dictionary:

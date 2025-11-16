@@ -38,7 +38,7 @@ var player_2d :Node2D
 var target_2d :Node2D
 var player_3d :Node3D
 var target_3d :Node3D
-var animation_key :String
+var animation_name :String
 var tiles_x := 1
 var tiles_y := 1
 var frame_per_second := 24.0
@@ -86,7 +86,7 @@ func _ready() -> void:
 		IniciarAnimatorDirection()
 	#________________________________________________
 	if !clip_library.is_empty():
-		animation_key = clip_library.keys()[0]
+		animation_name = clip_library.keys()[0]
 		IniciarLibreria()
 
 
@@ -94,9 +94,9 @@ func PlayAnimation(new_animation:String) -> void:
 	if enabled :
 		if clip_library.size()>0:
 			if current_clip != new_animation: 
-				previus_clip = animation_key
+				previus_clip = animation_name
 				current_clip = new_animation
-				animation_key = new_animation
+				animation_name = new_animation
 				Start()
 	else:
 		if is_processing():
@@ -164,30 +164,30 @@ func Stop() -> void:
 func _apply_clip_properties() -> void:
 	# LECTURA DE PROPIEDADES DEL CLIP (MOVIMIENTO)
 	if !clip_library.is_empty():
-		clip_library[animation_key].Setup()
-		if clip_library[animation_key].spritesheet != null or clip_library[animation_key].inherit_clip_texture != null:
-			spritesheet = clip_library[animation_key].GetSpriteSheet()
+		clip_library[animation_name].Setup()
+		if clip_library[animation_name].spritesheet != null or clip_library[animation_name].inherit_clip_texture != null:
+			spritesheet = clip_library[animation_name].GetSpriteSheet()
 		
-		tiles_x = clip_library[animation_key].tiles_x 
-		tiles_y = clip_library[animation_key].tiles_y
-		frame_per_second = clip_library[animation_key].frame_per_second 
-		once = clip_library[animation_key].once
-		use_animator_direction = clip_library[animation_key].use_animator_direction
-		sprite_full_directions = clip_library[animation_key].sprite_full_directions
-		two_directions_per_row = clip_library[animation_key].two_directions_per_row
-		one_frame_per_direction = clip_library[animation_key].one_frame_per_direction
-		billboard_disabled = clip_library[animation_key].billboard_disabled
-		billboard_Y = clip_library[animation_key].billboard_Y
+		tiles_x = clip_library[animation_name].tiles_x 
+		tiles_y = clip_library[animation_name].tiles_y
+		frame_per_second = clip_library[animation_name].frame_per_second 
+		once = clip_library[animation_name].once
+		use_animator_direction = clip_library[animation_name].use_animator_direction
+		sprite_full_directions = clip_library[animation_name].sprite_full_directions
+		two_directions_per_row = clip_library[animation_name].two_directions_per_row
+		one_frame_per_direction = clip_library[animation_name].one_frame_per_direction
+		billboard_disabled = clip_library[animation_name].billboard_disabled
+		billboard_Y = clip_library[animation_name].billboard_Y
 
-		use_custom_clip = clip_library[animation_key].use_custom_clip
-		clip_start_frame = clip_library[animation_key].clip_start_frame
-		clip_end_frame = clip_library[animation_key].clip_end_frame
-		custom_frame_library = clip_library[animation_key].custom_frame_library
-		key_frame_list = clip_library[animation_key].key_frame_list
+		use_custom_clip = clip_library[animation_name].use_custom_clip
+		clip_start_frame = clip_library[animation_name].clip_start_frame
+		clip_end_frame = clip_library[animation_name].clip_end_frame
+		custom_frame_library = clip_library[animation_name].custom_frame_library
+		key_frame_list = clip_library[animation_name].key_frame_list
 
-		material_3d = clip_library[animation_key].EXAMPLE_material_3d
-		if !clip_library[animation_key].EXAMPLE_sprite.is_empty():
-			var node = get_node(clip_library[animation_key].EXAMPLE_sprite)
+		material_3d = clip_library[animation_name].EXAMPLE_material_3d
+		if !clip_library[animation_name].EXAMPLE_sprite.is_empty():
+			var node = get_node(clip_library[animation_name].EXAMPLE_sprite)
 			if node != null:
 				if node is Sprite2D:
 					if sprite_2d != null:
@@ -442,9 +442,9 @@ func _process(delta:float) -> void:
 	
 	#_______________________________________________
 	if !clip_library.is_empty():
-		if clip_library[animation_key].spritesheet != null:
-			if spritesheet != clip_library[animation_key].GetSpriteSheet():
-				spritesheet = clip_library[animation_key].GetSpriteSheet()
+		if clip_library[animation_name].spritesheet != null:
+			if spritesheet != clip_library[animation_name].GetSpriteSheet():
+				spritesheet = clip_library[animation_name].GetSpriteSheet()
 	#_______________________________________________
 	if projector_type == 0:
 		if material_3d != null:
@@ -713,7 +713,7 @@ func ExampleMaterial3D() ->void:
 		material_3d.billboard_keep_scale = true
 		var uv_escala = size
 		var off_set = offset
-		material_3d.albedo_texture = clip_library[animation_key].GetSpriteSheet()
+		material_3d.albedo_texture = clip_library[animation_name].GetSpriteSheet()
 		material_3d.set("uv1_scale", Vector3(uv_escala.x ,uv_escala.y,0))
 		material_3d.set("uv1_offset", Vector3(off_set.x, off_set.y,0))
 
