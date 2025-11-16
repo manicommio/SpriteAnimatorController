@@ -7,62 +7,62 @@ extends AudioStreamPlayer2D
 
 func AudioStep():
 	if animator.current_clip != null:
-		if animator.animation_key == "walk_standing" :
+		if animator.animation_name == "walk_standing" :
 			if animator.KeyFrame(3,true) or animator.KeyFrame(7,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 		
-		elif animator.animation_key == "walk_crouch" :
+		elif animator.animation_name == "walk_crouch" :
 			if animator.KeyFrame(3,true) or animator.KeyFrame(7,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 			
-		elif animator.animation_key == "run_standing" :
+		elif animator.animation_name == "run_standing" :
 			if animator.KeyFrame(0,true) or animator.KeyFrame(3,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 		
-		elif animator.animation_key == "aim_crouch_forward" :
+		elif animator.animation_name == "aim_crouch_forward" :
 			if animator.KeyFrame(3,true) or animator.KeyFrame(7,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 		
-		elif animator.animation_key == "aim_crouch_forward_left" :
+		elif animator.animation_name == "aim_crouch_forward_left" :
 			if animator.KeyFrame(3,true) or animator.KeyFrame(7,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 		
-		elif animator.animation_key == "aim_crouch_left" :
+		elif animator.animation_name == "aim_crouch_left" :
 			if animator.KeyFrame(3,true) or animator.KeyFrame(7,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 		
-		elif animator.animation_key == "aim_walk_forward" :
+		elif animator.animation_name == "aim_walk_forward" :
 			if animator.KeyFrame(3,true) or animator.KeyFrame(7,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 		
-		elif animator.animation_key == "aim_walk_forward_left" :
+		elif animator.animation_name == "aim_walk_forward_left" :
 			if animator.KeyFrame(3,true) or animator.KeyFrame(7,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 		
-		elif animator.animation_key == "aim_walk_left" :
+		elif animator.animation_name == "aim_walk_left" :
 			if animator.KeyFrame(3,true) or animator.KeyFrame(7,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 		
-		elif animator.animation_key == "aim_run_forward" :
+		elif animator.animation_name == "aim_run_forward" :
 			if animator.KeyFrame(0,true) or animator.KeyFrame(3,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 		
-		elif animator.animation_key == "aim_run_forward_left" :
+		elif animator.animation_name == "aim_run_forward_left" :
 			if animator.KeyFrame(0,true) or animator.KeyFrame(3,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()
 		
-		elif animator.animation_key == "aim_run_left" :
+		elif animator.animation_name == "aim_run_left" :
 			if animator.KeyFrame(0,true) or animator.KeyFrame(3,true):
 				self.pitch_scale = randf_range(0.6,0.8)
 				self.play()

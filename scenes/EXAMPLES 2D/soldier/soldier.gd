@@ -45,7 +45,7 @@ func _process(_delta:float) ->void:
 	#__________________________________
 	if state_machine.current_state != null:
 		estado = state_machine.current_state.get_name()
-		
+
 
 func ActivateCollision(_type:String) ->void:
 	match  _type:

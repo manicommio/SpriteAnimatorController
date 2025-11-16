@@ -17,39 +17,39 @@ func physics_update(_delta:float) ->void:
 		velocity = player.velocity.y
 		
 	if player.velocity.y<= -150 :
-		if animator.animation_key == "jump_look_right":
+		if animator.animation_name == "jump_look_right":
 			animator.frame_index = 16
-		elif animator.animation_key == "jump_look_down":
+		elif animator.animation_name == "jump_look_down":
 			animator.frame_index = 19
-		elif animator.animation_key == "jump_look_right_down":
+		elif animator.animation_name == "jump_look_right_down":
 			animator.frame_index = 22
-		elif animator.animation_key == "jump_look_right_up":
+		elif animator.animation_name == "jump_look_right_up":
 			animator.frame_index = 25
-		elif animator.animation_key == "jump_look_up":
+		elif animator.animation_name == "jump_look_up":
 			animator.frame_index = 28
 	
 	if player.velocity.y<=150  and player.velocity.y> -150:
-		if animator.animation_key == "jump_look_right":
+		if animator.animation_name == "jump_look_right":
 			animator.frame_index = 16+1
-		elif animator.animation_key == "jump_look_down":
+		elif animator.animation_name == "jump_look_down":
 			animator.frame_index = 19+1
-		elif animator.animation_key == "jump_look_right_down":
+		elif animator.animation_name == "jump_look_right_down":
 			animator.frame_index = 22+1
-		elif animator.animation_key == "jump_look_right_up":
+		elif animator.animation_name == "jump_look_right_up":
 			animator.frame_index = 25+1
-		elif animator.animation_key == "jump_look_up":
+		elif animator.animation_name == "jump_look_up":
 			animator.frame_index = 28+1
 
 	elif player.velocity.y>150: 
-		if animator.animation_key == "jump_look_right":
+		if animator.animation_name == "jump_look_right":
 			animator.frame_index = 16+2
-		elif animator.animation_key == "jump_look_down":
+		elif animator.animation_name == "jump_look_down":
 			animator.frame_index = 19+2
-		elif animator.animation_key == "jump_look_right_down":
+		elif animator.animation_name == "jump_look_right_down":
 			animator.frame_index = 22+2
-		elif animator.animation_key == "jump_look_right_up":
+		elif animator.animation_name == "jump_look_right_up":
 			animator.frame_index = 25+2
-		elif animator.animation_key == "jump_look_up":
+		elif animator.animation_name == "jump_look_up":
 			animator.frame_index = 28+2
 	
 	#__________________________________________________

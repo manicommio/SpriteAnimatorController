@@ -8,6 +8,7 @@ func enter() -> void:
 	
 
 func update(_delta:float) ->void:
+	animator.pause_clip = false
 	player.ActivateCollision("standing")
 	if animator.Finished():
 		emit_signal("change_state","combat_standing")

@@ -33,7 +33,7 @@ func _process(_delta: float) ->void:
 			
 			
 			if sprite_shield_L != null:
-				sprite_shield_L.texture =  GetSpriteSheet(animator.animation_key, 0)
+				sprite_shield_L.texture =  GetSpriteSheet(animator.animation_name, 0)
 				sprite_shield_L.hframes = hframes
 				sprite_shield_L.vframes = vframes
 				sprite_shield_L.flip_h = flip_h
@@ -41,7 +41,7 @@ func _process(_delta: float) ->void:
 
 			
 			if sprite_shield_R != null:
-				sprite_shield_R.texture =  GetSpriteSheet(animator.animation_key, 1)
+				sprite_shield_R.texture =  GetSpriteSheet(animator.animation_name, 1)
 				sprite_shield_R.hframes = hframes
 				sprite_shield_R.vframes = vframes
 				sprite_shield_R.flip_h = flip_h
