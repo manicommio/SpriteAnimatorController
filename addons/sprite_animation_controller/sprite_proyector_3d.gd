@@ -11,15 +11,22 @@ var billboard_Y : bool = false
 func _process(_delta: float) ->void:
 	if is_instance_valid(animator) and animator != null:
 		if animator != null:
-			billboard_disabled = animator.billboard_disabled
-			billboard_Y = animator.billboard_Y
+			if billboard_disabled != animator.billboard_disabled:
+				billboard_disabled = animator.billboard_disabled
+				
+			if billboard_Y != animator.billboard_Y:
+				billboard_Y = animator.billboard_Y
+				
 			if !billboard_disabled:
 				if billboard_Y:
-					self.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+					if self.billboard != BaseMaterial3D.BILLBOARD_FIXED_Y:
+						self.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 				else: 
-					self.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+					if self.billboard != BaseMaterial3D.BILLBOARD_ENABLED:
+						self.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 			else:
-				self.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+				if self.billboard != BaseMaterial3D.BILLBOARD_DISABLED:
+					self.billboard = BaseMaterial3D.BILLBOARD_DISABLED
 				
 			if self.texture !=  animator.spritesheet:
 				self.texture =  animator.spritesheet

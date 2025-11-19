@@ -704,21 +704,29 @@ func ExampleSprite3D() ->void:
 func ExampleMaterial3D() ->void:
 		if !billboard_disabled:
 			if billboard_Y:
-				material_3d.billboard_mode = BaseMaterial3D.BILLBOARD_FIXED_Y
+				if material_3d.billboard_mode != BaseMaterial3D.BILLBOARD_FIXED_Y:
+					material_3d.billboard_mode = BaseMaterial3D.BILLBOARD_FIXED_Y
 			else: 
-				material_3d.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+				if material_3d.billboard_mode != BaseMaterial3D.BILLBOARD_ENABLED:
+					material_3d.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
 		else:
-			material_3d.billboard_mode = BaseMaterial3D.BILLBOARD_DISABLED
+			if material_3d.billboard_mode != BaseMaterial3D.BILLBOARD_DISABLED:
+				material_3d.billboard_mode = BaseMaterial3D.BILLBOARD_DISABLED
 		
-		material_3d.billboard_keep_scale = true
+		if material_3d.billboard_keep_scale != true:
+			material_3d.billboard_keep_scale = true
 		var uv_escala = size
 		var off_set = offset
-		material_3d.albedo_texture = clip_library[animation_name].GetSpriteSheet()
-		material_3d.set("uv1_scale", Vector3(uv_escala.x ,uv_escala.y,0))
-		material_3d.set("uv1_offset", Vector3(off_set.x, off_set.y,0))
+		if material_3d.albedo_texture != spritesheet:
+			material_3d.albedo_texture = spritesheet
+		if material_3d.get("uv1_scale") != Vector3(uv_escala.x ,uv_escala.y,0):
+			material_3d.set("uv1_scale", Vector3(uv_escala.x ,uv_escala.y,0))
+		if material_3d.get("uv1_offset") != Vector3(off_set.x, off_set.y,0):
+			material_3d.set("uv1_offset", Vector3(off_set.x, off_set.y,0))
 
 
 func Activate(value:bool) ->void:
 	enabled = value
 	if !enabled:
+		current_clip = ""
 		Stop()
