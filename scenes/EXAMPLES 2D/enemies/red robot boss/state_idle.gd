@@ -13,6 +13,8 @@ func enter() ->void:
 	state_time = 0.0
 	proyector.sprite_2d.show()
 	proyector.lift.get_node("explosion").hide()
+	animator.play_backward = false
+	animator.pause_clip = false 
 	animator.PlayAnimation("idle")
 	last_health = player.current_health
 	

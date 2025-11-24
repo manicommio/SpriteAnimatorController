@@ -53,11 +53,12 @@ radius = 20.0
 [sub_resource type="Resource" id="Resource_gxmj0"]
 script = ExtResource("5_vtpj7")
 tipo_apartado = 0
-directions_number = 2
-actor_target_group = "camera_rotation"
+directions_number = 3
+actor_target_group = "camera"
 type_calculation = "MANUAL DIRECTION"
-adjust_velocity_up = 2.0
+adjust_velocity_up = 1.0
 compensate_camera_perspective = true
+IMPRIMIR = false
 metadata/_custom_type_script = "uid://cimtvh6nf04tk"
 
 [sub_resource type="Resource" id="Resource_sm5gw"]
@@ -656,6 +657,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 
 [sub_resource type="Resource" id="Resource_r3ipw"]
 script = ExtResource("35_akfug")
+space_name = ""
 tipo_apartado = 0
 type_calculation = "AUTOMATIC DIRECTION"
 manual_direction = Vector2(0, 0)
@@ -681,6 +683,7 @@ metadata/_custom_type_script = "uid://c5es3q1343hc0"
 
 [sub_resource type="Resource" id="Resource_3qvwv"]
 script = ExtResource("35_akfug")
+space_name = ""
 tipo_apartado = 0
 type_calculation = "AUTOMATIC DIRECTION"
 manual_direction = Vector2(0, 0)
@@ -706,6 +709,7 @@ metadata/_custom_type_script = "uid://c5es3q1343hc0"
 
 [sub_resource type="Resource" id="Resource_dvjfs"]
 script = ExtResource("35_akfug")
+space_name = ""
 tipo_apartado = 0
 type_calculation = "AUTOMATIC DIRECTION"
 manual_direction = Vector2(0, 0)
@@ -731,6 +735,7 @@ metadata/_custom_type_script = "uid://c5es3q1343hc0"
 
 [sub_resource type="Resource" id="Resource_deidb"]
 script = ExtResource("35_akfug")
+space_name = ""
 tipo_apartado = 0
 type_calculation = "AUTOMATIC DIRECTION"
 manual_direction = Vector2(0, 0)
@@ -756,6 +761,7 @@ metadata/_custom_type_script = "uid://c5es3q1343hc0"
 
 [sub_resource type="Resource" id="Resource_cth07"]
 script = ExtResource("35_akfug")
+space_name = ""
 tipo_apartado = 0
 type_calculation = "AUTOMATIC DIRECTION"
 manual_direction = Vector2(0, 0)

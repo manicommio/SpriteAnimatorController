@@ -2,6 +2,8 @@ extends BaseState2D
 
 
 func enter() ->void:
+	animator.play_backward = false
+	animator.pause_clip = false 
 	animator.PlayAnimation("pain")
 	player.get_node("AudioHit").stream = load("res://sounds/tps godot4/enemies_red_robot_audio_hit.wav")
 	player.get_node("AudioHit").play()

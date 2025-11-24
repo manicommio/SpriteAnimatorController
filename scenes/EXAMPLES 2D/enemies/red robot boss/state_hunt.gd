@@ -5,7 +5,8 @@ var target_direction:Vector2
 var torque := 0.0
 
 func enter() ->void:
-	pass
+	animator.play_backward = false
+	animator.pause_clip = false 
 
 func update(delta:float) -> void:
 	if GameManager.player2d != null:

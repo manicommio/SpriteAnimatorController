@@ -58,10 +58,6 @@ var custom_count :int = 0
 #_____________________________
 var key_frame_list :Array
 
-
-func _init() -> void:
-	#setup_local_to_scene()
-	pass
 	
 func Setup() -> void:
 	if key_frame_list.is_empty():

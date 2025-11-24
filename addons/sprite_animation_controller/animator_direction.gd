@@ -9,7 +9,7 @@ extends Resource
 )  var tipo_apartado:int
 	
 enum cardinal_direction {
-	X8,	X12, X16, X20, X24, X32, X36, X40,
+	X4, X8,	X12, X16, X20, X24, X32, X36, X40,
 	X48, X64, X80, X96, X100,
 	X144
 }
@@ -20,10 +20,6 @@ enum cardinal_direction {
 ## a specific node must be added to the group
 @export  var actor_target_group : String = "camera"
 @export_category("EDITOR 2D")
-## Drag the owner "player" here
-#@export var actor_player_2d :Node2D
-#var player_2d :Node2D
-#var target_2d :Node2D
 ## MANUAL: performs the calculation directly without the camera in between, 
 ## the direction in which the player moves must be manually entered
 ## ROTATE NODE: Performs the calculation taking into account the direction of rotation of the players with respect to the direction of rotation of the camera,
@@ -42,6 +38,8 @@ enum cardinal_direction {
 @export_category("EDITOR 3D")
 @export var compensate_camera_perspective :bool = true
 #___ seccion 1 ___________
+enum cardinal0 {south,west, north, east}
+
 enum cardinal1 {south, south_west, west, north_west, north, north_east, east, south_east}
 
 enum cardinal2 {
@@ -155,6 +153,12 @@ enum cardinal15 {
 	south_east25, south_east26, south_east27, south_east28, south_east29, south_east30, south_east31, south_east32, south_east33, south_east34, south_east35,
 }
 
+const X4_GRADO_TO_ENUM = [
+	cardinal1.north,
+	cardinal1.west,
+	cardinal1.south,
+	cardinal1.east,
+]
 
 const X8_GRADO_TO_ENUM = [
 	cardinal1.north,
@@ -641,6 +645,8 @@ const X144_GRADO_TO_ENUM = [
 	cardinal15.north_east5, cardinal15.north_east4, cardinal15.north_east3,
 	cardinal15.north_east2, cardinal15.north_east1,
 ]
+#_______________________________________________________
+@export var IMPRIMIR := false
 
 
 func CalculateOrientation(player_2d:Node2D, target_2d:Node2D, player_3d:Node3D, target_3d:Node3D, manual_direction:Vector2) ->int:
@@ -703,11 +709,14 @@ func CalculateOrientation(player_2d:Node2D, target_2d:Node2D, player_3d:Node3D, 
 	var num_direcciones : int = 0
 	
 	match directions_number:
+		cardinal_direction.X4:
+			map_array = X8_GRADO_TO_ENUM
+			num_direcciones = 4
 		cardinal_direction.X8:
 			map_array = X8_GRADO_TO_ENUM
 			num_direcciones = 8
 		cardinal_direction.X12:
-			# map_array = X12_GRADO_TO_ENUM # Debes implementar este array
+			map_array = X12_GRADO_TO_ENUM
 			num_direcciones = 12
 		cardinal_direction.X16:
 			map_array = X16_GRADO_TO_ENUM
@@ -765,7 +774,6 @@ func CalculateOrientation(player_2d:Node2D, target_2d:Node2D, player_3d:Node3D, 
 	return my_orientation
 	
 	
-	
 func CalculateAxisMovement2D(target:Node2D, velocity:Vector2) ->Vector2:
 	var front_position = target.global_transform.origin + (target.global_transform.basis_xform(Vector2.DOWN) * -2.0 )
 	var rear_position = target.global_transform.origin + (target.global_transform.basis_xform(Vector2.DOWN) * 2.0 )
@@ -777,6 +785,7 @@ func CalculateAxisMovement2D(target:Node2D, velocity:Vector2) ->Vector2:
 	var vector_subtraction2 = (left_position - right_position).normalized()
 	var LR_movement :float = vector_subtraction2.dot(velocity.normalized())
 	return Vector2(LR_movement,FB_movement)
+
 
 func CalculateAxisMovement3D(target:Node3D, velocity:Vector3) ->Vector2:
 	var front_position = target.global_transform.origin + (target.global_transform.basis.z.normalized() * 2.0 )
@@ -790,6 +799,7 @@ func CalculateAxisMovement3D(target:Node3D, velocity:Vector3) ->Vector2:
 	var LR_movement = vector_subtraction2.dot(velocity.normalized())
 	return Vector2(LR_movement,FB_movement)
 
+
 func CheckRotation2D(_target:Node2D) ->float:
 	var point:Vector2 = _target.global_position + (_target.global_transform.basis_xform(Vector2.UP)*1)
 	var dir_target :Vector2 = (_target.global_position - point).normalized()
@@ -802,6 +812,7 @@ func CheckRotation3D(_target:Node3D, _distance_point:float) ->float:
 	var dir_target :Vector3 = (_target.global_position - point).normalized()
 	var rotation_target :float = rad_to_deg(atan2(dir_target.x, dir_target.z))
 	return  rotation_target
+
 
 func CheckCameraAngle( reference_point:Vector3, direction_normal: Vector3, target_point:Vector3)  -> float:
 	var direction_radar = target_point - reference_point

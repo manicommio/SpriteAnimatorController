@@ -61,11 +61,11 @@ var tiempo := 0.0
 var frame_coords: Vector2i
 
 enum cardinal_direction {
-	X8,	X12, X16, X20, X24, X32, X36, X40,
+	X4, X8, X12, X16, X20, X24, X32, X36, X40,
 	X48, X64, X80, X96, X100,
 	X144
 }
-var cardinal_equivalent := [8,12,16,20,24,32,36,40,48,64,80,96,100,144]
+var cardinal_equivalent := [4,8,12,16,20,24,32,36,40,48,64,80,96,100,144]
 var directions_number = cardinal_direction.X8
 var my_orientation := 0
 var my_space_orientation := 0

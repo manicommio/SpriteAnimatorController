@@ -53,11 +53,12 @@ radius = 20.0
 [sub_resource type="Resource" id="Resource_xp4b0"]
 script = ExtResource("3_iwyck")
 tipo_apartado = 0
-directions_number = 2
+directions_number = 3
 actor_target_group = "camera_rotation"
 type_calculation = "ROTATE NODE"
 adjust_velocity_up = 1.0
 compensate_camera_perspective = true
+IMPRIMIR = false
 metadata/_custom_type_script = "uid://cimtvh6nf04tk"
 
 [sub_resource type="Resource" id="Resource_27awj"]

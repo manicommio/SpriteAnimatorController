@@ -2,6 +2,8 @@ extends BaseState2D
 
 
 func enter() ->void:
+	animator.play_backward = false
+	animator.pause_clip = false 
 	animator.PlayAnimation("heavy_damage")
 	player.get_node("AudioHit2").play()
 	
