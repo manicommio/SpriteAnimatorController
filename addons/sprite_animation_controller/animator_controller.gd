@@ -53,7 +53,7 @@ var use_custom_clip: bool = false
 var clip_start_frame : int
 var clip_end_frame : int
 var custom_frame_library :Array[int]
-var custom_count :int = 0
+var custom_frame_index :int = 0
 
 var index := 0
 var lastFrame := 0
@@ -315,24 +315,24 @@ func _process(delta:float) -> void:
 						clip_end_frame = custom_frame_library.size() - 1
 						if play_backward:
 							tiempo_max =  tiempo_aprox
-							if (custom_count ) <= tiempo_max and !stopped_clip:
+							if (custom_frame_index ) <= tiempo_max and !stopped_clip:
 								stopped_clip = true
 								set_process(false)
 							else:
 								if tiempo >= 1:
 									tiempo = 0
-									custom_count = wrapi(custom_count - 1, clip_end_frame, clip_start_frame -1)
+									custom_frame_index = wrapi(custom_frame_index - 1, clip_end_frame, clip_start_frame -1)
 						else:
 							tiempo_max =  (clip_end_frame + 1) - tiempo_aprox
-							if (custom_count + tiempo) >= tiempo_max and !stopped_clip:
+							if (custom_frame_index + tiempo) >= tiempo_max and !stopped_clip:
 								stopped_clip = true
 								set_process(false)
 							else:
 								if tiempo >= 1:
 									tiempo = 0
-									custom_count = wrapi(custom_count + 1, clip_start_frame, clip_end_frame + 1)
+									custom_frame_index = wrapi(custom_frame_index + 1, clip_start_frame, clip_end_frame + 1)
 						
-						frame_index = custom_frame_library[custom_count]
+						frame_index = custom_frame_library[custom_frame_index]
 						
 					else:
 						# CUSTOM CLIP AUTOMATIC _________________
@@ -384,11 +384,11 @@ func _process(delta:float) -> void:
 							clip_start_frame = 0
 							clip_end_frame = custom_frame_library.size()-1
 							if play_backward:
-								custom_count = wrapi(custom_count - 1, clip_end_frame , clip_start_frame -1 )
+								custom_frame_index = wrapi(custom_frame_index - 1, clip_end_frame , clip_start_frame -1 )
 							else:
-								custom_count = wrapi(custom_count + 1, clip_start_frame , clip_end_frame + 1)
+								custom_frame_index = wrapi(custom_frame_index + 1, clip_start_frame , clip_end_frame + 1)
 
-							frame_index = custom_frame_library[custom_count]
+							frame_index = custom_frame_library[custom_frame_index]
 						
 						else:
 							# CUSTOM CLIP AUTOMATIC _________________
