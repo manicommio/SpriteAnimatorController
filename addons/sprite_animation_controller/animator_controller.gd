@@ -296,9 +296,12 @@ func _process(delta:float) -> void:
 		#return
 	#__________________________________________________
 	if animator_direction != null and use_animator_direction:
-		my_orientation = animator_direction.CalculateOrientation(player_2d, target_2d, player_3d, target_3d, manual_direction)
-		directions_number = animator_direction.directions_number
-		
+		if (target_2d != null and is_instance_valid(target_2d)) or target_3d != null and is_instance_valid(target_3d):
+			my_orientation = animator_direction.CalculateOrientation(player_2d, target_2d, player_3d, target_3d, manual_direction)
+			directions_number = animator_direction.directions_number
+		else:
+			IniciarAnimatorDirection()
+			
 		if one_frame_per_direction:
 			FrameEqualDirectionProcess()
 		else:

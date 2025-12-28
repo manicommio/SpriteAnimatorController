@@ -13,6 +13,25 @@ enum cardinal_direction {
 	X48, X64, X80, X96, X100,
 	X144
 }
+
+# Diccionario para mapeo instantáneo
+var DATA_MAP = {
+	cardinal_direction.X4: X4_GRADO_TO_ENUM, # (Nota: en tu código usabas X8 para X4, corrígelo si es necesario)
+	cardinal_direction.X8: X8_GRADO_TO_ENUM,
+	cardinal_direction.X12: X12_GRADO_TO_ENUM,
+	cardinal_direction.X16: X16_GRADO_TO_ENUM,
+	cardinal_direction.X20: X20_GRADO_TO_ENUM,
+	cardinal_direction.X24: X24_GRADO_TO_ENUM,
+	cardinal_direction.X32: X32_GRADO_TO_ENUM,
+	cardinal_direction.X36: X36_GRADO_TO_ENUM,
+	cardinal_direction.X40: X40_GRADO_TO_ENUM,
+	cardinal_direction.X48: X48_GRADO_TO_ENUM,
+	cardinal_direction.X64: X64_GRADO_TO_ENUM,
+	cardinal_direction.X80: X80_GRADO_TO_ENUM,
+	cardinal_direction.X96: X96_GRADO_TO_ENUM,
+	cardinal_direction.X100: X100_GRADO_TO_ENUM,
+	cardinal_direction.X144: X144_GRADO_TO_ENUM
+}
 ## Choose the number of "directions" to calculate,
 ## verify that it corresponds to the same number of "directions" in your sprite sheet in the corresponding animation
 @export var directions_number : cardinal_direction
@@ -649,173 +668,87 @@ const X144_GRADO_TO_ENUM = [
 @export var IMPRIMIR := false
 
 
-func CalculateOrientation(player_2d:Node2D, target_2d:Node2D, player_3d:Node3D, target_3d:Node3D, manual_direction:Vector2) ->int:
-	var my_orientation :int
-	var rot_actor_player :float
-	var rot_actor_camera :float
-	var grado := 0
-	var compensation_fov := 0.0
-	var velocity_2D :Vector2
-	var velocity_3D :Vector3
-	var LRFB_movement :Vector2
-
+func CalculateOrientation(player_2d:Node2D, target_2d:Node2D, player_3d:Node3D, target_3d:Node3D, manual_direction:Vector2) -> int:
+	var rot_actor_player : float = 0.0
+	var rot_actor_camera : float = 0.0
 	
-	if tipo_apartado == 0:
-		match  type_calculation:
+	if tipo_apartado == 0: # 2D
+		match type_calculation:
 			"ROTATE NODE":
 				rot_actor_player = CheckRotation2D(player_2d)
 				rot_actor_camera = CheckRotation2D(target_2d)
-			
 			"MANUAL DIRECTION":
 				rot_actor_player = rad_to_deg(atan2(-manual_direction.x, -manual_direction.y))
-				rot_actor_camera = 0
-				
+				rot_actor_camera = 0.0
 			"AUTOMATIC DIRECTION":
-				if "velocity" in player_2d:
-					velocity_2D = player_2d.velocity
-					CalculateAxisMovement2D(player_2d, velocity_2D)
-					LRFB_movement = CalculateAxisMovement2D(player_2d, velocity_2D)
-				if LRFB_movement:
-					rot_actor_player = rad_to_deg(atan2(LRFB_movement.x, LRFB_movement.y * adjust_velocity_up))
-					rot_actor_camera = 0
-	
-	else:
-		# COMPENSATION FOV CAMERA ____________________________________
+				if player_2d.get("velocity"):
+					var LRFB = CalculateAxisMovement2D(player_2d, player_2d.velocity)
+					rot_actor_player = rad_to_deg(atan2(LRFB.x, LRFB.y * adjust_velocity_up))
+				rot_actor_camera = 0.0
+	else: # 3D
+		var comp_fov = 0.0
 		if compensate_camera_perspective:
-			compensation_fov = CheckCameraAngle(target_3d.global_position, -target_3d.global_basis.z.normalized(), player_3d.global_position)
-		else:
-			compensation_fov = 0
-		#____________________________________________________________________________
-		rot_actor_player = CheckRotation3D(player_3d,1)
-		rot_actor_camera = CheckRotation3D(target_3d,-1) - rad_to_deg(compensation_fov)
+			comp_fov = rad_to_deg(CheckCameraAngle(target_3d.global_position, -target_3d.global_basis.z.normalized(), player_3d.global_position))
+		
+		rot_actor_player = CheckRotation3D(player_3d, 1.0)
+		rot_actor_camera = CheckRotation3D(target_3d, -1.0) + comp_fov
+
+	var angulo_final : float = fposmod(rot_actor_player - rot_actor_camera, 360.0)
+	
+	var map_array = DATA_MAP.get(directions_number, X8_GRADO_TO_ENUM)
+	var num_dirs = map_array.size()
+	
+	var grado_logico = int((angulo_final * num_dirs / 360.0) + 0.5) % num_dirs
+	
+	return map_array[grado_logico]
 	
 	
-	var synrot :float = (rot_actor_player - rot_actor_camera)
-
-	if synrot > 180:
-		synrot -= 360
-	elif synrot < -180:
-		synrot += 360
+func CalculateAxisMovement2D(target: Node2D, velocity: Vector2) -> Vector2:
+	if velocity.is_zero_approx():
+		return Vector2.ZERO
 	
-	var angulo_para_mapear :float = synrot
-	if angulo_para_mapear < 0:
-		angulo_para_mapear += 360
+	var v_norm = velocity.normalized()
+	var forward_vector = -target.global_transform.y.normalized() # Hacia "adelante" relativo al nodo
+	var right_vector = target.global_transform.x.normalized()    # Hacia la "derecha" relativa al nodo
 	
-	#############################################################
-	# BLOQUE MATCH ANTIGUO ELIMINADO Y REEMPLAZADO POR LÓGICA ESCALABLE
-	#############################################################
+	var FB_movement = forward_vector.dot(v_norm)
+	var LR_movement = right_vector.dot(v_norm)
 	
-	var map_array: Array
-	var num_direcciones : int = 0
+	return Vector2(LR_movement, FB_movement)
+
+
+func CalculateAxisMovement3D(target: Node3D, velocity: Vector3) -> Vector2:
+	if velocity.is_zero_approx():
+		return Vector2.ZERO
+		
+	var v_norm = velocity.normalized()
+	var forward_vector = target.global_transform.basis.z.normalized()
+	var right_vector = target.global_transform.basis.x.normalized()
 	
-	match directions_number:
-		cardinal_direction.X4:
-			map_array = X8_GRADO_TO_ENUM
-			num_direcciones = 4
-		cardinal_direction.X8:
-			map_array = X8_GRADO_TO_ENUM
-			num_direcciones = 8
-		cardinal_direction.X12:
-			map_array = X12_GRADO_TO_ENUM
-			num_direcciones = 12
-		cardinal_direction.X16:
-			map_array = X16_GRADO_TO_ENUM
-			num_direcciones = 16
-		cardinal_direction.X20:
-			map_array = X20_GRADO_TO_ENUM
-			num_direcciones = 20
-		cardinal_direction.X24:
-			map_array = X24_GRADO_TO_ENUM
-			num_direcciones = 24
-		cardinal_direction.X32:
-			map_array = X32_GRADO_TO_ENUM
-			num_direcciones = 32
-		cardinal_direction.X36:
-			map_array = X36_GRADO_TO_ENUM
-			num_direcciones = 36
-		cardinal_direction.X40:
-			map_array = X40_GRADO_TO_ENUM
-			num_direcciones = 40
-		cardinal_direction.X48:
-			map_array = X48_GRADO_TO_ENUM
-			num_direcciones = 48
-		cardinal_direction.X64:
-			map_array = X64_GRADO_TO_ENUM
-			num_direcciones = 64
-		cardinal_direction.X80:
-			map_array = X80_GRADO_TO_ENUM
-			num_direcciones = 80
-		cardinal_direction.X96:
-			map_array = X96_GRADO_TO_ENUM
-			num_direcciones = 96
-		cardinal_direction.X100:
-			map_array = X100_GRADO_TO_ENUM
-			num_direcciones = 100
-		cardinal_direction.X144:
-			map_array = X144_GRADO_TO_ENUM
-			num_direcciones = 144
-		# **Añade aquí el resto de los casos (X20, X24, X32, etc.)**
-		_:
-			# Caso de dirección no implementada o error.
-			my_orientation = 0
-			return my_orientation
+	var FB_movement = forward_vector.dot(v_norm)
+	var LR_movement = right_vector.dot(v_norm)
 	
+	return Vector2(LR_movement, FB_movement)
 
-	var ARCO_GRADOS :float = 360.0 / float(num_direcciones)
-	var OFFSET :float = ARCO_GRADOS / 2.0
-	var angulo_rotado :float = angulo_para_mapear + OFFSET
-	var grado_logico = int(angulo_rotado / ARCO_GRADOS) % num_direcciones
+
+func CheckRotation2D(_target: Node2D) -> float:
+	var dir = _target.global_transform.y
+	return rad_to_deg(atan2(dir.x, dir.y))
+
+
+func CheckRotation3D(_target: Node3D, _distance_point: float) -> float:
+	var dir = _target.global_basis.z * _distance_point
+	return rad_to_deg(atan2(dir.x, dir.z))
+
+
+func CheckCameraAngle(reference_point: Vector3, direction_normal: Vector3, target_point: Vector3) -> float:
+	var dx = target_point.x - reference_point.x
+	var dz = target_point.z - reference_point.z
 	
-	if grado_logico < map_array.size():
-		my_orientation = map_array[grado_logico]
-	else:
-		my_orientation = map_array[0] 
-
-	return my_orientation
+	var fx = direction_normal.x
+	var fz = direction_normal.z
 	
+	var angle_radar = atan2(dx, dz)
+	var angle_front = atan2(fx, fz)
 	
-func CalculateAxisMovement2D(target:Node2D, velocity:Vector2) ->Vector2:
-	var front_position = target.global_transform.origin + (target.global_transform.basis_xform(Vector2.DOWN) * -2.0 )
-	var rear_position = target.global_transform.origin + (target.global_transform.basis_xform(Vector2.DOWN) * 2.0 )
-	var vector_subtraction = (front_position - rear_position).normalized()
-	var FB_movement :float = vector_subtraction.dot(velocity.normalized())
-
-	var left_position = target.global_transform.origin + (target.global_transform.basis_xform(Vector2.RIGHT) * -2.0 )
-	var right_position = target.global_transform.origin + (target.global_transform.basis_xform(Vector2.RIGHT) * 2.0 )
-	var vector_subtraction2 = (left_position - right_position).normalized()
-	var LR_movement :float = vector_subtraction2.dot(velocity.normalized())
-	return Vector2(LR_movement,FB_movement)
-
-
-func CalculateAxisMovement3D(target:Node3D, velocity:Vector3) ->Vector2:
-	var front_position = target.global_transform.origin + (target.global_transform.basis.z.normalized() * 2.0 )
-	var rear_position = target.global_transform.origin + (target.global_transform.basis.z.normalized() * -2.0 )
-	var vector_subtraction = (front_position - rear_position).normalized()
-	var FB_movement = vector_subtraction.dot(velocity.normalized())
-
-	var left_position = target.global_transform.origin + (target.global_transform.basis.x.normalized() * -2.0 )
-	var right_position = target.global_transform.origin + (target.global_transform.basis.x.normalized() * 2.0 )
-	var vector_subtraction2 = (left_position - right_position).normalized()
-	var LR_movement = vector_subtraction2.dot(velocity.normalized())
-	return Vector2(LR_movement,FB_movement)
-
-
-func CheckRotation2D(_target:Node2D) ->float:
-	var point:Vector2 = _target.global_position + (_target.global_transform.basis_xform(Vector2.UP)*1)
-	var dir_target :Vector2 = (_target.global_position - point).normalized()
-	var rotation_target :float = rad_to_deg(atan2(dir_target.x, dir_target.y))
-	return  rotation_target
-
-
-func CheckRotation3D(_target:Node3D, _distance_point:float) ->float:
-	var point:Vector3 = _target.global_position + (_target.global_basis.z.normalized() * _distance_point)
-	var dir_target :Vector3 = (_target.global_position - point).normalized()
-	var rotation_target :float = rad_to_deg(atan2(dir_target.x, dir_target.z))
-	return  rotation_target
-
-
-func CheckCameraAngle( reference_point:Vector3, direction_normal: Vector3, target_point:Vector3)  -> float:
-	var direction_radar = target_point - reference_point
-	var front = direction_normal
-	var angulo_rotacion = Vector2(front.x, front.z).angle_to(Vector2(direction_radar.x, direction_radar.z))
-	return angulo_rotacion
+	return angle_radar - angle_front
