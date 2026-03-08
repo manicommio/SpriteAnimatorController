@@ -97,16 +97,18 @@ colors = PackedColorArray(0, 0, 0, 1, 0.683077, 0.683077, 0.683077, 0)
 [sub_resource type="Resource" id="Resource_r17eg"]
 script = ExtResource("6_devps")
 tipo_apartado = 0
-directions_number = 2
+directions_number = 3
 actor_target_group = "camera_rotation"
 type_calculation = "ROTATE NODE"
 adjust_velocity_up = 1.0
 compensate_camera_perspective = true
+IMPRIMIR = false
 metadata/_custom_type_script = "uid://cimtvh6nf04tk"
 
 [sub_resource type="Resource" id="Resource_p6j6n"]
 script = ExtResource("8_piod3")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("12_knea3")
 tiles_x = 5
 tiles_y = 4
@@ -129,6 +131,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_nonvh"]
 script = ExtResource("8_piod3")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("13_er4nl")
 tiles_x = 12
 tiles_y = 8
@@ -151,6 +154,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_0keub"]
 script = ExtResource("8_piod3")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("12_kncr1")
 tiles_x = 7
 tiles_y = 16
@@ -173,6 +177,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_gscb3"]
 script = ExtResource("8_piod3")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("4_kncr1")
 tiles_x = 8
 tiles_y = 16
@@ -195,6 +200,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_bx5ah"]
 script = ExtResource("8_piod3")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("14_exw5r")
 tiles_x = 8
 tiles_y = 16
@@ -217,6 +223,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_imdhr"]
 script = ExtResource("8_piod3")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("15_6bab5")
 tiles_x = 8
 tiles_y = 16
@@ -239,6 +246,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_126ik"]
 script = ExtResource("8_piod3")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("11_x78bw")
 tiles_x = 10
 tiles_y = 8
@@ -261,6 +269,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_au6lv"]
 script = ExtResource("8_piod3")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("16_gs2xm")
 tiles_x = 8
 tiles_y = 16
@@ -283,6 +292,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_lw423"]
 script = ExtResource("8_piod3")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("17_piod3")
 tiles_x = 8
 tiles_y = 16
@@ -305,6 +315,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_dotbe"]
 script = ExtResource("8_piod3")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("10_x78bw")
 tiles_x = 8
 tiles_y = 16

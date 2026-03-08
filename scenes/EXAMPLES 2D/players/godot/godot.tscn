@@ -64,6 +64,7 @@ metadata/_custom_type_script = "uid://cimtvh6nf04tk"
 [sub_resource type="Resource" id="Resource_27awj"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("19_ropuu")
 tiles_x = 8
 tiles_y = 16
@@ -76,7 +77,7 @@ two_directions_per_row = false
 one_frame_per_direction = false
 billboard_disabled = false
 billboard_Y = false
-use_custom_clip = false
+use_custom_clip = true
 clip_start_frame = 0
 clip_end_frame = 0
 custom_frame_library = Array[int]([])
@@ -86,6 +87,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_keuol"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("20_a5w4n")
 tiles_x = 8
 tiles_y = 16
@@ -108,6 +110,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_uyn1q"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("21_nm56e")
 tiles_x = 8
 tiles_y = 16
@@ -130,6 +133,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_w0fvw"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("17_5rtib")
 tiles_x = 8
 tiles_y = 8
@@ -152,6 +156,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_gbr8r"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("18_yxxfa")
 tiles_x = 8
 tiles_y = 8
@@ -174,6 +179,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_cqywy"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("31_gb2jh")
 tiles_x = 8
 tiles_y = 8
@@ -196,6 +202,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_klf05"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("32_wefpx")
 tiles_x = 8
 tiles_y = 8
@@ -218,6 +225,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_0p7ju"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("33_46hrl")
 tiles_x = 8
 tiles_y = 8
@@ -240,6 +248,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_yv8k0"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("28_ap5jh")
 tiles_x = 8
 tiles_y = 8
@@ -262,6 +271,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_ku8gk"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("29_0h6f0")
 tiles_x = 8
 tiles_y = 8
@@ -284,6 +294,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_y4opq"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("30_iktib")
 tiles_x = 8
 tiles_y = 8
@@ -306,6 +317,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_sbcl6"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = true
 spritesheet = ExtResource("22_vocbw")
 tiles_x = 14
 tiles_y = 8
@@ -328,6 +340,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_ipatb"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = true
 spritesheet = ExtResource("23_sh3rs")
 tiles_x = 14
 tiles_y = 8
@@ -340,7 +353,7 @@ two_directions_per_row = true
 one_frame_per_direction = false
 billboard_disabled = false
 billboard_Y = false
-use_custom_clip = false
+use_custom_clip = true
 clip_start_frame = 0
 clip_end_frame = 0
 custom_frame_library = Array[int]([])
@@ -350,6 +363,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_ne66c"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = true
 spritesheet = ExtResource("24_pai3u")
 tiles_x = 14
 tiles_y = 8
@@ -372,6 +386,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_x7m5l"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = true
 spritesheet = ExtResource("25_s5kkl")
 tiles_x = 8
 tiles_y = 16
@@ -394,6 +409,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_yttxy"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = true
 spritesheet = ExtResource("26_6fvuk")
 tiles_x = 8
 tiles_y = 16
@@ -416,6 +432,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_ke2od"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = true
 spritesheet = ExtResource("27_o8ten")
 tiles_x = 8
 tiles_y = 16
@@ -438,6 +455,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_6esdk"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("8_t0ntm")
 tiles_x = 8
 tiles_y = 8
@@ -460,6 +478,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_2r6qd"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("9_jsygm")
 tiles_x = 8
 tiles_y = 8
@@ -482,6 +501,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_f2ue8"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("13_45dc1")
 tiles_x = 8
 tiles_y = 8
@@ -504,6 +524,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_xonuf"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("14_0e2st")
 tiles_x = 8
 tiles_y = 8
@@ -526,6 +547,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_w5trv"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("15_b1bfl")
 tiles_x = 8
 tiles_y = 8
@@ -548,6 +570,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_8ob25"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("16_dj1fr")
 tiles_x = 8
 tiles_y = 8
@@ -570,6 +593,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_k5hej"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("12_h640s")
 tiles_x = 14
 tiles_y = 8
@@ -592,6 +616,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_y7e21"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("34_3yuaa")
 tiles_x = 8
 tiles_y = 8
@@ -614,6 +639,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_vuo4o"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("10_8juo2")
 tiles_x = 8
 tiles_y = 16
@@ -636,6 +662,7 @@ metadata/_custom_type_script = "uid://co6jl543wfch6"
 [sub_resource type="Resource" id="Resource_ifpy3"]
 script = ExtResource("6_783ay")
 clip_name = ""
+mixed = false
 spritesheet = ExtResource("11_smuuh")
 tiles_x = 8
 tiles_y = 16

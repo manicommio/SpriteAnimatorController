@@ -78,6 +78,8 @@ var size := Vector2()
 var offset := Vector2()
 #_____________________________
 var key_frame_list :Array
+#_____________________________
+var mixed :bool = false
 
 
 func _ready() -> void:
@@ -165,6 +167,9 @@ func _apply_clip_properties() -> void:
 	# LECTURA DE PROPIEDADES DEL CLIP (MOVIMIENTO)
 	if !clip_library.is_empty():
 		clip_library[animation_name].Setup()
+		# mixed ___________________________
+		mixed = clip_library[animation_name].mixed
+		
 		if clip_library[animation_name].spritesheet != null or clip_library[animation_name].inherit_clip_texture != null:
 			spritesheet = clip_library[animation_name].GetSpriteSheet()
 		
@@ -215,59 +220,97 @@ func _apply_clip_properties() -> void:
 						sprite_3d = node
 		
 	# INICIALIZACIÓN DE frame_index (Lógica de inicio o fin del clip)
-	if animator_direction != null and use_animator_direction:
-		if play_backward:
-			frame_index = (tiles_x ) - 1
+	if mixed:
+		if animator_direction != null and use_animator_direction:
+			if play_backward:
+				if frame_index > (tiles_x ) - 1:
+					frame_index = (tiles_x ) - 1
+			else:
+				if frame_index > (tiles_x ) - 1:
+					frame_index = 0
 		else:
-			frame_index = 0
-	else:
-		if use_custom_clip:
-			if custom_frame_library.size()>0:
-				clip_start_frame = 0
-				clip_end_frame = custom_frame_library.size() - 1
-				if play_backward:
-					frame_index = custom_frame_library[clip_end_frame]
+			if use_custom_clip:
+				if custom_frame_library.size()>0:
+					clip_start_frame = 0
+					clip_end_frame = custom_frame_library.size() - 1
+					if play_backward:
+						if frame_index > clip_end_frame:
+							frame_index = custom_frame_library[clip_end_frame]
+					else:
+						if frame_index > clip_end_frame:
+							frame_index = custom_frame_library[clip_start_frame]
 				else:
-					frame_index = custom_frame_library[clip_start_frame]
+					if play_backward:
+						if frame_index > clip_end_frame:
+							frame_index = clip_end_frame
+					else:
+						if frame_index > clip_end_frame:
+							frame_index = clip_start_frame
 			else:
 				if play_backward:
-					frame_index = clip_end_frame
+					if frame_index > (tiles_x * tiles_y ) - 1:
+						frame_index = (tiles_x * tiles_y ) - 1
 				else:
-					frame_index = clip_start_frame
-		else:
+					if frame_index > (tiles_x * tiles_y ) - 1:
+						frame_index = 0
+
+	else:
+		if animator_direction != null and use_animator_direction:
 			if play_backward:
-				frame_index = (tiles_x * tiles_y ) - 1
+				frame_index = (tiles_x ) - 1
 			else:
 				frame_index = 0
-
-	if projector_type == 0:
-		# ... Lógica de lastFrame para Material 3D
-		if FLIP:
-			var difference = (tiles_x * tiles_y) - cardinal_equivalent[directions_number]
-			if (tiles_x * tiles_y) > cardinal_equivalent[directions_number]:
-				if (((tiles_x * tiles_y) - difference) - frame_index) < cardinal_equivalent[directions_number]:
-					lastFrame = -(((tiles_x * tiles_y) + difference) + frame_index - 1)
-				else:
-					lastFrame = -((tiles_x * tiles_y)- 1)
 		else:
-			lastFrame = frame_index + tiles_x
-			
-	else:
-		# ... Lógica de lastFrame para Sprite 2D/3D
-		if one_frame_per_direction:
-			if FLIP:
-				var difference = (tiles_x * tiles_y ) - cardinal_equivalent[directions_number]
-				if (tiles_x * tiles_y) > cardinal_equivalent[directions_number]:
-					if ((tiles_x * tiles_y ) - difference ) - frame_index < cardinal_equivalent[directions_number]:
-						lastFrame = ((tiles_x * tiles_y ) - difference ) - frame_index
+			if use_custom_clip:
+				if custom_frame_library.size()>0:
+					clip_start_frame = 0
+					clip_end_frame = custom_frame_library.size() - 1
+					if play_backward:
+						frame_index = custom_frame_library[clip_end_frame]
 					else:
-						lastFrame = 0
+						frame_index = custom_frame_library[clip_start_frame]
 				else:
-					lastFrame = (tiles_x * tiles_y) - frame_index
+					if play_backward:
+						frame_index = clip_end_frame
+					else:
+						frame_index = clip_start_frame
+			else:
+				if play_backward:
+					frame_index = (tiles_x * tiles_y ) - 1
+				else:
+					frame_index = 0
+	
+	if mixed:
+		lastFrame = frame_index
+	else:
+		if projector_type == 0:
+			# ... Lógica de lastFrame para Material 3D
+			if FLIP:
+				var difference = (tiles_x * tiles_y) - cardinal_equivalent[directions_number]
+				if (tiles_x * tiles_y) > cardinal_equivalent[directions_number]:
+					if (((tiles_x * tiles_y) - difference) - frame_index) < cardinal_equivalent[directions_number]:
+						lastFrame = -(((tiles_x * tiles_y) + difference) + frame_index - 1)
+					else:
+						lastFrame = -((tiles_x * tiles_y)- 1)
+			else:
+				lastFrame = frame_index + tiles_x
+				
+		else:
+			# ... Lógica de lastFrame para Sprite 2D/3D
+			if one_frame_per_direction:
+				if FLIP:
+					var difference = (tiles_x * tiles_y ) - cardinal_equivalent[directions_number]
+					if (tiles_x * tiles_y) > cardinal_equivalent[directions_number]:
+						if ((tiles_x * tiles_y ) - difference ) - frame_index < cardinal_equivalent[directions_number]:
+							lastFrame = ((tiles_x * tiles_y ) - difference ) - frame_index
+						else:
+							lastFrame = 0
+					else:
+						lastFrame = (tiles_x * tiles_y) - frame_index
+				else:
+					lastFrame = frame_index
 			else:
 				lastFrame = frame_index
-		else:
-			lastFrame = frame_index
 			
 	# 4. CÁLCULO DE COORDENADAS FINALES (index, size, offset)
 	if animator_direction != null and use_animator_direction:

@@ -2,6 +2,8 @@ class_name AnimatorClip
 extends Resource
 
 @export var clip_name :String
+## It allows the animation to start on the same frame as a previous animation, if both are marked as "mixed".
+@export var mixed :bool = false
 
 @export var spritesheet : Texture = null
 ## Number of horizontal frames in your sprite sheet
@@ -71,4 +73,3 @@ func GetSpriteSheet() -> Texture:
 		return spritesheet
 	else:
 		return inherit_clip_texture.spritesheet
-		
