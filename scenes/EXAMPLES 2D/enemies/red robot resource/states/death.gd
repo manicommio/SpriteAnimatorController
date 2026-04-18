@@ -8,10 +8,9 @@ func Setup(_name, _actor, _animator) -> void:
 	state_name = _name
 	player = _actor
 	animator =_animator
-
+	proyector = player.proyector
 	
 func enter() ->void:
-	proyector = player.proyector
 	animator.sprite_2d = proyector.lift.get_node("explosion")
 	player.move_dir = 0
 	proyector.sprite_2d.hide()

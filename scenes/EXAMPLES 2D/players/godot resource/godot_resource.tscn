@@ -906,7 +906,6 @@ script = ExtResource("47_uku34")
 player2D = NodePath("..")
 animator = NodePath("../AnimatorController")
 initial_state = "standing_combat"
-duplicate_resource = false
 states_library = Dictionary[String, Resource]({
 "crouching_combat": ExtResource("41_074tj"),
 "jumping": ExtResource("45_cab2k"),

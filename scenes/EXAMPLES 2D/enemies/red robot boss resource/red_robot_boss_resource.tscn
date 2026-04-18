@@ -572,6 +572,7 @@ metadata/_custom_type_script = "uid://dpj5ikcvh604q"
 script = ExtResource("39_ge10c")
 player2D = NodePath("..")
 animator = NodePath("../AnimatorController")
+initial_state = "idle"
 states_library = Dictionary[String, Resource]({
 "death": ExtResource("46_eeac8"),
 "heavy_damage": ExtResource("45_kxxg5"),

@@ -12,10 +12,9 @@ func Setup(_name, _actor, _animator) -> void:
 	state_name = _name
 	player = _actor
 	animator =_animator
-
+	proyector = player.proyector
 	
 func enter() ->void:
-	proyector = player.proyector
 	state_time = 0
 	player.move_dir = 0
 	this_state = "ini"

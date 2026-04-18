@@ -12,17 +12,12 @@ func Setup(_name, _actor, _animator) -> void:
 	state_name = _name
 	player = _actor
 	animator =_animator
-
+	proyector = player.proyector
 	
 func enter() ->void:
 	state_time = 0.0
-	if is_instance_valid(proyector):
-		proyector.sprite_2d.show()
-		proyector.lift.get_node("explosion").hide()
-	else:
-		proyector = player.proyector
-		proyector.sprite_2d.show()
-		proyector.lift.get_node("explosion").hide()
+	proyector.sprite_2d.show()
+	proyector.lift.get_node("explosion").hide()
 	animator.play_backward = false
 	animator.pause_clip = false 
 	animator.PlayAnimation("idle")

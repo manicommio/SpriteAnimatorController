@@ -2,17 +2,24 @@ extends Node
 class_name StateMachineResource
 
 @export var player2D :Node2D
-@export var player3D :Node2D
+@export var player3D :Node3D
 @export var animator :AnimatorController
 @export var initial_state :String
-@export var duplicate_resource :bool = true
 @export var states_library :Dictionary[String,Resource]
-
+@export_group("Optimization")
+@export var duplicate_resources :bool = true
+@export var use_relaxation_during_duplication: bool = true
+@export var relaxation_time: float = 0.1
 var current_state :Resource = null
 var active := false
 
 
 func _ready() -> void:
+	if duplicate_resources and use_relaxation_during_duplication:
+		var delay = get_parent().get_index() * relaxation_time
+		await get_tree().create_timer(delay).timeout
+	
+	
 	if states_library.size() > 0:
 		# Solo creamos el diccionario local si realmente vamos a duplicar
 		var local_states: Dictionary[String, Resource] = {}
@@ -24,7 +31,7 @@ func _ready() -> void:
 				# --- LÓGICA DE DUPLICACIÓN CONDICIONAL ---
 				var state_to_use : Resource
 				
-				if duplicate_resource:
+				if duplicate_resources:
 					state_to_use = state_res.duplicate()
 					local_states[state_name] = state_to_use
 				else:
@@ -43,7 +50,7 @@ func _ready() -> void:
 						state_to_use.change_state.connect(ChangeState)
 		
 		
-		if duplicate_resource:
+		if duplicate_resources:
 			states_library = local_states
 		
 		if initial_state != "":
