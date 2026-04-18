@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bfy34jlm30fle"]
+
+[ext_resource type="Script" uid="uid://bbhljyjsciv58" path="res://scenes/EXAMPLES 2D/players/godot resource/states/landing.gd" id="1_sboms"]
+
+[resource]
+script = ExtResource("1_sboms")

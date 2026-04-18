@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dquq1oegk7mw3"]
+
+[ext_resource type="Script" uid="uid://bldx4t2txk0fj" path="res://scenes/EXAMPLES 2D/enemies/red robot boss resource/states/idle.gd" id="1_2eibo"]
+
+[resource]
+script = ExtResource("1_2eibo")

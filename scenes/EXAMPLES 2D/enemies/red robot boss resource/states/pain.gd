@@ -1,0 +1,24 @@
+extends BaseState2DResource
+
+
+func Setup(_name, _actor, _animator) -> void:
+	state_name = _name
+	player = _actor
+	animator =_animator
+
+	
+func enter() ->void:
+	animator.play_backward = false
+	animator.pause_clip = false 
+	animator.PlayAnimation("pain")
+	player.get_node("AudioHit").stream = load("res://sounds/tps godot4/enemies_red_robot_audio_hit.wav")
+	player.get_node("AudioHit").play()
+	
+
+func update(_delta:float) -> void:
+	player.move_dir = 0
+	
+	if animator.Finished():
+		player.get_node("AudioHit").stream = load("res://sounds/tps godot3/sound_hit.wav")
+		emit_signal("change_state","idle")
+		 

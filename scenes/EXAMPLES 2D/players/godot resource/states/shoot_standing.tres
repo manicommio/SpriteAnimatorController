@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://efffx2m1xqda"]
+
+[ext_resource type="Script" uid="uid://dteuo88srif7p" path="res://scenes/EXAMPLES 2D/players/godot resource/states/shoot_standing.gd" id="1_va8na"]
+
+[resource]
+script = ExtResource("1_va8na")

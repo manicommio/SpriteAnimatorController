@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cwg7ea8iekq3d"]
+
+[ext_resource type="Script" uid="uid://cw0675auikahg" path="res://scenes/EXAMPLES 2D/players/godot resource/states/standing_combat.gd" id="1_527tm"]
+
+[resource]
+script = ExtResource("1_527tm")

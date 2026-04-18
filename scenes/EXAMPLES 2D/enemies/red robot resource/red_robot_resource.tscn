@@ -1,0 +1,242 @@
+[gd_scene load_steps=31 format=3 uid="uid://seg417us0nld"]
+
+[ext_resource type="Script" uid="uid://bjahqr5f2pw7m" path="res://scenes/EXAMPLES 2D/enemies/red robot/red_robot.gd" id="1_kra20"]
+[ext_resource type="Script" uid="uid://d17g72r02chip" path="res://scenes/EXAMPLES 2D/proyector/proyector.gd" id="2_q80ny"]
+[ext_resource type="Texture2D" uid="uid://dwarkljs88hwn" path="res://textures/shadow.png" id="3_fiu2j"]
+[ext_resource type="Texture2D" uid="uid://dcdt7pbe81aa2" path="res://textures/onda.png" id="4_8vccb"]
+[ext_resource type="Texture2D" uid="uid://bl7x28daj4nwr" path="res://textures/humo1.png" id="5_c6uek"]
+[ext_resource type="Script" uid="uid://dpj5ikcvh604q" path="res://addons/sprite_animation_controller/animator_controller.gd" id="6_1a7g5"]
+[ext_resource type="Script" uid="uid://cimtvh6nf04tk" path="res://addons/sprite_animation_controller/animator_direction.gd" id="7_5847i"]
+[ext_resource type="Script" uid="uid://co6jl543wfch6" path="res://addons/sprite_animation_controller/animator_clip.gd" id="8_e2m7r"]
+[ext_resource type="Texture2D" uid="uid://cumgg7khapv4y" path="res://sprites/EXAMPLE 2D/red bot/explosion_old_red_robot.WEBP" id="9_d4nkm"]
+[ext_resource type="Texture2D" uid="uid://dyou1p57pcqsu" path="res://sprites/EXAMPLE 2D/red bot/idle.WEBP" id="10_gnrn4"]
+[ext_resource type="Texture2D" uid="uid://c3tw2q3b1mf5p" path="res://sprites/EXAMPLE 2D/red bot/pain.WEBP" id="11_2tlwn"]
+[ext_resource type="Texture2D" uid="uid://1xdqfs6sdi7j" path="res://sprites/EXAMPLE 2D/red bot/walk.WEBP" id="12_dnxsy"]
+[ext_resource type="AudioStream" uid="uid://d18ujyuj44x2j" path="res://sounds/tps godot4/enemies_red_robot_audio_explosion.wav" id="18_csxyy"]
+[ext_resource type="AudioStream" uid="uid://c8wocc1m4r6h" path="res://sounds/tps godot3/sound_hit.wav" id="19_gfjbi"]
+[ext_resource type="AudioStream" uid="uid://bwikauat6y4q2" path="res://sounds/tps godot3/robot_walk_step_end.wav" id="20_qvpvr"]
+[ext_resource type="Script" uid="uid://35ocsaqkf54k" path="res://addons/sprite_animation_controller/state_machine_resource.gd" id="21_1a7g5"]
+[ext_resource type="Resource" uid="uid://c8g74iavj2kek" path="res://scenes/EXAMPLES 2D/enemies/red robot resource/states/idle.tres" id="22_5847i"]
+[ext_resource type="Resource" uid="uid://byunkma3f5wkv" path="res://scenes/EXAMPLES 2D/enemies/red robot resource/states/hunt.tres" id="23_e2m7r"]
+[ext_resource type="Resource" uid="uid://bssdegfm3gs8l" path="res://scenes/EXAMPLES 2D/enemies/red robot resource/states/pain.tres" id="24_d4nkm"]
+[ext_resource type="Resource" uid="uid://ciknhjgxanxll" path="res://scenes/EXAMPLES 2D/enemies/red robot resource/states/death.tres" id="25_gnrn4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vy4c7"]
+radius = 45.0
+
+[sub_resource type="Curve" id="Curve_ylnq7"]
+_data = [Vector2(0.00520833, 0.51751), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7l83m"]
+offsets = PackedFloat32Array(0.481013, 0.924051)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_7l83m"]
+_data = [Vector2(0, 0.455253), 0.0, 0.0, 0, 0, Vector2(0.984375, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dljnv"]
+offsets = PackedFloat32Array(0.35443, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.683077, 0.683077, 0.683077, 0)
+
+[sub_resource type="Resource" id="Resource_sleg0"]
+script = ExtResource("7_5847i")
+tipo_apartado = 0
+directions_number = 3
+actor_target_group = "camera_rotation"
+type_calculation = "ROTATE NODE"
+adjust_velocity_up = 5.285
+compensate_camera_perspective = true
+IMPRIMIR = false
+metadata/_custom_type_script = "uid://cimtvh6nf04tk"
+
+[sub_resource type="Resource" id="Resource_crxd5"]
+script = ExtResource("8_e2m7r")
+clip_name = ""
+mixed = false
+spritesheet = ExtResource("9_d4nkm")
+tiles_x = 5
+tiles_y = 4
+frame_per_second = 20.0
+frame_index = 0
+once = true
+use_animator_direction = false
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_oe1b4"]
+script = ExtResource("8_e2m7r")
+clip_name = ""
+mixed = false
+spritesheet = ExtResource("10_gnrn4")
+tiles_x = 12
+tiles_y = 8
+frame_per_second = 4.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_kd4p5"]
+script = ExtResource("8_e2m7r")
+clip_name = ""
+mixed = false
+spritesheet = ExtResource("11_2tlwn")
+tiles_x = 8
+tiles_y = 8
+frame_per_second = 9.0
+frame_index = 0
+once = true
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = true
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[sub_resource type="Resource" id="Resource_e2jg4"]
+script = ExtResource("8_e2m7r")
+clip_name = ""
+mixed = false
+spritesheet = ExtResource("12_dnxsy")
+tiles_x = 8
+tiles_y = 16
+frame_per_second = 24.0
+frame_index = 0
+once = false
+use_animator_direction = true
+sprite_full_directions = true
+two_directions_per_row = false
+one_frame_per_direction = false
+billboard_disabled = false
+billboard_Y = false
+use_custom_clip = false
+clip_start_frame = 0
+clip_end_frame = 0
+custom_frame_library = Array[int]([])
+EXAMPLE_sprite = NodePath("")
+metadata/_custom_type_script = "uid://co6jl543wfch6"
+
+[node name="red_robot_resource" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_kra20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vy4c7")
+
+[node name="proyector" type="Node2D" parent="." node_paths=PackedStringArray("shadow_sprite")]
+script = ExtResource("2_q80ny")
+shadow_sprite = NodePath("shadow/shadow")
+
+[node name="shadow" type="Node2D" parent="proyector"]
+
+[node name="shadow" type="Sprite2D" parent="proyector/shadow"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+scale = Vector2(6, 3)
+texture = ExtResource("3_fiu2j")
+
+[node name="lift" type="Node2D" parent="proyector"]
+
+[node name="Sprite2D" type="Sprite2D" parent="proyector/lift"]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+offset = Vector2(0, -16)
+
+[node name="onda" type="CPUParticles2D" parent="proyector/lift"]
+texture_filter = 1
+scale = Vector2(4, 2)
+emitting = false
+amount = 1
+texture = ExtResource("4_8vccb")
+lifetime = 0.35
+one_shot = true
+local_coords = true
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_ylnq7")
+color_ramp = SubResource("Gradient_7l83m")
+
+[node name="smoke" type="CPUParticles2D" parent="proyector/lift"]
+position = Vector2(0, -16)
+emitting = false
+amount = 12
+texture = ExtResource("5_c6uek")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.4
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 24.0
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 32.0
+scale_amount_min = 1.4
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_7l83m")
+color_ramp = SubResource("Gradient_dljnv")
+
+[node name="explosion" type="Sprite2D" parent="proyector/lift"]
+texture_filter = 1
+offset = Vector2(0, -24)
+
+[node name="AnimatorController" type="Node" parent="." node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("6_1a7g5")
+animator_direction = SubResource("Resource_sleg0")
+clip_library = Dictionary[String, ExtResource("8_e2m7r")]({
+"explosion": SubResource("Resource_crxd5"),
+"idle": SubResource("Resource_oe1b4"),
+"pain": SubResource("Resource_kd4p5"),
+"walk": SubResource("Resource_e2jg4")
+})
+sprite_2d = NodePath("../proyector/lift/Sprite2D")
+metadata/_custom_type_script = "uid://dpj5ikcvh604q"
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("player2D", "animator")]
+script = ExtResource("21_1a7g5")
+player2D = NodePath("..")
+animator = NodePath("../AnimatorController")
+states_library = Dictionary[String, Resource]({
+"death": ExtResource("25_gnrn4"),
+"hunt": ExtResource("23_e2m7r"),
+"idle": ExtResource("22_5847i"),
+"pain": ExtResource("24_d4nkm")
+})
+metadata/_custom_type_script = "uid://35ocsaqkf54k"
+
+[node name="AudioExplosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_csxyy")
+
+[node name="AudioHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_gfjbi")
+volume_db = -6.0
+
+[node name="AudioStep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_qvpvr")

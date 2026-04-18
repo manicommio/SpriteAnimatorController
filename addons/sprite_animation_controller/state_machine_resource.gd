@@ -5,43 +5,50 @@ class_name StateMachineResource
 @export var player3D :Node2D
 @export var animator :AnimatorController
 @export var initial_state :String
+@export var duplicate_resource :bool = true
 @export var states_library :Dictionary[String,Resource]
+
 var current_state :Resource = null
 var active := false
 
 
 func _ready() -> void:
 	if states_library.size() > 0:
-		# 1. Creamos un nuevo diccionario para guardar las copias únicas
+		# Solo creamos el diccionario local si realmente vamos a duplicar
 		var local_states: Dictionary[String, Resource] = {}
 		
 		for state_name in states_library.keys():
 			var state_res = states_library[state_name]
 			
 			if state_res is Resource:
-				# 2. DUPLICAMOS EL RECURSO
-				# Esto crea una copia única en RAM para este jugador
-				var state_copy = state_res.duplicate()
+				# --- LÓGICA DE DUPLICACIÓN CONDICIONAL ---
+				var state_to_use : Resource
 				
-				# 3. Guardamos la copia en nuestro diccionario local
-				local_states[state_name] = state_copy
+				if duplicate_resource:
+					state_to_use = state_res.duplicate()
+					local_states[state_name] = state_to_use
+				else:
+					state_to_use = state_res
 				
-				# 4. Inicializamos la copia
-				if state_copy.has_method("Setup"):
-					if state_copy is BaseState2DResource:
-						state_copy.Setup(state_name ,player2D, animator)
-					elif state_copy is BaseState3DResource:
-						state_copy.Setup(state_name ,player3D, animator)
+				# --- SETUP ---
+				if state_to_use.has_method("Setup"):
+					if state_to_use is BaseState2DResource:
+						state_to_use.Setup(state_name, player2D, animator)
+					elif state_to_use is BaseState3DResource:
+						state_to_use.Setup(state_name, player3D, animator)
 				
-				# 5. Conectamos señales a la COPIA, no al original
-				if state_copy.has_signal("change_state"):
-					state_copy.change_state.connect(ChangeState)
+				# --- CONEXIÓN DE SEÑALES ---
+				if state_to_use.has_signal("change_state"):
+					if not state_to_use.change_state.is_connected(ChangeState):
+						state_to_use.change_state.connect(ChangeState)
 		
-		# 6. Reemplazamos la librería original con la de copias únicas
-		states_library = local_states
 		
-		active = true
-		ChangeState(initial_state)
+		if duplicate_resource:
+			states_library = local_states
+		
+		if initial_state != "":
+			active = true
+			ChangeState(initial_state)
 	else:
 		active = false
 
@@ -80,15 +87,14 @@ func ChangeState(new_state:String) -> void:
 	set_process(active)
 	set_process_input(active)
 
-# En StateMachine.gd
+
 func set_active(value: bool):
 	if active != value:
 		active = value
 		set_process(value)
 		set_physics_process(value)
 		set_process_input(value)
-		# Si encendemos la IA, obligamos al estado actual a 
-		# ejecutar su lógica de entrada (donde pusimos el if de seguridad)
+
 		if active and current_state != null:
 			if current_state.has_method("enter"):
 				current_state.enter()

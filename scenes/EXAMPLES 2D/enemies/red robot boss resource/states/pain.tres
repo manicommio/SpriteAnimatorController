@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://clhu2so8mhxb0"]
+
+[ext_resource type="Script" uid="uid://cr5p2lfcxd201" path="res://scenes/EXAMPLES 2D/enemies/red robot boss resource/states/pain.gd" id="1_3mnek"]
+
+[resource]
+script = ExtResource("1_3mnek")

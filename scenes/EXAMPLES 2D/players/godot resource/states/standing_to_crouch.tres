@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bwh1dogq0ms3k"]
+
+[ext_resource type="Script" uid="uid://b81ktr5gvvuno" path="res://scenes/EXAMPLES 2D/players/godot resource/states/standing_to_crouch.gd" id="1_rgln2"]
+
+[resource]
+script = ExtResource("1_rgln2")
