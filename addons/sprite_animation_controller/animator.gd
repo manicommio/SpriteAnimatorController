@@ -13,7 +13,7 @@ func _enter_tree():
 	add_custom_type("StateMachine", "Node", preload("res://addons/sprite_animation_controller/state_machine.gd"), preload("res://addons/sprite_animation_controller/icon/state_machine.png"))
 	add_custom_type("BaseState2D", "Node", preload("res://addons/sprite_animation_controller/state_base_2d.gd"), preload("res://addons/sprite_animation_controller/icon/base_state2D.png"))
 	add_custom_type("BaseState3D", "Node", preload("res://addons/sprite_animation_controller/state_base_3d.gd"), preload("res://addons/sprite_animation_controller/icon/base_state3D.png"))
-	
+	add_custom_type("StateMachineResource", "Node", preload("res://addons/sprite_animation_controller/state_machine_resource.gd"), preload("res://addons/sprite_animation_controller/icon/state_machine.png"))
 	
 func _exit_tree():
 	remove_custom_type("animator_controller")
@@ -26,3 +26,4 @@ func _exit_tree():
 	remove_custom_type("StateMachine")
 	remove_custom_type("BaseState2D")
 	remove_custom_type("BaseState3D")
+	remove_custom_type("StateMachineResource")
