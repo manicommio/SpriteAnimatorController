@@ -9,15 +9,15 @@ var state_name: String
 var player :Node2D
 var animator :AnimatorController
 
+func Setup(_name, _actor, _animator) -> void:
+	state_name = _name
+	player = _actor
+	animator =_animator
+	
+	
 """ IMPORTANT! """
 """	Please don't overwrite this code. Create a new script that inherits it.
  	To make the state machine work, use the functions described below. """
-
-# This function will be executed only once each time you enter the state
-#func Setup(_name, _actor, _animator) -> void:
-	#state_name = _name
-	#player = _actor
-	#animator =_animator
 
 # This function will be executed only once each time you enter the state
 #func enter() -> void:

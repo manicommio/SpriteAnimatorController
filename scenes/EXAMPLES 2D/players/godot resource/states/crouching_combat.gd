@@ -12,11 +12,6 @@ var time_fast_run:float = 0.0
 
 var tiempo_eg := 0.0
 
-func Setup(_name, _actor, _animator) -> void:
-	state_name = _name
-	player = _actor
-	animator =_animator
-	
 	
 func enter() -> void:
 	animator.play_backward = false

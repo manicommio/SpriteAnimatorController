@@ -12,9 +12,12 @@ class_name StateMachineResource
 @export var relaxation_time: float = 0.1
 var current_state :Resource = null
 var active := false
-
+var is_ready := false
 
 func _ready() -> void:
+	if not Engine.is_editor_hint():
+		await get_tree().process_frame
+	
 	if duplicate_resources and use_relaxation_during_duplication:
 		var delay = get_parent().get_index() * relaxation_time
 		await get_tree().create_timer(delay).timeout
@@ -56,11 +59,14 @@ func _ready() -> void:
 		if initial_state != "":
 			active = true
 			ChangeState(initial_state)
+		
+		is_ready = true
 	else:
 		active = false
 
 
 func _input(event) -> void:
+	if not is_ready: return
 	if current_state != null:
 		if current_state.has_method("update_input") and active:
 			current_state.update_input(event)
@@ -69,6 +75,7 @@ func _input(event) -> void:
 			
 
 func _physics_process(delta:float) -> void:
+	if not is_ready: return
 	if current_state != null:
 		if current_state.has_method("physics_update") and active:
 			current_state.physics_update(delta)
@@ -77,6 +84,7 @@ func _physics_process(delta:float) -> void:
 
 
 func _process(delta) -> void:
+	if not is_ready: return
 	if current_state != null:
 		if current_state.has_method("update") and active:
 			current_state.update(delta)

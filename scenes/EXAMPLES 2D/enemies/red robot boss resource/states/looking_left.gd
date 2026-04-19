@@ -9,12 +9,6 @@ var choice_time := 0
 var this_state = "ini"
 
 
-func Setup(_name, _actor, _animator) -> void:
-	state_name = _name
-	player = _actor
-	animator =_animator
-
-	
 func enter() ->void:
 	last_health = player.current_health
 	

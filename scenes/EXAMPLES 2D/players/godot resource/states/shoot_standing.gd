@@ -5,12 +5,6 @@ var state_time :float = 0.0
 var direction := Vector2()
 var animation_space := ""
 
-func Setup(_name, _actor, _animator) -> void:
-	state_name = _name
-	player = _actor
-	animator =_animator
-	
-	
 func enter() -> void:
 	state_time = 0
 	animator.play_backward = false

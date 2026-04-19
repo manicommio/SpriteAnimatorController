@@ -5,10 +5,9 @@ var proyector :Node2D
 
 
 func Setup(_name, _actor, _animator) -> void:
-	state_name = _name
-	player = _actor
-	animator =_animator
+	super(_name, _actor, _animator)
 	proyector = player.proyector
+	
 	
 func enter() ->void:
 	animator.sprite_2d = proyector.lift.get_node("explosion")

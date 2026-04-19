@@ -1,11 +1,5 @@
 extends BaseState2DResource
 
-
-func Setup(_name, _actor, _animator) -> void:
-	state_name = _name
-	player = _actor
-	animator =_animator
-
 	
 func enter() ->void:
 	animator.play_backward = false

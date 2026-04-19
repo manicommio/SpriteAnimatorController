@@ -5,13 +5,6 @@ var target_direction:Vector2
 var torque := 0.0
 
 
-
-func Setup(_name, _actor, _animator) -> void:
-	state_name = _name
-	player = _actor
-	animator =_animator
-	
-	
 func enter() ->void:
 	pass
 

@@ -4,12 +4,7 @@ extends BaseState2DResource
 var state_time :float = 0.0
 var this_state := "standing to crouch"
 
-func Setup(_name, _actor, _animator) -> void:
-	state_name = _name
-	player = _actor
-	animator =_animator
-	
-	
+
 func enter() -> void:
 	if player.is_crouch:
 		animator.frame_index = 0

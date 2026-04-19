@@ -4,12 +4,7 @@ extends BaseState2DResource
 var state_time :float = 0.0
 var animation_name := ""
 
-func Setup(_name, _actor, _animator) -> void:
-	state_name = _name
-	player = _actor
-	animator =_animator
-	
-	
+
 func enter() -> void:
 	state_time = 0.0
 	if player.landing_velocity <= -15:

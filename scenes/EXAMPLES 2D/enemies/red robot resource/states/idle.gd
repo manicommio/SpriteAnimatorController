@@ -3,12 +3,10 @@ extends BaseState2DResource
 var proyector :Node2D
 var last_health := 0.0
 
-
 func Setup(_name, _actor, _animator) -> void:
-	state_name = _name
-	player = _actor
-	animator =_animator
+	super(_name, _actor, _animator)
 	proyector = player.proyector
+	
 	
 func enter() ->void:
 	proyector.sprite_2d.show()

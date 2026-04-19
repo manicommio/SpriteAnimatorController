@@ -9,12 +9,6 @@ var animation_name := "jump"
 var double_jump := false
 
 
-func Setup(_name, _actor, _animator) -> void:
-	state_name = _name
-	player = _actor
-	animator =_animator
-	
-	
 func enter() -> void:
 	state_time = 0.0
 	this_state = "normal jump"
